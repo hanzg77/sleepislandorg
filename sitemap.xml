@@ -1,25 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://sleepisland.org/</loc>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sleepisland.org/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sleepisland.org/en/"/>
+        <lastmod>2026-02-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://sleepisland.org/en/</loc>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sleepisland.org/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sleepisland.org/en/"/>
         <lastmod>2026-02-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://sleepisland.org/tinnitus-relief/</loc>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sleepisland.org/tinnitus-relief/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sleepisland.org/en/tinnitus-relief/"/>
+        <lastmod>2026-02-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://sleepisland.org/en/tinnitus-relief/</loc>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sleepisland.org/tinnitus-relief/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sleepisland.org/en/tinnitus-relief/"/>
         <lastmod>2026-02-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://sleepisland.org/snore-detection/</loc>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sleepisland.org/snore-detection/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sleepisland.org/en/snore-detection/"/>
+        <lastmod>2026-02-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://sleepisland.org/en/snore-detection/</loc>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sleepisland.org/snore-detection/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sleepisland.org/en/snore-detection/"/>
         <lastmod>2026-02-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://sleepisland.org/faq/</loc>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sleepisland.org/faq/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sleepisland.org/en/faq/"/>
+        <lastmod>2026-02-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://sleepisland.org/en/faq/</loc>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://sleepisland.org/faq/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://sleepisland.org/en/faq/"/>
         <lastmod>2026-02-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>

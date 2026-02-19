@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AudioPlayer from '../../components/AudioPlayer.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import ResourceCard from '../../components/ResourceCard.astro';
+import { resources } from '../../data/resources';
+
+export function getStaticPaths() {
+  return Object.keys(resources).map(slug => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const r = resources[slug as string];
+if (!r) return Astro.redirect('/resources/');
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "AudioObject",
+    "name": `${r.title} / ${r.titleEn}`,
+    "description": r.desc,
+    "contentUrl": r.audio.startsWith('http') ? r.audio : `https://sleepisland.org${r.audio}`,
+    "duration": r.duration,
+    "inLanguage": ["zh-Hans", "en"],
+    "encodingFormat": "audio/mpeg"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://sleepisland.org/" },
+      { "@type": "ListItem", "position": 2, "name": "资源", "item": "https://sleepisland.org/resources/" },
+      { "@type": "ListItem", "position": 3, "name": r.title, "item": `https://sleepisland.org/resources/${slug}/` }
+    ]
+  }
+];
+
+const relatedResources = r.related.map((s: string) => resources[s]).filter(Boolean).map((rel: any, i: number) => ({
+  ...rel,
+  slug: r.related[i]
+}));
+---
+
+<BaseLayout
+  title={`${r.title} ${r.titleEn} - 免费试听 | 睡眠岛`}
+  description={r.desc}
+  lang="zh-Hans"
+  alternateZh={`https://sleepisland.org/resources/${slug}/`}
+  alternateEn={`https://sleepisland.org/en/resources/${slug}/`}
+  schema={schema}
+>
+  <article class="max-w-3xl mx-auto px-4">
+    <!-- Breadcrumb -->
+    <nav aria-label="面包屑" class="pt-6 text-sm text-[var(--color-text-muted)]">
+      <a href="/" class="hover:text-[var(--color-text-secondary)]">首页</a>
+      <span class="mx-2">/</span>
+      <a href="/resources/" class="hover:text-[var(--color-text-secondary)]">资源</a>
+      <span class="mx-2">/</span>
+      <span class="text-[var(--color-text-secondary)]">{r.title}</span>
+    </nav>
+
+    {r.cover && (
+      <div class="mt-6 rounded-xl overflow-hidden h-48 md:h-64">
+        <img src={r.cover} alt={r.title} class="w-full h-full object-cover" loading="eager" />
+      </div>
+    )}
+
+    <header class="py-10">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">{r.title} <span class="text-[var(--color-text-secondary)] font-normal text-2xl">{r.titleEn}</span></h1>
+    </header>
+
+    <dl class="summary mb-8" role="contentinfo" aria-label="资源摘要">
+      <dt>Type</dt><dd>Sound Preview (Web) + Full Version (App)</dd>
+      <dt>Topic</dt><dd>{r.title} / {r.titleEn}</dd>
+      <dt>Category</dt><dd>{r.category}</dd>
+      <dt>Use Cases</dt><dd>{r.scenes.join('、')}</dd>
+      <dt>Preview Duration</dt><dd>{r.durationLabel}</dd>
+      <dt>App</dt><dd>Hushbay (iOS)</dd>
+      <dt>Download</dt><dd><a href="https://apps.apple.com/app/id6747609991" class="text-[var(--color-accent-light)] hover:underline">App Store</a></dd>
+    </dl>
+
+    <section id="preview" class="mb-10">
+      <h2 class="text-xl font-bold mb-4">Preview / 试听</h2>
+      <AudioPlayer src={r.audio} title={r.title} lang="zh-Hans" />
+    </section>
+
+    <section id="use-cases" class="mb-10">
+      <h2 class="text-xl font-bold mb-4">Use Cases / 适用场景</h2>
+      <ul class="space-y-2">
+        {r.scenes.map((s: string) => (
+          <li class="flex items-center gap-2 text-[var(--color-text-secondary)]">
+            <span class="w-1.5 h-1.5 bg-[var(--color-accent)] rounded-full shrink-0"></span>
+            {s}
+          </li>
+        ))}
+      </ul>
+      <p class="text-[var(--color-text-secondary)] mt-4">{r.desc}</p>
+    </section>
+
+    <section id="settings" class="mb-10">
+      <h2 class="text-xl font-bold mb-4">Recommended Settings / 推荐设置</h2>
+      <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6 space-y-3 text-sm text-[var(--color-text-secondary)]">
+        <p><strong class="text-white">音量：</strong>调到舒适即可，建议低于 60 分贝</p>
+        <p><strong class="text-white">耳机：</strong>推荐使用舒适的耳机或枕边音箱</p>
+        <p><strong class="text-white">入睡自动停止：</strong>在 App 内开启，检测到入睡后自动停止播放</p>
+      </div>
+    </section>
+
+    <aside class="mb-10">
+      <CTABanner lang="zh-Hans" variant="mid" />
+    </aside>
+
+    <nav aria-label="相关声音" class="py-10">
+      <h2 class="text-xl font-bold mb-6">Related / 相关推荐</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {relatedResources.map((rel: any) => (
+          <ResourceCard title={rel.title} slug={rel.slug} category={rel.category} scene={rel.scenes[0]} duration={rel.durationLabel} cover={rel.cover} lang="zh-Hans" />
+        ))}
+      </div>
+    </nav>
+  </article>
+
+  <CTABanner lang="zh-Hans" variant="bottom" />
+</BaseLayout>

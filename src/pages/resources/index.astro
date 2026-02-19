@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ResourceCard from '../../components/ResourceCard.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import { resources } from '../../data/resources';
+
+const allResources = Object.entries(resources).map(([slug, r]) => ({
+  title: r.title,
+  slug,
+  category: r.category,
+  scene: r.scenes.join('、'),
+  duration: r.durationLabel,
+  cover: r.cover,
+}));
+
+const categories = ['All', ...new Set(allResources.map(r => r.category))];
+---
+
+<BaseLayout
+  title="声音资源中心 - 免费试听 | 睡眠岛 Hushbay"
+  description="睡眠岛声音资源：雨声、海浪、壁炉、白噪音、耳鸣缓解音频。网页可直接试听，完整版在 App 内。"
+  lang="zh-Hans"
+  alternateZh="https://sleepisland.org/resources/"
+  alternateEn="https://sleepisland.org/en/resources/"
+>
+  <section class="max-w-5xl mx-auto px-4 py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-center mb-3">声音资源</h1>
+    <p class="text-center text-[var(--color-text-secondary)] mb-8">网页可直接试听，完整版在 App 内播放，支持入睡自动停止</p>
+
+    <div class="flex gap-2 overflow-x-auto pb-4 mb-8" role="tablist">
+      {categories.map((cat, i) => (
+        <button
+          class={`px-4 py-2 rounded-full text-sm whitespace-nowrap transition-colors ${i === 0 ? 'bg-[var(--color-accent)] text-white' : 'bg-[var(--color-bg-card)] border border-[var(--color-border-card)] text-[var(--color-text-secondary)] hover:text-white'}`}
+          role="tab"
+          data-category={cat}
+        >
+          {cat === 'All' ? '全部' : cat === 'Tinnitus Relief' ? '耳鸣缓解' : cat === 'White Noise' ? '噪音' : cat === 'Nature' ? '自然' : cat === 'Fireplace' ? '炉火' : cat === 'Rain' ? '雨声' : cat}
+        </button>
+      ))}
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="resource-grid">
+      {allResources.map(r => (
+        <div data-category={r.category}>
+          <ResourceCard {...r} lang="zh-Hans" />
+        </div>
+      ))}
+    </div>
+
+    <CTABanner lang="zh-Hans" variant="bottom" />
+  </section>
+
+  <script>
+    document.querySelectorAll('[role="tab"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.getAttribute('data-category');
+        document.querySelectorAll('[role="tab"]').forEach(b => {
+          b.className = b === btn
+            ? 'px-4 py-2 rounded-full text-sm whitespace-nowrap transition-colors bg-[var(--color-accent)] text-white'
+            : 'px-4 py-2 rounded-full text-sm whitespace-nowrap transition-colors bg-[var(--color-bg-card)] border border-[var(--color-border-card)] text-[var(--color-text-secondary)] hover:text-white';
+        });
+        document.querySelectorAll('#resource-grid > div').forEach(card => {
+          (card as HTMLElement).style.display = (cat === 'All' || card.getAttribute('data-category') === cat) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</BaseLayout>

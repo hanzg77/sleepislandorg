@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "如何用手机监测鼾声",
+    "description": "使用睡眠岛App免费监测打鼾，了解自己的鼾声情况",
+    "step": [
+      { "@type": "HowToStep", "name": "下载睡眠岛", "text": "在 App Store 搜索「睡眠岛」，免费下载安装" },
+      { "@type": "HowToStep", "name": "开启睡眠监测", "text": "睡前打开 App，点击开始睡眠监测，同时开启鼾声监测开关" },
+      { "@type": "HowToStep", "name": "放置手机", "text": "将手机放在床头柜上，屏幕朝下放置。手机会通过麦克风自动监测鼾声" },
+      { "@type": "HowToStep", "name": "查看报告", "text": "早上起床后查看鼾声报告，包含鼾声次数、总时长、平均和峰值分贝、严重程度评估" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question", "name": "手机监测鼾声准确吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "睡眠岛使用 AI 算法分析音频，能准确区分鼾声、梦话和环境噪音。日常了解打鼾情况完全够用。" }
+      },
+      {
+        "@type": "Question", "name": "打鼾严重需要看医生吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "重度打鼾（每小时超过 30 次）建议检查是否有睡眠呼吸暂停（OSA）。睡眠岛的报告可以作为就医参考。" }
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="鼾声监测 - 用手机免费检测打鼾 | 睡眠岛 Hushbay"
+  description="睡眠岛免费鼾声监测功能，用手机麦克风实时检测打鼾。记录鼾声次数、响度、频率，区分鼾声与梦话，生成详细报告。"
+  lang="zh-Hans"
+  alternateZh="https://sleepisland.org/snore-detection/"
+  alternateEn="https://sleepisland.org/en/snore-detection/"
+  schema={schema}
+>
+  <article class="max-w-3xl mx-auto px-4">
+    <header class="text-center py-16">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">鼾声监测</h1>
+      <p class="text-[var(--color-text-secondary)]">手机放床头，免费检测打鼾</p>
+    </header>
+
+    <dl class="summary mb-10" role="contentinfo" aria-label="页面摘要">
+      <dt>Type</dt><dd>Feature Guide / 功能指南</dd>
+      <dt>Topic</dt><dd>Snore Detection / 鼾声监测</dd>
+      <dt>Method</dt><dd>手机麦克风 + AI 音频分析</dd>
+      <dt>Data</dt><dd>鼾声次数、时长、响度、严重程度</dd>
+      <dt>App</dt><dd>Hushbay (iOS)</dd>
+      <dt>Download</dt><dd><a href="https://apps.apple.com/app/id6747609991" class="text-[var(--color-accent-light)] hover:underline">App Store</a></dd>
+    </dl>
+
+    <section class="mb-10">
+      <p class="text-[var(--color-text-secondary)]">很多人不知道自己打鼾，更不知道打鼾可能是健康信号。睡眠岛用手机麦克风就能帮你监测，不需要买额外设备。</p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">能监测到什么？</h2>
+      <div class="grid grid-cols-2 gap-3">
+        {[
+          { label: '鼾声次数', value: '23次' },
+          { label: '总时长', value: '18分钟' },
+          { label: '峰值响度', value: '62dB' },
+          { label: '严重程度', value: '中度' },
+        ].map(item => (
+          <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-5 text-center">
+            <div class="text-xs text-[var(--color-text-secondary)]">{item.label}</div>
+            <div class="text-xl font-bold mt-1">{item.value}</div>
+          </div>
+        ))}
+      </div>
+      <ul class="mt-6 space-y-2 text-[var(--color-text-secondary)] list-disc list-inside text-sm">
+        <li>每小时鼾声分布（帮你了解什么时段打鼾最严重）</li>
+        <li>梦话次数和重呼吸事件</li>
+        <li>智能区分鼾声与环境噪音（音乐、说话声）</li>
+      </ul>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">怎么用？</h2>
+      <div class="space-y-3">
+        {[
+          { n: '1', title: '下载睡眠岛', desc: 'App Store 搜索"睡眠岛"，免费下载' },
+          { n: '2', title: '开启睡眠监测', desc: '睡前点击开始，同时打开鼾声监测开关' },
+          { n: '3', title: '放置手机', desc: '手机放床头柜，关屏也能正常监测' },
+          { n: '4', title: '查看报告', desc: '早上醒来查看详细鼾声报告' },
+        ].map(step => (
+          <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-5 flex gap-4 items-start">
+            <span class="bg-[var(--color-accent)] text-white w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold shrink-0">{step.n}</span>
+            <div>
+              <h3 class="font-semibold">{step.title}</h3>
+              <p class="text-sm text-[var(--color-text-secondary)]">{step.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <CTABanner lang="zh-Hans" variant="mid" />
+
+    <section class="py-12">
+      <h2 class="text-xl font-bold mb-6">常见问题</h2>
+      <div class="space-y-4">
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+          <h3 class="font-semibold mb-2">手机监测鼾声准确吗？</h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">睡眠岛使用 AI 算法分析音频，能准确区分鼾声、梦话和环境噪音。日常了解打鼾情况完全够用。</p>
+        </div>
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+          <h3 class="font-semibold mb-2">需要开着屏幕吗？</h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">不需要，后台运行就行。关屏也能正常记录，不影响充电和闹钟。</p>
+        </div>
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+          <h3 class="font-semibold mb-2">打鼾严重需要看医生吗？</h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">如果监测显示重度打鼾（每小时超过 30 次），建议检查是否有睡眠呼吸暂停（OSA）。睡眠岛的报告可以作为就医参考。</p>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <CTABanner lang="zh-Hans" variant="bottom" />
+</BaseLayout>

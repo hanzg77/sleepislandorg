@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  slug: string;
+  category: string;
+  scene: string;
+  duration: string;
+  cover?: string;
+  lang?: 'zh-Hans' | 'en';
+}
+const { title, slug, category, scene, duration, cover, lang = 'zh-Hans' } = Astro.props;
+const isEn = lang === 'en';
+const href = isEn ? `/en/resources/${slug}/` : `/resources/${slug}/`;
+const previewLabel = isEn ? 'Preview' : '试听';
+const appLabel = isEn ? 'Full in App' : 'App 完整版';
+
+const fallbackGradient: Record<string, string> = {
+  'Rain': 'from-blue-900/80 to-slate-900/80',
+  'Nature': 'from-green-900/80 to-emerald-950/80',
+  'Fireplace': 'from-orange-900/80 to-amber-950/80',
+  'White Noise': 'from-gray-700/80 to-gray-900/80',
+  'Tinnitus Relief': 'from-emerald-900/80 to-teal-950/80',
+};
+const gradient = fallbackGradient[category] || 'from-indigo-900/80 to-slate-900/80';
+---
+
+<article class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl overflow-hidden flex flex-col hover:border-[var(--color-accent)]/40 transition-colors group">
+  <a href={href} class="block">
+    <div class="h-32 relative overflow-hidden">
+      {cover ? (
+        <img src={cover} alt={title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+      ) : (
+        <div class={`w-full h-full bg-gradient-to-br ${gradient}`}></div>
+      )}
+      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+      <span class="absolute top-2 right-2 text-[10px] bg-black/40 backdrop-blur-sm text-white/90 px-2 py-0.5 rounded-full">{duration}</span>
+      <span class="absolute bottom-2 left-3 text-[10px] text-white/80 font-medium uppercase tracking-wide">{category}</span>
+    </div>
+  </a>
+  <div class="p-4 flex flex-col gap-1.5 flex-1">
+    <h3 class="font-semibold text-sm leading-snug">{title}</h3>
+    <p class="text-xs text-[var(--color-text-secondary)] line-clamp-1">{scene}</p>
+    <div class="flex gap-2 mt-auto pt-2">
+      <a href={href} class="flex-1 text-center text-xs py-1.5 rounded-lg border border-[var(--color-border-card)] text-[var(--color-text-secondary)] hover:text-white hover:border-[var(--color-accent)]/60 transition-colors">
+        &#9654; {previewLabel}
+      </a>
+      <a href="https://apps.apple.com/app/id6747609991" class="flex-1 text-center text-xs py-1.5 rounded-lg bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white transition-colors">
+        {appLabel}
+      </a>
+    </div>
+  </div>
+</article>

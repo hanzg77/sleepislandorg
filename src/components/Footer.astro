@@ -1,0 +1,52 @@
+---
+interface Props {
+  lang?: 'zh-Hans' | 'en';
+}
+const { lang = 'zh-Hans' } = Astro.props;
+const isEn = lang === 'en';
+const prefix = isEn ? '/en' : '';
+---
+
+<footer class="border-t border-[var(--color-border-card)] mt-16">
+  <div class="max-w-5xl mx-auto px-4 py-10">
+    <div class="flex flex-col sm:flex-row justify-between gap-8">
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <img src="/assets/logo-60.png" alt="Hushbay" width="28" height="28" class="rounded-lg" />
+          <span class="font-bold">睡眠岛 Hushbay</span>
+        </div>
+        <p class="text-sm text-[var(--color-text-secondary)] max-w-xs">
+          {isEn
+            ? 'Sound-driven sleep app. Natural soundscapes, tinnitus relief, auto-stop on sleep onset.'
+            : '声音驱动的睡眠 App。自然音景、耳鸣缓解、入睡自动停止。'}
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="flex gap-12 text-sm">
+        <div>
+          <h3 class="font-semibold mb-3">{isEn ? 'Pages' : '页面'}</h3>
+          <ul class="space-y-2 text-[var(--color-text-secondary)]">
+            <li><a href={`${prefix}/resources/`} class="hover:text-white transition-colors">{isEn ? 'Resources' : '资源'}</a></li>
+            <li><a href={`${prefix}/guides/`} class="hover:text-white transition-colors">{isEn ? 'Guides' : '指南'}</a></li>
+            <li><a href={`${prefix}/tinnitus-relief/`} class="hover:text-white transition-colors">{isEn ? 'Tinnitus Relief' : '耳鸣缓解'}</a></li>
+            <li><a href={`${prefix}/app/`} class="hover:text-white transition-colors">App</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-3">{isEn ? 'Legal' : '法律'}</h3>
+          <ul class="space-y-2 text-[var(--color-text-secondary)]">
+            <li><a href={`${prefix}/privacy/`} class="hover:text-white transition-colors">{isEn ? 'Privacy' : '隐私政策'}</a></li>
+            <li><a href={`${prefix}/terms/`} class="hover:text-white transition-colors">{isEn ? 'Terms' : '使用条款'}</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 pt-6 border-t border-[var(--color-border-card)] flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[var(--color-text-muted)]">
+      <span>&copy; 2026 睡眠岛 Hushbay. All rights reserved.</span>
+      <a href="mailto:contact@sleepisland.org" class="hover:text-[var(--color-text-secondary)] transition-colors">contact@sleepisland.org</a>
+    </div>
+  </div>
+</footer>

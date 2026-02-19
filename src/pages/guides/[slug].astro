@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import ResourceCard from '../../components/ResourceCard.astro';
+import { guides } from '../../data/guides';
+
+export function getStaticPaths() {
+  return Object.keys(guides).map(slug => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const g = guides[slug as string];
+if (!g) return Astro.redirect('/guides/');
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": g.title,
+    "description": g.summary,
+    "inLanguage": "zh-Hans",
+    "mainEntityOfPage": `https://sleepisland.org/guides/${slug}/`,
+    "publisher": { "@type": "Organization", "name": "睡眠岛 Hushbay", "url": "https://sleepisland.org/" },
+    "datePublished": "2026-02-19",
+    "dateModified": "2026-02-19"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": g.faqs.map((f: any) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a }
+    }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://sleepisland.org/" },
+      { "@type": "ListItem", "position": 2, "name": "指南", "item": "https://sleepisland.org/guides/" },
+      { "@type": "ListItem", "position": 3, "name": g.title, "item": `https://sleepisland.org/guides/${slug}/` }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title={`${g.title} | 睡眠岛 Hushbay`}
+  description={g.summary}
+  lang="zh-Hans"
+  alternateZh={`https://sleepisland.org/guides/${slug}/`}
+  alternateEn={`https://sleepisland.org/en/guides/${slug}/`}
+  schema={schema}
+>
+  <article class="max-w-3xl mx-auto px-4">
+    <nav aria-label="面包屑" class="pt-6 text-sm text-[var(--color-text-muted)]">
+      <a href="/" class="hover:text-[var(--color-text-secondary)]">首页</a>
+      <span class="mx-2">/</span>
+      <a href="/guides/" class="hover:text-[var(--color-text-secondary)]">指南</a>
+      <span class="mx-2">/</span>
+      <span class="text-[var(--color-text-secondary)]">{g.title}</span>
+    </nav>
+
+    <header class="py-10">
+      <span class="text-xs text-[var(--color-brand-start)] font-medium mb-2 block">{g.topic}</span>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">{g.title}</h1>
+    </header>
+
+    <dl class="summary mb-10" role="contentinfo" aria-label="指南摘要">
+      <dt>Type</dt><dd>Guide / 指南</dd>
+      <dt>Topic</dt><dd>{g.title} / {g.titleEn}</dd>
+      <dt>Key Advice</dt><dd>{g.summary}</dd>
+      <dt>Related Sounds</dt><dd>{g.resources.length} recommended resources with web preview</dd>
+      <dt>App</dt><dd>Hushbay (iOS)</dd>
+    </dl>
+
+    <section class="mb-10">
+      <p class="text-[var(--color-text-secondary)]">{g.problem}</p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">解决方案</h2>
+      <div class="space-y-4">
+        {g.steps.map((s: any, i: number) => (
+          <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-5 flex gap-4 items-start">
+            <span class="bg-[var(--color-accent)] text-white w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold shrink-0">{i + 1}</span>
+            <div>
+              <h3 class="font-semibold mb-1">{s.title}</h3>
+              <p class="text-sm text-[var(--color-text-secondary)]">{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">推荐音景</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {g.resources.map((r: any) => (
+          <ResourceCard {...r} lang="zh-Hans" />
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-2">在 App 内一键做到</h2>
+      <p class="text-[var(--color-text-secondary)] text-sm mb-4">打开睡眠岛 → 选择音景 → 开启入睡自动停止 → 放下手机，安心入睡。</p>
+      <CTABanner lang="zh-Hans" variant="mid" />
+    </section>
+
+    <section class="py-10">
+      <h2 class="text-xl font-bold mb-6">FAQ / 常见问题</h2>
+      <div class="space-y-4">
+        {g.faqs.map((f: any) => (
+          <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+            <h3 class="font-semibold mb-2">{f.q}</h3>
+            <p class="text-sm text-[var(--color-text-secondary)]">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </article>
+
+  <CTABanner lang="zh-Hans" variant="bottom" />
+</BaseLayout>

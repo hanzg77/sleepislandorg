@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const schema = [{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "睡眠岛 Hushbay",
+  "operatingSystem": "iOS",
+  "applicationCategory": "HealthApplication",
+  "url": "https://sleepisland.org/app/",
+  "downloadUrl": "https://apps.apple.com/app/id6747609991",
+  "inLanguage": ["zh-Hans", "en"],
+  "description": "自然声音助眠、耳鸣缓解、入睡自动停止、鼾声与睡眠记录反馈的睡眠 App。",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "120" }
+}];
+
+const features = [
+  { icon: '&#x1F30A;', title: '自然音景', desc: '雨声、海浪、篝火、蟋蟀声等高品质自然声音。支持混音和自定义组合。' },
+  { icon: '&#x1F4A4;', title: '入睡自动停止', desc: '检测到你入睡后自动停止播放。不用担心整夜播放，也不会被突然停止惊醒。' },
+  { icon: '&#x1F997;', title: '耳鸣缓解', desc: '蟋蟀声、虫鸣等声音遮蔽疗法。用与耳鸣频率接近的自然声音帮你找回安静。' },
+  { icon: '&#x1F4CA;', title: '鼾声监测', desc: '手机麦克风实时监测鼾声，记录频率、响度和严重程度。AI 智能区分鼾声与梦话。' },
+  { icon: '&#x1F9E0;', title: 'AI 睡眠分析', desc: 'AI 助手小棉解读你的睡眠数据，不只是数字，是真正能帮你改善的个性化建议。' },
+  { icon: '&#x1F4D3;', title: '睡眠记录', desc: '追踪深睡浅睡、入睡时间、醒来次数。长期趋势一目了然。' },
+];
+---
+
+<BaseLayout
+  title="App 介绍 - 睡眠岛 Hushbay"
+  description="睡眠岛是一款免费的声音驱动睡眠 App：自然音景、耳鸣缓解、入睡自动停止、鼾声监测、AI 睡眠分析。iOS 免费下载。"
+  lang="zh-Hans"
+  alternateZh="https://sleepisland.org/app/"
+  alternateEn="https://sleepisland.org/en/app/"
+  schema={schema}
+>
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <header class="text-center mb-12">
+      <img src="/assets/logo-1024.png" alt="睡眠岛 Logo" width="100" height="100" class="mx-auto mb-4 rounded-2xl" />
+      <h1 class="text-3xl md:text-4xl font-bold mb-3">睡眠岛 Hushbay</h1>
+      <p class="text-[var(--color-text-secondary)]">声音驱动的睡眠 App · 免费下载</p>
+    </header>
+
+    <dl class="summary mb-12" role="contentinfo" aria-label="App 摘要">
+      <dt>Type</dt><dd>iOS App</dd>
+      <dt>Price</dt><dd>Free / 免费</dd>
+      <dt>Features</dt><dd>自然音景、耳鸣缓解、入睡自动停止、鼾声监测、AI 睡眠分析</dd>
+      <dt>Download</dt><dd><a href="https://apps.apple.com/app/id6747609991" class="text-[var(--color-accent-light)] hover:underline">App Store</a></dd>
+    </dl>
+
+    <h2 class="text-2xl font-bold text-center mb-8">核心功能</h2>
+    <div class="grid sm:grid-cols-2 gap-4 mb-12">
+      {features.map(f => (
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+          <div class="text-2xl mb-2" set:html={f.icon} />
+          <h3 class="font-semibold mb-2">{f.title}</h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-4">隐私说明</h2>
+      <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6 space-y-3 text-sm text-[var(--color-text-secondary)]">
+        <p><strong class="text-white">麦克风权限：</strong>仅用于鼾声监测，音频在本地处理，不上传服务器。</p>
+        <p><strong class="text-white">睡眠数据：</strong>存储在你的设备本地，你可以随时导出或删除。</p>
+        <p><strong class="text-white">无广告追踪：</strong>我们不使用第三方广告 SDK，不追踪你的个人信息。</p>
+      </div>
+    </section>
+
+    <CTABanner lang="zh-Hans" variant="bottom" />
+  </section>
+</BaseLayout>

@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0a0e1a;
+  --color-bg-card: #141929;
+  --color-border-card: #1e2540;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #8b95b0;
+  --color-text-muted: #4a5270;
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-accent-light: #60a5fa;
+  --color-brand-start: #9899f1;
+  --color-brand-end: #6768dc;
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.7;
+}
+
+/* Summary block for LLM-friendly structured data */
+dl.summary {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-card);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+}
+dl.summary dt {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+dl.summary dd {
+  color: var(--color-text-primary);
+}

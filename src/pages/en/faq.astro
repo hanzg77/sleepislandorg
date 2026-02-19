@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const faqs = [
+  { q: "Can't fall asleep -- what should I do?", a: 'Try white noise for sleep. A steady background sound helps the brain transition from an alert state to relaxation. Hushbay offers free rain, ocean waves, fireplace, and many other white noise options. Also, maintaining a regular sleep schedule, avoiding screens 1 hour before bed, and keeping your bedroom at 18-22 degrees Celsius can help.' },
+  { q: 'How can I increase deep sleep?', a: 'Deep sleep above 20% is considered normal. To improve: maintain a regular sleep schedule, avoid caffeine and alcohol before bed, exercise moderately (but avoid intense exercise within 3 hours of bedtime), and use white noise to create a quiet environment. Hushbay can track your deep and light sleep proportions.' },
+  { q: 'Does white noise really help with sleep?', a: 'Yes. Multiple studies confirm that white noise can shorten the time to fall asleep and reduce nighttime awakenings. It provides a steady sound background that masks sudden environmental noises, preventing your brain from being startled awake. Natural white noise (rain, ocean waves) is more comfortable than mechanical white noise.' },
+  { q: 'How is Hushbay different from other sleep apps?', a: 'The core difference is AI-powered analysis: not just data, but an AI assistant that interprets your sleep like a friend and gives personalized advice. Snore detection can intelligently distinguish between snoring, sleep talking, and environmental noise. It also supports tinnitus relief. Core features are completely free.' },
+  { q: 'What should I do about severe snoring?', a: 'First, use snore detection to understand the severity. Mild (fewer than 10 times per hour): try sleeping on your side. Moderate (10-30 times): pay attention to weight and sleeping position. Severe (more than 30 times): consult a doctor to check for obstructive sleep apnea (OSA).' },
+  { q: 'My tinnitus is especially bad at night -- what can I do?', a: 'Tinnitus is more noticeable in quiet environments. Sound masking therapy is the most recommended relief method: use natural white noise like cricket sounds to mask the tinnitus. Hushbay has a dedicated tinnitus relief sound series. If it continues to worsen, consult a doctor.' },
+  { q: 'Is Hushbay free?', a: 'Core features are completely free: sleep tracking, snore recording, white noise for sleep, and tinnitus relief. No 7-day trial, no forced subscription.' },
+  { q: 'Do I need a smartwatch for sleep tracking?', a: "No. Hushbay detects body movement through your phone's sensors to determine when you fall asleep, light sleep, deep sleep, and waking. Just place your phone on the bed or nightstand -- it works even with the screen off." },
+];
+
+const schema = [{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+}];
+---
+
+<BaseLayout
+  title="FAQ | Hushbay"
+  description="Hushbay App FAQ: how to improve sleep, how to use snore detection, the science behind white noise, tinnitus relief methods, and more."
+  lang="en"
+  alternateZh="https://sleepisland.org/faq/"
+  alternateEn="https://sleepisland.org/en/faq/"
+  schema={schema}
+>
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-center mb-10">Frequently Asked Questions</h1>
+    <div class="space-y-4">
+      {faqs.map(f => (
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+          <h2 class="font-semibold text-base mb-2">{f.q}</h2>
+          <p class="text-sm text-[var(--color-text-secondary)]">{f.a}</p>
+        </div>
+      ))}
+    </div>
+
+    <CTABanner lang="en" variant="bottom" />
+  </section>
+</BaseLayout>

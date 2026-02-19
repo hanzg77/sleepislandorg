@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const guides = [
+  { title: '如何用白噪音更快入睡', slug: 'white-noise-sleep', desc: '三步法选择白噪音类型、音量与时长', topic: '睡眠' },
+  { title: '最佳睡前音景组合', slug: 'best-sleep-soundscapes', desc: '不同场景下的音景搭配推荐', topic: '睡眠' },
+  { title: '入睡自动停止：为什么重要', slug: 'auto-stop-sleep', desc: '整夜播放白噪音的隐患与自动停止方案', topic: '睡眠' },
+  { title: '声音遮蔽疗法：耳鸣缓解入门', slug: 'sound-masking-tinnitus', desc: '科学认识耳鸣，用声音疗法有效缓解', topic: '耳鸣' },
+  { title: '耳鸣患者的睡眠策略', slug: 'tinnitus-sleep-strategies', desc: '耳鸣导致失眠？试试这些方法', topic: '耳鸣' },
+  { title: '如何选择适合你的耳鸣缓解声音', slug: 'choose-tinnitus-sounds', desc: '高频耳鸣与低频耳鸣的声音选择指南', topic: '耳鸣' },
+  { title: '如何用手机检测鼾声', slug: 'detect-snoring-phone', desc: '不需要额外设备，手机就能监测', topic: '鼾声' },
+  { title: '鼾声等级与健康风险', slug: 'snoring-levels-health', desc: '了解打鼾严重程度和潜在健康问题', topic: '鼾声' },
+];
+---
+
+<BaseLayout
+  title="睡眠指南 - 实用助眠知识 | 睡眠岛 Hushbay"
+  description="睡眠岛提供实用的睡眠指南：白噪音助眠、耳鸣缓解、鼾声检测等，每篇配推荐声音资源。"
+  lang="zh-Hans"
+  alternateZh="https://sleepisland.org/guides/"
+  alternateEn="https://sleepisland.org/en/guides/"
+>
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-center mb-3">睡眠指南</h1>
+    <p class="text-center text-[var(--color-text-secondary)] mb-10">实用的助眠知识，每篇配可试听声音资源</p>
+
+    <div class="space-y-4">
+      {guides.map(g => (
+        <a href={`/guides/${g.slug}/`} class="block bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6 hover:border-[var(--color-accent)]/40 transition-colors">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs text-[var(--color-brand-start)] font-medium">{g.topic}</span>
+          </div>
+          <h2 class="font-semibold text-base mb-1">{g.title}</h2>
+          <p class="text-sm text-[var(--color-text-secondary)]">{g.desc}</p>
+        </a>
+      ))}
+    </div>
+
+    <CTABanner lang="zh-Hans" variant="bottom" />
+  </section>
+</BaseLayout>

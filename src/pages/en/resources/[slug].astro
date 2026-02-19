@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import AudioPlayer from '../../../components/AudioPlayer.astro';
+import CTABanner from '../../../components/CTABanner.astro';
+import ResourceCard from '../../../components/ResourceCard.astro';
+import { resources } from '../../../data/resources';
+
+export function getStaticPaths() {
+  return Object.keys(resources).map(slug => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const r = resources[slug as string];
+if (!r) return Astro.redirect('/en/resources/');
+
+const scenesEn: Record<string, string> = {
+  'Sleep': 'Sleep', 'Relaxation': 'Relaxation', 'Reading': 'Reading',
+  'Deep Relaxation': 'Deep Relaxation', 'Meditation': 'Meditation',
+  'Focus': 'Focus', 'Noise Masking': 'Noise Masking',
+  'Tinnitus Relief': 'Tinnitus Relief', 'Sleep Aid': 'Sleep Aid',
+  'Morning': 'Morning',
+};
+
+const sceneMap: Record<string, string> = {
+  '入睡': 'Sleep', '放松': 'Relaxation', '阅读': 'Reading',
+  '深度放松': 'Deep Relaxation', '冥想': 'Meditation', '减压': 'Stress Relief',
+  '专注': 'Focus', '遮蔽噪音': 'Noise Masking', '失眠': 'Insomnia',
+  '耳鸣缓解': 'Tinnitus Relief', '助眠': 'Sleep Aid',
+  '早起': 'Morning',
+};
+
+const scenesEnList = r.scenes.map((s: string) => sceneMap[s] || s);
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "AudioObject",
+    "name": r.titleEn,
+    "description": `${r.titleEn} - natural sound for sleep and relaxation. Free preview available on web, full version in the Hushbay app.`,
+    "contentUrl": r.audio.startsWith('http') ? r.audio : `https://sleepisland.org${r.audio}`,
+    "duration": r.duration,
+    "inLanguage": ["en", "zh-Hans"],
+    "encodingFormat": "audio/mpeg"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sleepisland.org/en/" },
+      { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://sleepisland.org/en/resources/" },
+      { "@type": "ListItem", "position": 3, "name": r.titleEn, "item": `https://sleepisland.org/en/resources/${slug}/` }
+    ]
+  }
+];
+
+const relatedResources = r.related.map((s: string) => resources[s]).filter(Boolean).map((rel: any, i: number) => ({
+  ...rel,
+  slug: r.related[i]
+}));
+---
+
+<BaseLayout
+  title={`${r.titleEn} - Free Preview | Hushbay`}
+  description={`${r.titleEn} - natural sound for sleep and relaxation. Free preview available on web, full version in the Hushbay app.`}
+  lang="en"
+  alternateZh={`https://sleepisland.org/resources/${slug}/`}
+  alternateEn={`https://sleepisland.org/en/resources/${slug}/`}
+  schema={schema}
+>
+  <article class="max-w-3xl mx-auto px-4">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="pt-6 text-sm text-[var(--color-text-muted)]">
+      <a href="/en/" class="hover:text-[var(--color-text-secondary)]">Home</a>
+      <span class="mx-2">/</span>
+      <a href="/en/resources/" class="hover:text-[var(--color-text-secondary)]">Resources</a>
+      <span class="mx-2">/</span>
+      <span class="text-[var(--color-text-secondary)]">{r.titleEn}</span>
+    </nav>
+
+    {r.cover && (
+      <div class="mt-6 rounded-xl overflow-hidden h-48 md:h-64">
+        <img src={r.cover} alt={r.titleEn} class="w-full h-full object-cover" loading="eager" />
+      </div>
+    )}
+
+    <header class="py-10">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">{r.titleEn}</h1>
+    </header>
+
+    <dl class="summary mb-8" role="contentinfo" aria-label="Resource summary">
+      <dt>Type</dt><dd>Sound Preview (Web) + Full Version (App)</dd>
+      <dt>Topic</dt><dd>{r.titleEn}</dd>
+      <dt>Category</dt><dd>{r.category}</dd>
+      <dt>Use Cases</dt><dd>{scenesEnList.join(', ')}</dd>
+      <dt>Preview Duration</dt><dd>{r.durationLabel}</dd>
+      <dt>App</dt><dd>Hushbay (iOS)</dd>
+      <dt>Download</dt><dd><a href="https://apps.apple.com/app/id6747609991" class="text-[var(--color-accent-light)] hover:underline">App Store</a></dd>
+    </dl>
+
+    <section id="preview" class="mb-10">
+      <h2 class="text-xl font-bold mb-4">Preview</h2>
+      <AudioPlayer src={r.audio} title={r.titleEn} lang="en" />
+    </section>
+
+    <section id="use-cases" class="mb-10">
+      <h2 class="text-xl font-bold mb-4">Use Cases</h2>
+      <ul class="space-y-2">
+        {scenesEnList.map((s: string) => (
+          <li class="flex items-center gap-2 text-[var(--color-text-secondary)]">
+            <span class="w-1.5 h-1.5 bg-[var(--color-accent)] rounded-full shrink-0"></span>
+            {s}
+          </li>
+        ))}
+      </ul>
+      <p class="text-[var(--color-text-secondary)] mt-4">{r.titleEn} - natural sound for sleep and relaxation. Free preview available on web, full version in the Hushbay app.</p>
+    </section>
+
+    <section id="settings" class="mb-10">
+      <h2 class="text-xl font-bold mb-4">Recommended Settings</h2>
+      <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6 space-y-3 text-sm text-[var(--color-text-secondary)]">
+        <p><strong class="text-white">Volume:</strong> Adjust to a comfortable level, recommended below 60 dB</p>
+        <p><strong class="text-white">Headphones:</strong> Use comfortable headphones or a bedside speaker</p>
+        <p><strong class="text-white">Auto-stop on sleep:</strong> Enable in the app to automatically stop playback when you fall asleep</p>
+      </div>
+    </section>
+
+    <aside class="mb-10">
+      <CTABanner lang="en" variant="mid" />
+    </aside>
+
+    <nav aria-label="Related sounds" class="py-10">
+      <h2 class="text-xl font-bold mb-6">Related Sounds</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {relatedResources.map((rel: any) => (
+          <ResourceCard title={rel.titleEn} slug={rel.slug} category={rel.category} scene={scenesEn[sceneMap[rel.scenes[0]]] || rel.scenes[0]} duration={rel.durationLabel} cover={rel.cover} lang="en" />
+        ))}
+      </div>
+    </nav>
+  </article>
+
+  <CTABanner lang="en" variant="bottom" />
+</BaseLayout>

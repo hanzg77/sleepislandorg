@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTABanner from '../../../components/CTABanner.astro';
+
+const guides = [
+  { title: 'How to Fall Asleep Faster with White Noise', slug: 'white-noise-sleep', desc: 'A 3-step method for choosing white noise type, volume, and duration', topic: 'Sleep' },
+  { title: 'Best Soundscape Combinations for Sleep', slug: 'best-sleep-soundscapes', desc: 'Recommended soundscape pairings for different scenarios', topic: 'Sleep' },
+  { title: 'Auto-Stop on Sleep: Why It Matters', slug: 'auto-stop-sleep', desc: 'The risks of all-night white noise playback and the auto-stop solution', topic: 'Sleep' },
+  { title: "Sound Masking Therapy: A Beginner's Guide to Tinnitus Relief", slug: 'sound-masking-tinnitus', desc: 'Understanding tinnitus scientifically and using sound therapy effectively', topic: 'Tinnitus' },
+  { title: 'Sleep Strategies for Tinnitus Sufferers', slug: 'tinnitus-sleep-strategies', desc: 'Tinnitus causing insomnia? Try these methods', topic: 'Tinnitus' },
+  { title: 'How to Choose the Right Sound for Your Tinnitus', slug: 'choose-tinnitus-sounds', desc: 'A guide to selecting sounds for high-frequency vs. low-frequency tinnitus', topic: 'Tinnitus' },
+  { title: 'How to Detect Snoring with Your Phone', slug: 'detect-snoring-phone', desc: 'No extra devices needed -- your phone is enough', topic: 'Snoring' },
+  { title: 'Snoring Levels and Health Risks', slug: 'snoring-levels-health', desc: 'Understanding snoring severity and potential health concerns', topic: 'Snoring' },
+];
+---
+
+<BaseLayout
+  title="Sleep Guides - Practical Sleep Knowledge | Hushbay"
+  description="Hushbay provides practical sleep guides: white noise for sleep, tinnitus relief, snore detection, and more. Each guide includes recommended sound resources with web preview."
+  lang="en"
+  alternateZh="https://sleepisland.org/guides/"
+  alternateEn="https://sleepisland.org/en/guides/"
+>
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-center mb-3">Sleep Guides</h1>
+    <p class="text-center text-[var(--color-text-secondary)] mb-10">Practical sleep knowledge, each with sound resources you can preview</p>
+
+    <div class="space-y-4">
+      {guides.map(g => (
+        <a href={`/en/guides/${g.slug}/`} class="block bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6 hover:border-[var(--color-accent)]/40 transition-colors">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs text-[var(--color-brand-start)] font-medium">{g.topic}</span>
+          </div>
+          <h2 class="font-semibold text-base mb-1">{g.title}</h2>
+          <p class="text-sm text-[var(--color-text-secondary)]">{g.desc}</p>
+        </a>
+      ))}
+    </div>
+
+    <CTABanner lang="en" variant="bottom" />
+  </section>
+</BaseLayout>

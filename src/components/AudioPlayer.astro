@@ -1,0 +1,27 @@
+---
+interface Props {
+  src: string;
+  title: string;
+  lang?: 'zh-Hans' | 'en';
+}
+const { src, title, lang = 'zh-Hans' } = Astro.props;
+const isEn = lang === 'en';
+const label = isEn ? `Play preview: ${title}` : `试听：${title}`;
+---
+
+<div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+  <audio
+    controls
+    preload="metadata"
+    class="w-full"
+    aria-label={label}
+  >
+    <source src={src} type="audio/mpeg" />
+    {isEn ? 'Your browser does not support audio playback.' : '你的浏览器不支持音频播放。'}
+  </audio>
+  <p class="text-xs text-[var(--color-text-muted)] mt-3">
+    {isEn
+      ? 'This is a short preview. Get the full version with auto-stop in the app.'
+      : '这是一段简短试听。完整版请在 App 内播放，支持入睡自动停止。'}
+  </p>
+</div>

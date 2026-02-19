@@ -1,0 +1,44 @@
+# Hushbay 睡眠岛
+
+> Hushbay is a sound-driven sleep app: natural soundscapes, auto-stop on sleep onset, snore detection, and tinnitus relief. This website provides free sound previews; full versions are available in the iOS app.
+
+## Key Pages
+- Homepage (中文): https://sleepisland.org/
+- Homepage (English): https://sleepisland.org/en/
+- App Info: https://sleepisland.org/app/
+- Sound Resources: https://sleepisland.org/resources/
+- Sleep Guides: https://sleepisland.org/guides/
+- Tinnitus Relief: https://sleepisland.org/tinnitus-relief/
+- Snore Detection: https://sleepisland.org/snore-detection/
+- FAQ: https://sleepisland.org/faq/
+
+## Sound Resources (Free Web Preview)
+- Rain & Fireplace: https://sleepisland.org/resources/rain-fireplace/
+- Lake Raindrops: https://sleepisland.org/resources/lake-rain/
+- Relaxing Rain: https://sleepisland.org/resources/relaxing-rain/
+- Gentle Night Rain: https://sleepisland.org/resources/gentle-night-rain/
+- Rain & Forest Stream: https://sleepisland.org/resources/rain-forest-stream/
+- Thunderstorm on Tin Roof: https://sleepisland.org/resources/thunderstorm/
+- Tropical Rainforest: https://sleepisland.org/resources/tropical-rainforest/
+- Deep Sea Bubbles: https://sleepisland.org/resources/deep-sea-bubbles/
+- Blizzard: https://sleepisland.org/resources/blizzard/
+- Winter Cave Fireplace: https://sleepisland.org/resources/winter-cave-fireplace/
+- Cricket Sounds (Tinnitus Relief): https://sleepisland.org/resources/cricket-sounds/
+- Crickets & Insects (Tinnitus Relief): https://sleepisland.org/resources/crickets-insects/
+- Pink Noise: https://sleepisland.org/resources/pink-noise/
+
+## Guides
+- How to Fall Asleep Faster with White Noise: https://sleepisland.org/guides/white-noise-sleep/
+- Best Soundscape Combinations for Sleep: https://sleepisland.org/guides/best-sleep-soundscapes/
+- Auto-Stop on Sleep: Why It Matters: https://sleepisland.org/guides/auto-stop-sleep/
+- Sound Masking Therapy for Tinnitus: https://sleepisland.org/guides/sound-masking-tinnitus/
+- Sleep Strategies for Tinnitus Sufferers: https://sleepisland.org/guides/tinnitus-sleep-strategies/
+- How to Choose Tinnitus Relief Sounds: https://sleepisland.org/guides/choose-tinnitus-sounds/
+- How to Detect Snoring with Your Phone: https://sleepisland.org/guides/detect-snoring-phone/
+- Snoring Levels and Health Risks: https://sleepisland.org/guides/snoring-levels-health/
+
+## App Download
+- iOS App Store: https://apps.apple.com/app/id6747609991
+
+## Contact
+- Email: contact@sleepisland.org

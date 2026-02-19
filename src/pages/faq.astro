@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const faqs = [
+  { q: '睡不着怎么办？', a: '试试白噪音助眠。持续稳定的背景声音能帮大脑从兴奋状态过渡到放松。睡眠岛提供免费的雨声、海浪、篝火等多种白噪音。此外，保持固定作息、睡前 1 小时别看手机、卧室保持 18-22 度也有帮助。' },
+  { q: '如何增加深度睡眠？', a: '深度睡眠占 20% 以上算正常。提高方法：保持规律作息、避免睡前摄入咖啡因和酒精、适量运动（睡前 3 小时避免剧烈运动）、用白噪音创造安静环境。睡眠岛可以追踪你的深睡浅睡比例。' },
+  { q: '白噪音真的有助于睡眠吗？', a: '是的。多项研究证实白噪音能缩短入睡时间、减少夜间醒来。它提供稳定的声音背景，掩盖突然的环境噪音，防止大脑被惊醒。自然白噪音（雨声、海浪）比机械白噪音更舒适。' },
+  { q: '睡眠岛和蜗牛睡眠、小睡眠有什么区别？', a: '核心差异在 AI 智能分析：不只给你数据，AI 助手"小棉"会像朋友一样解读睡眠，给个性化建议。鼾声监测能智能区分鼾声、梦话和环境噪音。还支持耳鸣缓解。核心功能全免费。' },
+  { q: '打鼾严重怎么办？', a: '先用鼾声监测了解程度。轻度（每小时少于 10 次）试试侧睡；中度（10-30 次）关注体重和睡姿；重度（超过 30 次）建议就医检查是否有睡眠呼吸暂停（OSA）。' },
+  { q: '耳鸣晚上特别严重怎么办？', a: '耳鸣在安静环境更明显。声音掩蔽疗法是最推荐的缓解方法：用蟋蟀声等自然白噪音"盖住"耳鸣。睡眠岛有专门的耳鸣缓解声音系列。如果持续加重，建议就医。' },
+  { q: '睡眠岛免费吗？', a: '核心功能全免费：睡眠监测、鼾声记录、白噪音助眠、耳鸣缓解。没有 7 天试用，没有强制订阅。' },
+  { q: '睡眠监测需要戴手表吗？', a: '不需要。通过手机传感器检测身体活动，判断入睡、浅睡、深睡和醒来。手机放床上或床头柜就行，关屏也能监测。' },
+];
+
+const schema = [{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+}];
+---
+
+<BaseLayout
+  title="常见问题 FAQ | 睡眠岛 Hushbay"
+  description="睡眠岛 App 常见问题：如何改善睡眠、鼾声监测怎么用、白噪音助眠原理、耳鸣缓解方法等。"
+  lang="zh-Hans"
+  alternateZh="https://sleepisland.org/faq/"
+  alternateEn="https://sleepisland.org/en/faq/"
+  schema={schema}
+>
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-center mb-10">常见问题</h1>
+    <div class="space-y-4">
+      {faqs.map(f => (
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+          <h2 class="font-semibold text-base mb-2">{f.q}</h2>
+          <p class="text-sm text-[var(--color-text-secondary)]">{f.a}</p>
+        </div>
+      ))}
+    </div>
+
+    <CTABanner lang="zh-Hans" variant="bottom" />
+  </section>
+</BaseLayout>

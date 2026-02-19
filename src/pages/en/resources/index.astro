@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ResourceCard from '../../../components/ResourceCard.astro';
+import CTABanner from '../../../components/CTABanner.astro';
+import { resources } from '../../../data/resources';
+
+const sceneMap: Record<string, string> = {
+  '入睡': 'Sleep', '放松': 'Relaxation', '阅读': 'Reading',
+  '深度放松': 'Deep Relaxation', '冥想': 'Meditation', '减压': 'Stress Relief',
+  '专注': 'Focus', '遮蔽噪音': 'Noise Masking', '失眠': 'Insomnia',
+  '耳鸣缓解': 'Tinnitus Relief', '助眠': 'Sleep Aid', '早起': 'Morning',
+};
+
+const allResources = Object.entries(resources).map(([slug, r]) => ({
+  title: r.titleEn,
+  slug,
+  category: r.category,
+  scene: r.scenes.map((s: string) => sceneMap[s] || s).join(', '),
+  duration: r.durationLabel,
+  cover: r.cover,
+}));
+
+const categories = ['All', ...new Set(allResources.map(r => r.category))];
+---
+
+<BaseLayout
+  title="Sound Resources - Free Preview | Hushbay"
+  description="Hushbay sound resources: rain, nature, fireplace, white noise, tinnitus relief audio. Preview on the web, full version in the app."
+  lang="en"
+  alternateZh="https://sleepisland.org/resources/"
+  alternateEn="https://sleepisland.org/en/resources/"
+>
+  <section class="max-w-5xl mx-auto px-4 py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-center mb-3">Sound Resources</h1>
+    <p class="text-center text-[var(--color-text-secondary)] mb-8">Preview on web, full version in App with auto-stop on sleep</p>
+
+    <div class="flex gap-2 overflow-x-auto pb-4 mb-8" role="tablist">
+      {categories.map((cat, i) => (
+        <button
+          class={`px-4 py-2 rounded-full text-sm whitespace-nowrap transition-colors ${i === 0 ? 'bg-[var(--color-accent)] text-white' : 'bg-[var(--color-bg-card)] border border-[var(--color-border-card)] text-[var(--color-text-secondary)] hover:text-white'}`}
+          role="tab"
+          data-category={cat}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="resource-grid">
+      {allResources.map(r => (
+        <div data-category={r.category}>
+          <ResourceCard {...r} lang="en" />
+        </div>
+      ))}
+    </div>
+
+    <CTABanner lang="en" variant="bottom" />
+  </section>
+
+  <script>
+    document.querySelectorAll('[role="tab"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.getAttribute('data-category');
+        document.querySelectorAll('[role="tab"]').forEach(b => {
+          b.className = b === btn
+            ? 'px-4 py-2 rounded-full text-sm whitespace-nowrap transition-colors bg-[var(--color-accent)] text-white'
+            : 'px-4 py-2 rounded-full text-sm whitespace-nowrap transition-colors bg-[var(--color-bg-card)] border border-[var(--color-border-card)] text-[var(--color-text-secondary)] hover:text-white';
+        });
+        document.querySelectorAll('#resource-grid > div').forEach(card => {
+          (card as HTMLElement).style.display = (cat === 'All' || card.getAttribute('data-category') === cat) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</BaseLayout>

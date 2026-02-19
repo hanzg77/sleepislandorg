@@ -1,0 +1,246 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTABanner from '../../../components/CTABanner.astro';
+import ResourceCard from '../../../components/ResourceCard.astro';
+import { guides } from '../../../data/guides';
+
+export function getStaticPaths() {
+  return Object.keys(guides).map(slug => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const g = guides[slug as string];
+if (!g) return Astro.redirect('/en/guides/');
+
+const topicEn: Record<string, string> = {
+  '睡眠': 'Sleep',
+  '耳鸣': 'Tinnitus',
+  '鼾声': 'Snoring',
+};
+
+const stepsEn: Record<string, { title: string; desc: string }[]> = {
+  'white-noise-sleep': [
+    { title: 'Choose the right type', desc: 'Natural white noise (rain, ocean waves) is more comfortable than mechanical white noise. If sudden sounds wake you, choose steady sounds (like pink noise). If you prefer rhythm, try ocean waves or rain.' },
+    { title: 'Set the right volume', desc: 'Volume does not need to be loud -- 40-50 dB is enough (about the level of a soft conversation). Too loud can actually hurt sleep quality.' },
+    { title: 'Set a timer', desc: "All-night playback is not recommended. Use Hushbay's auto-stop on sleep feature, which stops playback when it detects you have fallen asleep." },
+  ],
+  'best-sleep-soundscapes': [
+    { title: 'Pick a base sound', desc: 'Choose a steady, continuous sound as your foundation: rain, ocean waves, or white noise are all good choices.' },
+    { title: 'Add an accent sound', desc: 'Layer a sound with rhythmic variation on top: fireplace crackling, distant thunder, or insect sounds.' },
+    { title: 'Adjust the ratio', desc: 'Base sound at 70%, accent sound at 30%. In the app, you can freely adjust the volume ratio of each sound.' },
+  ],
+  'auto-stop-sleep': [
+    { title: 'Understand the problem with all-night playback', desc: 'Studies show continuous sound stimulation can reduce deep sleep proportion. Your brain still processes sound information after falling asleep.' },
+    { title: 'Use auto-stop on sleep', desc: "Hushbay detects your sleep state through phone sensors and automatically stops playback. No need to set a timer -- it knows when you've fallen asleep." },
+    { title: 'Give your brain a quiet deep sleep environment', desc: 'Stopping sound after you fall asleep lets your brain enter deep sleep in a quiet environment for better recovery.' },
+  ],
+  'sound-masking-tinnitus': [
+    { title: 'Understand the principle', desc: 'Sound masking works by playing external sounds to cover or distract attention from tinnitus. The brain gradually habituates to the external sound and ignores the tinnitus.' },
+    { title: 'Choose the right sound', desc: 'Sounds with frequencies close to your tinnitus work best. For high-frequency tinnitus (like crickets), use insect sounds. For low-frequency tinnitus (like buzzing), use ocean or deep sea sounds.' },
+    { title: 'Use consistently', desc: 'Sound therapy needs consistent use to be effective. Play it every night before sleep. Over time, the brain gradually reduces its perception of the tinnitus.' },
+  ],
+  'tinnitus-sleep-strategies': [
+    { title: 'Break the silence', desc: 'Start playing masking sounds before bed -- do not wait until you are lying in bed. Let your brain adjust to the external sound in advance.' },
+    { title: 'Build a bedtime ritual', desc: 'Play the same sound at the same time to form a conditioned response. Your brain will associate this sound with bedtime.' },
+    { title: 'Combine with auto-stop on sleep', desc: 'Enable auto-stop in the app. The sound helps you fall asleep and then automatically shuts off, giving your brain a quiet deep sleep environment.' },
+  ],
+  'choose-tinnitus-sounds': [
+    { title: 'Identify your tinnitus frequency', desc: 'High-frequency tinnitus sounds like crickets, cicadas, or hissing. Low-frequency tinnitus sounds like buzzing or engine noise.' },
+    { title: 'Match the sound type', desc: 'For high-frequency tinnitus, use cricket sounds, insect sounds, or pink noise. For low-frequency tinnitus, use ocean waves, deep ocean white noise, or rain.' },
+    { title: 'Fine-tune the volume', desc: 'Adjust volume to a level where you can just notice it but it does not mask all sounds. You do not need to completely cover the tinnitus -- partial masking is effective.' },
+  ],
+  'detect-snoring-phone': [
+    { title: 'Download Hushbay', desc: 'Search for Hushbay on the App Store, free download.' },
+    { title: 'Enable snore detection', desc: 'Open the app before bed, start sleep tracking, and turn on the snore detection toggle.' },
+    { title: 'Place your phone', desc: 'Put your phone on the nightstand, screen off is fine. AI will automatically distinguish snoring, sleep talking, and environmental noise.' },
+  ],
+  'snoring-levels-health': [
+    { title: 'Understand snoring levels', desc: 'Mild (fewer than 10/hour): usually harmless, side sleeping may help. Moderate (10-30): pay attention to weight and sleeping position. Severe (more than 30): consult a doctor.' },
+    { title: 'Monitor your snoring', desc: 'Use Hushbay to record snoring data -- frequency, duration, and severity.' },
+    { title: 'See a doctor when needed', desc: 'If severe snoring or accompanied by daytime sleepiness, bring your Hushbay snoring report to the doctor. You may need to check for OSA.' },
+  ],
+};
+
+const summaryEn: Record<string, string> = {
+  'white-noise-sleep': 'A 3-step method for choosing white noise type, volume, and duration, with recommended sound resources you can preview.',
+  'best-sleep-soundscapes': 'Recommended soundscape combinations for different scenarios to help you find the best sleep sounds.',
+  'auto-stop-sleep': 'Understanding the potential issues of all-night white noise playback and how auto-stop on sleep helps.',
+  'sound-masking-tinnitus': 'Understanding sound masking therapy scientifically -- the most recommended non-drug method for tinnitus relief.',
+  'tinnitus-sleep-strategies': 'Tinnitus causing insomnia? Combining sound therapy and sleep habit adjustments to help you improve.',
+  'choose-tinnitus-sounds': 'A guide to selecting sounds for high-frequency vs. low-frequency tinnitus to find the most effective relief.',
+  'detect-snoring-phone': 'No extra devices needed -- your phone on the nightstand is enough to monitor snoring.',
+  'snoring-levels-health': 'Understanding snoring severity levels and potential health risks.',
+};
+
+const problemEn: Record<string, string> = {
+  'white-noise-sleep': 'Many people toss and turn in bed unable to sleep -- maybe the mind is too active, or the environment is too noisy or too quiet. White noise helps the brain transition from an alert state to relaxation.',
+  'best-sleep-soundscapes': 'A single sound can lose its effect over time. Combining different natural sounds keeps things fresh and creates a richer sound environment.',
+  'auto-stop-sleep': 'Many people use white noise for sleep, but all-night playback can affect deep sleep quality and increase battery drain.',
+  'sound-masking-tinnitus': 'Tinnitus affects about 15% of the global population. In quiet environments (especially before bed), tinnitus becomes particularly noticeable, seriously affecting quality of life and sleep.',
+  'tinnitus-sleep-strategies': 'Tinnitus is most noticeable at night when it is quiet, leading to difficulty falling asleep and frequent awakenings, creating a vicious cycle of tinnitus, insomnia, and anxiety.',
+  'choose-tinnitus-sounds': 'Tinnitus frequency varies from person to person. Choosing the right sound is key to effective relief.',
+  'detect-snoring-phone': "Many people don't know they snore or how severe it is. Awareness is the first step to improvement.",
+  'snoring-levels-health': 'Snoring is not just a noise issue -- severe snoring can be a sign of sleep apnea, which untreated can lead to high blood pressure, daytime drowsiness, and other problems.',
+};
+
+const faqsEn: Record<string, { q: string; a: string }[]> = {
+  'white-noise-sleep': [
+    { q: 'What is the difference between white noise and pink noise?', a: 'White noise has equal energy across all frequencies (like TV static). Pink noise has more low-frequency energy and is softer (like steady rain). Pink noise is more comfortable for most people.' },
+    { q: 'Will I become dependent on white noise?', a: 'No physiological dependence will develop. However, if you stop suddenly after forming a habit, it may take a few days to adjust. This is the same as being used to sleeping with a fan on.' },
+  ],
+  'best-sleep-soundscapes': [
+    { q: 'Can I create custom combinations?', a: 'Yes. The Hushbay app supports playing multiple sounds simultaneously with independent volume control.' },
+  ],
+  'auto-stop-sleep': [
+    { q: "How does auto-stop know when I'm asleep?", a: 'It uses the phone accelerometer to detect changes in body movement. After falling asleep, body movement decreases significantly and tossing frequency drops.' },
+  ],
+  'sound-masking-tinnitus': [
+    { q: 'Is sound masking therapy scientifically proven?', a: 'Yes. Mayo Clinic, the American Tinnitus Association (ATA), and other authoritative institutions recommend sound therapy as a core approach to tinnitus management.' },
+    { q: 'How long before it works?', a: 'It varies. Some people feel relief immediately, while others need weeks of consistent use. The key is finding the right sound type and volume for you.' },
+  ],
+  'tinnitus-sleep-strategies': [
+    { q: 'Can tinnitus get worse from listening to sounds?', a: 'Not at reasonable volumes. In fact, consistent use of sound therapy helps the brain habituate to tinnitus, gradually reducing perception of it.' },
+  ],
+  'choose-tinnitus-sounds': [
+    { q: 'Can I use multiple sounds at the same time?', a: 'Yes. The Hushbay app supports mixing -- you can layer cricket sounds with rain sounds.' },
+  ],
+  'detect-snoring-phone': [
+    { q: 'Is phone detection accurate?', a: 'More than sufficient for everyday monitoring. The AI algorithm can distinguish between snoring, sleep talking, and noise. While not as precise as a professional sleep lab, it is very practical for daily use.' },
+  ],
+  'snoring-levels-health': [
+    { q: 'Can snoring be cured?', a: 'Depends on the cause. Weight loss, side sleeping, and avoiding alcohol before bed can improve mild-to-moderate snoring. Severe snoring may require CPAP or surgical treatment.' },
+  ],
+};
+
+const currentSteps = stepsEn[slug as string] || g.steps;
+const currentSummary = summaryEn[slug as string] || g.summary;
+const currentProblem = problemEn[slug as string] || g.problem;
+const currentFaqs = faqsEn[slug as string] || g.faqs;
+const currentTopic = topicEn[g.topic] || g.topic;
+
+const resourceSceneMap: Record<string, string> = {
+  '专注、入睡': 'Focus, Sleep',
+  '入睡、深度放松': 'Sleep, Deep Relaxation',
+  '入睡、放松': 'Sleep, Relaxation',
+  '深度放松': 'Deep Relaxation',
+  '放松、入睡': 'Relaxation, Sleep',
+  '入睡、放松、阅读': 'Sleep, Relaxation, Reading',
+  '耳鸣缓解、入睡': 'Tinnitus Relief, Sleep',
+  '耳鸣缓解、助眠': 'Tinnitus Relief, Sleep Aid',
+  '遮蔽噪音': 'Noise Masking',
+  '高频耳鸣缓解': 'High-Frequency Tinnitus Relief',
+  '低频耳鸣缓解': 'Low-Frequency Tinnitus Relief',
+};
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": g.titleEn,
+    "description": currentSummary,
+    "inLanguage": "en",
+    "mainEntityOfPage": `https://sleepisland.org/en/guides/${slug}/`,
+    "publisher": { "@type": "Organization", "name": "Hushbay", "url": "https://sleepisland.org/" },
+    "datePublished": "2026-02-19",
+    "dateModified": "2026-02-19"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": currentFaqs.map((f: any) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a }
+    }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sleepisland.org/en/" },
+      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sleepisland.org/en/guides/" },
+      { "@type": "ListItem", "position": 3, "name": g.titleEn, "item": `https://sleepisland.org/en/guides/${slug}/` }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title={`${g.titleEn} | Hushbay`}
+  description={currentSummary}
+  lang="en"
+  alternateZh={`https://sleepisland.org/guides/${slug}/`}
+  alternateEn={`https://sleepisland.org/en/guides/${slug}/`}
+  schema={schema}
+>
+  <article class="max-w-3xl mx-auto px-4">
+    <nav aria-label="Breadcrumb" class="pt-6 text-sm text-[var(--color-text-muted)]">
+      <a href="/en/" class="hover:text-[var(--color-text-secondary)]">Home</a>
+      <span class="mx-2">/</span>
+      <a href="/en/guides/" class="hover:text-[var(--color-text-secondary)]">Guides</a>
+      <span class="mx-2">/</span>
+      <span class="text-[var(--color-text-secondary)]">{g.titleEn}</span>
+    </nav>
+
+    <header class="py-10">
+      <span class="text-xs text-[var(--color-brand-start)] font-medium mb-2 block">{currentTopic}</span>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">{g.titleEn}</h1>
+    </header>
+
+    <dl class="summary mb-10" role="contentinfo" aria-label="Guide summary">
+      <dt>Type</dt><dd>Guide</dd>
+      <dt>Topic</dt><dd>{g.titleEn}</dd>
+      <dt>Key Advice</dt><dd>{currentSummary}</dd>
+      <dt>Related Sounds</dt><dd>{g.resources.length} recommended resources with web preview</dd>
+      <dt>App</dt><dd>Hushbay (iOS)</dd>
+    </dl>
+
+    <section class="mb-10">
+      <p class="text-[var(--color-text-secondary)]">{currentProblem}</p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">Solution</h2>
+      <div class="space-y-4">
+        {currentSteps.map((s: any, i: number) => (
+          <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-5 flex gap-4 items-start">
+            <span class="bg-[var(--color-accent)] text-white w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold shrink-0">{i + 1}</span>
+            <div>
+              <h3 class="font-semibold mb-1">{s.title}</h3>
+              <p class="text-sm text-[var(--color-text-secondary)]">{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">Recommended Sounds</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {g.resources.map((r: any) => (
+          <ResourceCard title={r.title} slug={r.slug} category={r.category} scene={resourceSceneMap[r.scene] || r.scene} duration={r.duration} cover={r.cover} lang="en" />
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-2">Do It All in the App</h2>
+      <p class="text-[var(--color-text-secondary)] text-sm mb-4">Open Hushbay, choose a soundscape, enable auto-stop on sleep, put your phone down, and drift off.</p>
+      <CTABanner lang="en" variant="mid" />
+    </section>
+
+    <section class="py-10">
+      <h2 class="text-xl font-bold mb-6">FAQ</h2>
+      <div class="space-y-4">
+        {currentFaqs.map((f: any) => (
+          <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+            <h3 class="font-semibold mb-2">{f.q}</h3>
+            <p class="text-sm text-[var(--color-text-secondary)]">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </article>
+
+  <CTABanner lang="en" variant="bottom" />
+</BaseLayout>

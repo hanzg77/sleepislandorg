@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const schema = [{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Hushbay",
+  "operatingSystem": "iOS",
+  "applicationCategory": "HealthApplication",
+  "url": "https://sleepisland.org/en/app/",
+  "downloadUrl": "https://apps.apple.com/app/id6747609991",
+  "inLanguage": ["en", "zh-Hans"],
+  "description": "A sleep app with natural soundscapes, tinnitus relief, auto-stop on sleep, snore detection, and AI sleep analysis.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "120" }
+}];
+
+const features = [
+  { icon: '&#x1F30A;', title: 'Natural Soundscapes', desc: 'Rain, ocean waves, fireplace, cricket sounds, and more high-quality natural sounds. Supports mixing and custom combinations.' },
+  { icon: '&#x1F4A4;', title: 'Auto-Stop on Sleep', desc: 'Automatically stops playback when it detects you have fallen asleep. No all-night playback worries, and no sudden stop to wake you.' },
+  { icon: '&#x1F997;', title: 'Tinnitus Relief', desc: 'Cricket sounds, insect sounds, and other sound masking therapy. Natural sounds with frequencies close to tinnitus help you find quiet again.' },
+  { icon: '&#x1F4CA;', title: 'Snore Detection', desc: 'Real-time snore monitoring via phone microphone. Records frequency, loudness, and severity. AI distinguishes snoring from sleep talking.' },
+  { icon: '&#x1F9E0;', title: 'AI Sleep Analysis', desc: 'AI assistant interprets your sleep data -- not just numbers, but truly personalized advice to help you improve.' },
+  { icon: '&#x1F4D3;', title: 'Sleep Records', desc: 'Track deep sleep, light sleep, time to fall asleep, and wake-ups. Long-term trends at a glance.' },
+];
+---
+
+<BaseLayout
+  title="App Overview - Hushbay"
+  description="Hushbay is a free sound-driven sleep app: natural soundscapes, tinnitus relief, auto-stop on sleep, snore detection, AI sleep analysis. Free on iOS."
+  lang="en"
+  alternateZh="https://sleepisland.org/app/"
+  alternateEn="https://sleepisland.org/en/app/"
+  schema={schema}
+>
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <header class="text-center mb-12">
+      <img src="/assets/logo-1024.png" alt="Hushbay Logo" width="100" height="100" class="mx-auto mb-4 rounded-2xl" />
+      <h1 class="text-3xl md:text-4xl font-bold mb-3">Hushbay</h1>
+      <p class="text-[var(--color-text-secondary)]">Sound-driven sleep app - Free download</p>
+    </header>
+
+    <dl class="summary mb-12" role="contentinfo" aria-label="App summary">
+      <dt>Type</dt><dd>iOS App</dd>
+      <dt>Price</dt><dd>Free</dd>
+      <dt>Features</dt><dd>Natural soundscapes, tinnitus relief, auto-stop on sleep, snore detection, AI sleep analysis</dd>
+      <dt>Download</dt><dd><a href="https://apps.apple.com/app/id6747609991" class="text-[var(--color-accent-light)] hover:underline">App Store</a></dd>
+    </dl>
+
+    <h2 class="text-2xl font-bold text-center mb-8">Core Features</h2>
+    <div class="grid sm:grid-cols-2 gap-4 mb-12">
+      {features.map(f => (
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+          <div class="text-2xl mb-2" set:html={f.icon} />
+          <h3 class="font-semibold mb-2">{f.title}</h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-4">Privacy</h2>
+      <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6 space-y-3 text-sm text-[var(--color-text-secondary)]">
+        <p><strong class="text-white">Microphone access:</strong> Used only for snore detection. Audio is processed locally and never uploaded to servers.</p>
+        <p><strong class="text-white">Sleep data:</strong> Stored locally on your device. You can export or delete it at any time.</p>
+        <p><strong class="text-white">No ad tracking:</strong> We do not use third-party ad SDKs or track your personal information.</p>
+      </div>
+    </section>
+
+    <CTABanner lang="en" variant="bottom" />
+  </section>
+</BaseLayout>

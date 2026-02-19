@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tinnitus Relief: Find Quiet with Natural Sounds",
+    "description": "Sound masking therapy is one of the most effective non-drug methods for relieving tinnitus. Learn how natural white noise like cricket sounds can help improve tinnitus.",
+    "author": { "@type": "Organization", "name": "Hushbay" },
+    "publisher": { "@type": "Organization", "name": "Hushbay", "url": "https://sleepisland.org/" },
+    "mainEntityOfPage": "https://sleepisland.org/en/tinnitus-relief/",
+    "datePublished": "2026-02-19",
+    "dateModified": "2026-02-19"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What type of white noise is best for tinnitus?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "White noise with frequencies close to your tinnitus works best. For high-frequency tinnitus, try cricket sounds or insect sounds. For low-frequency tinnitus, try ocean waves or deep ocean white noise. Experiment with different options."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can sound masking therapy cure tinnitus?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It cannot cure tinnitus, but it can effectively reduce discomfort. This is a tinnitus management approach recommended by authoritative institutions like Mayo Clinic. If symptoms continue to worsen, consult a doctor."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it safe to listen to white noise while sleeping?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At a reasonable volume (below 60 decibels), it is completely safe. Hushbay supports timed shutdown and auto-stop on sleep. Adjust the volume to just enough to mask the tinnitus."
+        }
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Tinnitus Relief - Cricket Sound Masking Therapy | Hushbay"
+  description="Relieve tinnitus with natural white noise like cricket sounds and insect sounds. Sound masking therapy is recommended by Mayo Clinic. Hushbay provides free high-quality tinnitus relief audio."
+  lang="en"
+  alternateZh="https://sleepisland.org/tinnitus-relief/"
+  alternateEn="https://sleepisland.org/en/tinnitus-relief/"
+  schema={schema}
+>
+  <article class="max-w-3xl mx-auto px-4">
+    <header class="text-center py-16">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Tinnitus Relief: Find Quiet with Natural Sounds</h1>
+      <p class="text-[var(--color-text-secondary)]">Cricket sounds - Insect sounds - Sound masking therapy</p>
+    </header>
+
+    <dl class="summary mb-10" role="contentinfo" aria-label="Page summary">
+      <dt>Type</dt><dd>Guide</dd>
+      <dt>Topic</dt><dd>Tinnitus Relief</dd>
+      <dt>Method</dt><dd>Sound Masking Therapy</dd>
+      <dt>Recommended Sounds</dt><dd>Cricket sounds, summer night insects, rain + insects, deep ocean white noise</dd>
+      <dt>App</dt><dd>Hushbay (iOS)</dd>
+      <dt>Download</dt><dd><a href="https://apps.apple.com/app/id6747609991" class="text-[var(--color-accent-light)] hover:underline">App Store</a></dd>
+    </dl>
+
+    <section class="mb-10">
+      <p class="text-[var(--color-text-secondary)] mb-4">If you have tinnitus, you probably know this feeling: during the day it's manageable, but once it gets quiet at night, the buzzing or hissing in your ears becomes especially noticeable, making it impossible to fall asleep.</p>
+      <p class="text-[var(--color-text-secondary)]">You are not alone. About 15% of people worldwide are affected by tinnitus, and a significant portion of them experience sleep problems as a result.</p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">What Is Sound Masking Therapy?</h2>
+      <p class="text-[var(--color-text-secondary)] mb-4">Sound masking is one of the most recognized non-drug methods for relieving tinnitus. The principle is simple: use external sounds to "cover up" the tinnitus, so the brain stops focusing on it.</p>
+      <div class="bg-[var(--color-bg-card)] border-l-3 border-[var(--color-accent)] pl-6 pr-6 py-5 rounded-r-xl mb-4">
+        <p class="text-[var(--color-text-secondary)]"><strong class="text-white">Mayo Clinic states:</strong> "Sound therapy is our primary tool for helping to ease tinnitus distress. White noise machines, nature sounds, or low-volume music can all help reduce the perception of tinnitus."</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">Why Are Cricket Sounds Particularly Effective?</h2>
+      <p class="text-[var(--color-text-secondary)] mb-4">Many tinnitus sufferers describe their tinnitus as sounding like crickets -- high-pitched, continuous, and rhythmic. Research shows that using white noise with frequency characteristics close to the tinnitus sound provides the best masking effect.</p>
+      <ul class="space-y-2 text-[var(--color-text-secondary)] list-disc list-inside">
+        <li>Frequency range close to common tinnitus (2000-6000Hz)</li>
+        <li>Natural rhythmic variation prevents auditory fatigue</li>
+        <li>More comfortable than mechanical white noise, suitable for extended listening</li>
+        <li>Also has a sleep-inducing effect</li>
+      </ul>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">Hushbay's Tinnitus Relief Solutions</h2>
+      <p class="text-[var(--color-text-secondary)] mb-4">The Hushbay app includes multiple natural sounds suitable for tinnitus relief:</p>
+      <div class="space-y-3">
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-5">
+          <h3 class="font-semibold mb-1">Cricket Sound Series</h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">Real outdoor recordings with multiple cricket sound environments to choose from</p>
+        </div>
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-5">
+          <h3 class="font-semibold mb-1">Summer Night Insects</h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">A natural summer night soundscape mixing crickets, cicadas, and frogs</p>
+        </div>
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-5">
+          <h3 class="font-semibold mb-1">Rain + Insects</h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">Gentle rain mixed with insect sounds, ideal for falling asleep</p>
+        </div>
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-5">
+          <h3 class="font-semibold mb-1">Deep Ocean White Noise</h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">Predominantly low-frequency, suitable for low-frequency tinnitus</p>
+        </div>
+      </div>
+    </section>
+
+    <CTABanner lang="en" variant="mid" />
+
+    <section class="py-12">
+      <h2 class="text-xl font-bold mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+          <h3 class="font-semibold mb-2">What type of white noise is best for tinnitus?</h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">Try sounds with frequencies close to your tinnitus first. For high-frequency tinnitus (like crickets, cicadas), use cricket sounds or insect sounds. For low-frequency tinnitus (like buzzing), use ocean waves or deep ocean white noise. Try several and find the one that best helps you ignore the tinnitus.</p>
+        </div>
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+          <h3 class="font-semibold mb-2">Can sound masking therapy cure tinnitus?</h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">Sound therapy cannot cure tinnitus, but it can effectively reduce discomfort and help with falling asleep. This is a management approach recommended by authoritative institutions like Mayo Clinic. If symptoms continue to worsen or are accompanied by hearing loss, consult a doctor.</p>
+        </div>
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+          <h3 class="font-semibold mb-2">Is it safe to listen to white noise while sleeping?</h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">At a reasonable volume (below 60 decibels), it is completely safe. Hushbay supports timed shutdown and auto-stop on sleep. Adjust the volume to just enough to mask the tinnitus.</p>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <CTABanner lang="en" variant="bottom" />
+</BaseLayout>

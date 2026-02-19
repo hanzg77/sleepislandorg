@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Detect Snoring with Your Phone",
+    "description": "Use the Hushbay app to monitor snoring for free and understand your snoring patterns",
+    "step": [
+      { "@type": "HowToStep", "name": "Download Hushbay", "text": "Search for Hushbay on the App Store and download it for free" },
+      { "@type": "HowToStep", "name": "Start sleep tracking", "text": "Open the app before bed, tap start sleep tracking, and enable the snore detection toggle" },
+      { "@type": "HowToStep", "name": "Place your phone", "text": "Place your phone on the nightstand, screen facing down. The phone will automatically monitor snoring via the microphone" },
+      { "@type": "HowToStep", "name": "View the report", "text": "Check your snoring report in the morning, including snore count, total duration, average and peak decibels, and severity assessment" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question", "name": "Is phone-based snore detection accurate?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Hushbay uses AI algorithms to analyze audio and can accurately distinguish between snoring, sleep talking, and environmental noise. It is more than sufficient for everyday snoring monitoring." }
+      },
+      {
+        "@type": "Question", "name": "Should I see a doctor for severe snoring?",
+        "acceptedAnswer": { "@type": "Answer", "text": "For severe snoring (more than 30 times per hour), it is recommended to check for obstructive sleep apnea (OSA). Hushbay reports can serve as a reference when visiting your doctor." }
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Snore Detection - Free Phone-Based Snoring Monitor | Hushbay"
+  description="Hushbay's free snore detection uses your phone's microphone to monitor snoring in real-time. Records snore count, loudness, frequency, distinguishes snoring from sleep talking, and generates detailed reports."
+  lang="en"
+  alternateZh="https://sleepisland.org/snore-detection/"
+  alternateEn="https://sleepisland.org/en/snore-detection/"
+  schema={schema}
+>
+  <article class="max-w-3xl mx-auto px-4">
+    <header class="text-center py-16">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Snore Detection</h1>
+      <p class="text-[var(--color-text-secondary)]">Place your phone on the nightstand, detect snoring for free</p>
+    </header>
+
+    <dl class="summary mb-10" role="contentinfo" aria-label="Page summary">
+      <dt>Type</dt><dd>Feature Guide</dd>
+      <dt>Topic</dt><dd>Snore Detection</dd>
+      <dt>Method</dt><dd>Phone microphone + AI audio analysis</dd>
+      <dt>Data</dt><dd>Snore count, duration, loudness, severity</dd>
+      <dt>App</dt><dd>Hushbay (iOS)</dd>
+      <dt>Download</dt><dd><a href="https://apps.apple.com/app/id6747609991" class="text-[var(--color-accent-light)] hover:underline">App Store</a></dd>
+    </dl>
+
+    <section class="mb-10">
+      <p class="text-[var(--color-text-secondary)]">Many people don't know they snore, let alone how severe it is. Snoring can be a health signal. Hushbay uses your phone's microphone to monitor snoring -- no extra devices needed.</p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">What Does It Track?</h2>
+      <div class="grid grid-cols-2 gap-3">
+        {[
+          { label: 'Snore Count', value: '23' },
+          { label: 'Total Duration', value: '18 min' },
+          { label: 'Peak Loudness', value: '62 dB' },
+          { label: 'Severity', value: 'Moderate' },
+        ].map(item => (
+          <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-5 text-center">
+            <div class="text-xs text-[var(--color-text-secondary)]">{item.label}</div>
+            <div class="text-xl font-bold mt-1">{item.value}</div>
+          </div>
+        ))}
+      </div>
+      <ul class="mt-6 space-y-2 text-[var(--color-text-secondary)] list-disc list-inside text-sm">
+        <li>Hourly snore distribution (see which hours are worst)</li>
+        <li>Sleep talking count and heavy breathing events</li>
+        <li>AI-powered distinction between snoring and environmental noise (music, conversation)</li>
+      </ul>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">How to Use</h2>
+      <div class="space-y-3">
+        {[
+          { n: '1', title: 'Download Hushbay', desc: 'Search for Hushbay on the App Store, free download' },
+          { n: '2', title: 'Start Sleep Tracking', desc: 'Tap start before bed, and enable the snore detection toggle' },
+          { n: '3', title: 'Place Your Phone', desc: 'Put your phone on the nightstand -- it works with the screen off' },
+          { n: '4', title: 'View Your Report', desc: 'Check the detailed snoring report when you wake up' },
+        ].map(step => (
+          <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-5 flex gap-4 items-start">
+            <span class="bg-[var(--color-accent)] text-white w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold shrink-0">{step.n}</span>
+            <div>
+              <h3 class="font-semibold">{step.title}</h3>
+              <p class="text-sm text-[var(--color-text-secondary)]">{step.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <CTABanner lang="en" variant="mid" />
+
+    <section class="py-12">
+      <h2 class="text-xl font-bold mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+          <h3 class="font-semibold mb-2">Is phone-based snore detection accurate?</h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">Hushbay uses AI algorithms to analyze audio and can accurately distinguish between snoring, sleep talking, and environmental noise. It is more than sufficient for everyday snoring monitoring.</p>
+        </div>
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+          <h3 class="font-semibold mb-2">Does the screen need to stay on?</h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">No, it runs in the background. The screen can be off and it will still record normally. It does not interfere with charging or alarms.</p>
+        </div>
+        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+          <h3 class="font-semibold mb-2">Should I see a doctor for severe snoring?</h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">If monitoring shows severe snoring (more than 30 times per hour), it is recommended to check for obstructive sleep apnea (OSA). Hushbay reports can serve as a reference when visiting your doctor.</p>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <CTABanner lang="en" variant="bottom" />
+</BaseLayout>

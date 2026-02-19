@@ -81,22 +81,43 @@ const resources = featuredSlugs.map(slug => ({
   </section>
 
   <!-- Core Features -->
-  <section class="max-w-4xl mx-auto px-4 py-16">
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
-        <div class="text-3xl mb-3">&#x1F30A;</div>
-        <h3 class="font-semibold text-lg mb-2">Natural Soundscapes</h3>
-        <p class="text-sm text-[var(--color-text-secondary)]">Rain, ocean waves, fireplace, cricket sounds... High-quality natural soundscapes to help you fall asleep. Free web preview available.</p>
+  <section class="max-w-5xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 gap-5">
+      <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6 flex gap-5">
+        <div class="shrink-0 w-11 h-11 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center">
+          <svg class="w-6 h-6 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-1.5">Rich Healing Sounds</h3>
+          <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">White, pink, and brown noise; rain, ocean waves, crickets, campfire, and hundreds of natural sounds. Sleep music, ASMR, audiobooks, and immersive videos. Free sound mixing.</p>
+        </div>
       </div>
-      <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
-        <div class="text-3xl mb-3">&#x1F4A4;</div>
-        <h3 class="font-semibold text-lg mb-2">Auto-Stop on Sleep</h3>
-        <p class="text-sm text-[var(--color-text-secondary)]">Automatically stops playback when it detects you've fallen asleep. No worries about all-night playback draining your battery, and no sudden stop to wake you.</p>
+      <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6 flex gap-5">
+        <div class="shrink-0 w-11 h-11 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center">
+          <svg class="w-6 h-6 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-1.5">Auto-Stop on Sleep</h3>
+          <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">Detects when you fall asleep and gradually fades audio to silence. No timer needed, saves battery, and no sudden stop to wake you.</p>
+        </div>
       </div>
-      <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
-        <div class="text-3xl mb-3">&#x1F9E0;</div>
-        <h3 class="font-semibold text-lg mb-2">Sleep Tracking</h3>
-        <p class="text-sm text-[var(--color-text-secondary)]">Track deep sleep, light sleep, snoring, and sleep talking. AI assistant helps you understand your sleep data and provides personalized advice.</p>
+      <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6 flex gap-5">
+        <div class="shrink-0 w-11 h-11 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center">
+          <svg class="w-6 h-6 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-1.5">Wearable-Free Sleep Tracking</h3>
+          <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">No smartwatch needed. Place your phone on the nightstand. Auto-detects sleep onset and deep sleep, captures snoring and sleep talking with playback, and shows weekly/monthly trends.</p>
+        </div>
+      </div>
+      <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6 flex gap-5">
+        <div class="shrink-0 w-11 h-11 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center">
+          <svg class="w-6 h-6 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-1.5">Mind & Body Relaxation</h3>
+          <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">Box breathing, 4-7-8 breathing exercises to ease anxiety. Focus mode blocks distractions for work, study, and reading.</p>
+        </div>
       </div>
     </div>
   </section>

@@ -42,7 +42,7 @@ const gradient = fallbackGradient[category] || 'from-indigo-900/80 to-slate-900/
     <h3 class="font-semibold text-[14px] md:text-[15px] leading-snug text-white">{title}</h3>
     <p class="text-[13px] text-[var(--color-text-secondary)] line-clamp-1">{scene}</p>
     <div class="flex gap-2.5 mt-auto pt-3">
-      <a href={href} class="flex-1 text-center text-[13px] py-2 rounded-xl bg-white/[0.06] text-[var(--color-text-secondary)] hover:bg-white/[0.1] hover:text-white transition-all duration-300 font-medium">
+      <a href={`${href}#play`} class="flex-1 text-center text-[13px] py-2 rounded-xl bg-white/[0.06] text-[var(--color-text-secondary)] hover:bg-white/[0.1] hover:text-white transition-all duration-300 font-medium">
         &#9654; {t.preview}
       </a>
       <a href="https://apps.apple.com/app/id6747609991" class="flex-1 text-center text-[13px] py-2 rounded-xl bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white transition-colors duration-300 font-medium">

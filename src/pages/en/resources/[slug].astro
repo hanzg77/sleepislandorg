@@ -1,9 +1,8 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import AudioPlayer from '../../../components/AudioPlayer.astro';
-import CTABanner from '../../../components/CTABanner.astro';
-import ResourceCard from '../../../components/ResourceCard.astro';
+import ResourceDetailPage from '../../../components/ResourceDetailPage.astro';
 import { resources } from '../../../data/resources';
+import { getResourceTitle } from '../../../data/i18n';
 
 export function getStaticPaths() {
   return Object.keys(resources).map(slug => ({ params: { slug } }));
@@ -12,14 +11,8 @@ export function getStaticPaths() {
 const { slug } = Astro.params;
 const r = resources[slug as string];
 if (!r) return Astro.redirect('/en/resources/');
-
-const sceneMap: Record<string, string> = {
-  '入睡': 'Sleep', '放松': 'Relaxation', '阅读': 'Reading',
-  '深度放松': 'Deep Relaxation', '冥想': 'Meditation', '减压': 'Stress Relief',
-  '专注': 'Focus', '遮蔽噪音': 'Noise Masking', '失眠': 'Insomnia',
-  '耳鸣缓解': 'Tinnitus Relief', '助眠': 'Sleep Aid', '早起': 'Morning',
-};
-const scenesEnList = r.scenes.map((s: string) => sceneMap[s] || s);
+const lang = 'en' as const;
+const title = getResourceTitle(slug as string, lang, resources);
 const displayTitle = r.titleEn || r.title;
 
 const schema = [
@@ -43,90 +36,15 @@ const schema = [
     ]
   }
 ];
-
-const relatedResources = (r.related || []).map((s: string) => resources[s]).filter(Boolean).map((rel: any, i: number) => ({
-  ...rel,
-  slug: r.related[i]
-}));
 ---
 
 <BaseLayout
   title={`${displayTitle} - Free Preview | Sleep Island`}
-  description={r.descEn || `${displayTitle} - natural sound for sleep and relaxation. Free preview on web, full version in the Sleep Island app.`}
-  lang="en"
+  description={r.descEn || `${displayTitle} - natural sound for sleep and relaxation.`}
+  lang={lang}
   alternateZh={`https://www.sleepisland.org/resources/${slug}/`}
   alternateEn={`https://www.sleepisland.org/en/resources/${slug}/`}
   schema={schema}
 >
-  <article class="max-w-[680px] mx-auto px-5">
-    <!-- Breadcrumb -->
-    <nav aria-label="Breadcrumb" class="pt-5 text-[13px] text-[var(--color-text-muted)]">
-      <a href="/en/" class="hover:text-[var(--color-text-secondary)] transition-colors">Home</a>
-      <span class="mx-1.5">/</span>
-      <a href="/en/resources/" class="hover:text-[var(--color-text-secondary)] transition-colors">Resources</a>
-      <span class="mx-1.5">/</span>
-      <span class="text-[var(--color-text-secondary)]">{displayTitle}</span>
-    </nav>
-
-    <!-- Cover -->
-    {r.cover && (
-      <div class="mt-4 rounded-2xl overflow-hidden aspect-video">
-        <img src={r.cover} alt={displayTitle} class="w-full h-full object-cover" loading="eager" />
-      </div>
-    )}
-
-    <!-- Title + Tags -->
-    <div class="mt-5">
-      <h1 class="text-[1.5rem] md:text-[1.85rem] font-bold tracking-[-0.02em] text-white leading-tight">{displayTitle}</h1>
-      <div class="flex flex-wrap items-center gap-2 mt-3 text-[13px]">
-        <span class="bg-white/[0.06] text-[var(--color-text-secondary)] px-2.5 py-1 rounded-lg">{r.category}</span>
-        <span class="bg-white/[0.06] text-[var(--color-text-secondary)] px-2.5 py-1 rounded-lg">{r.durationLabel}</span>
-        {scenesEnList.map((s: string) => (
-          <span class="text-[var(--color-text-muted)]">{s}</span>
-        ))}
-      </div>
-    </div>
-
-    <!-- Audio Player -->
-    <div class="mt-5">
-      <AudioPlayer src={r.audio} title={displayTitle} lang="en" autoplay />
-    </div>
-
-    <!-- Description + CTA -->
-    <div class="mt-6">
-      <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">{r.descEn || `${displayTitle} - natural sound for sleep and relaxation. Free preview available on web, full version in the Sleep Island app.`}</p>
-      <div class="mt-5">
-        <a
-          href="https://apps.apple.com/app/id6747609991"
-          class="inline-flex items-center justify-center gap-2 bg-white text-black text-[14px] font-semibold px-6 py-2.5 rounded-full transition-all duration-300 hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98]"
-        >
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          Listen full version in App
-        </a>
-      </div>
-    </div>
-
-    <!-- Related Sounds -->
-    {relatedResources.length > 0 && (
-      <nav aria-label="Related sounds" class="mt-12 pt-10 border-t border-white/[0.06]">
-        <h2 class="text-lg font-bold mb-5 text-white">Related Sounds</h2>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {relatedResources.map((rel: any) => (
-            <ResourceCard title={rel.titleEn || rel.title} slug={rel.slug} category={rel.category} scene={sceneMap[rel.scenes?.[0]] || rel.scenes?.[0] || ''} duration={rel.durationLabel} cover={rel.cover} lang="en" />
-          ))}
-        </div>
-      </nav>
-    )}
-
-    <!-- SEO structured data -->
-    <dl class="summary mt-12 mb-6" role="contentinfo" aria-label="Resource summary">
-      <dt>Type</dt><dd>Sound Preview (Web) + Full Version (App)</dd>
-      <dt>Topic</dt><dd>{displayTitle}</dd>
-      <dt>Category</dt><dd>{r.category}</dd>
-      <dt>Use Cases</dt><dd>{scenesEnList.join(', ')}</dd>
-      <dt>Duration</dt><dd>{r.durationLabel}</dd>
-      <dt>App</dt><dd>Sleep Island (iOS)</dd>
-      <dt>Download</dt><dd><a href="https://apps.apple.com/app/id6747609991" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">App Store</a></dd>
-    </dl>
-  </article>
+  <ResourceDetailPage slug={slug as string} lang={lang} />
 </BaseLayout>

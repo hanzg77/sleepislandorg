@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ResourceListPage from '../../../components/ResourceListPage.astro';
+const lang = 'ko' as const;
+import { UI } from '../../../data/i18n';
+const t = UI[lang];
+---
+
+<BaseLayout
+  title={`${t.resourcesTitle} | Sleep Island`}
+  description={t.resourcesDesc}
+  lang={lang}
+>
+  <ResourceListPage lang={lang} />
+</BaseLayout>

@@ -35,7 +35,7 @@ const uiBase = {
 export const UI: Record<Lang, Record<string, string>> = {
   'zh-Hans': {
     brandName: '睡眠岛',
-    heroTagline: '自然音景 · 入睡自动停止 · 睡眠分析',
+    heroTagline: '海量助眠资源 · 入睡自动停止 · 睡眠检测 · 打鼾梦话记录',
     heroCta: '在 App Store 免费下载',
     heroSub: '浏览声音资源',
     resourcesTitle: '精选声音资源',
@@ -64,7 +64,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   en: {
     brandName: 'Sleep Island',
-    heroTagline: 'Natural Soundscapes · Auto-Stop · Sleep Analysis',
+    heroTagline: 'Sleep Sounds · Auto-Stop on Sleep · Sleep Tracking · Snore & Sleep Talk Recording',
     heroCta: 'Download on the App Store',
     heroSub: 'Browse Sound Resources',
     resourcesTitle: 'Featured Sound Resources',
@@ -92,7 +92,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   'zh-Hant': {
     brandName: '睡眠島',
-    heroTagline: '自然音景 · 入睡自動停止 · 睡眠分析',
+    heroTagline: '海量助眠資源 · 入睡自動停止 · 睡眠檢測 · 打鼾夢話記錄',
     heroCta: '在 App Store 免費下載',
     heroSub: '瀏覽聲音資源',
     resourcesTitle: '精選聲音資源',
@@ -118,7 +118,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   ja: {
     brandName: 'Sleep Island',
-    heroTagline: '自然の音 · 入眠で自動停止 · 睡眠分析',
+    heroTagline: '豊富な睡眠サウンド · 入眠で自動停止 · 睡眠検知 · いびき・寝言記録',
     heroCta: 'App Storeで無料ダウンロード', heroSub: 'サウンドを探す',
     resourcesTitle: 'おすすめサウンド', resourcesDesc: 'ウェブで試聴、フルバージョンはアプリで', resourcesMore: 'すべてのサウンドを見る →',
     tinnitusTitle: '耳鳴り緩和',
@@ -138,7 +138,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   ko: {
     brandName: 'Sleep Island',
-    heroTagline: '자연의 소리 · 수면 시 자동 정지 · 수면 분석',
+    heroTagline: '풍부한 수면 사운드 · 수면 시 자동 정지 · 수면 감지 · 코골이·잠꼬대 기록',
     heroCta: 'App Store에서 무료 다운로드', heroSub: '사운드 탐색',
     resourcesTitle: '추천 사운드', resourcesDesc: '웹에서 미리 듣기, 전체 버전은 앱에서', resourcesMore: '모든 사운드 보기 →',
     tinnitusTitle: '이명 완화',
@@ -158,7 +158,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   es: {
     brandName: 'Sleep Island',
-    heroTagline: 'Sonidos naturales · Parada automática · Análisis del sueño',
+    heroTagline: 'Sonidos para dormir · Auto-parada · Detección del sueño · Grabación de ronquidos',
     heroCta: 'Descargar en App Store', heroSub: 'Explorar sonidos',
     resourcesTitle: 'Sonidos destacados', resourcesDesc: 'Escucha en la web, versión completa en la App', resourcesMore: 'Ver todos los sonidos →',
     tinnitusTitle: 'Alivio del tinnitus',
@@ -178,7 +178,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   fr: {
     brandName: 'Sleep Island',
-    heroTagline: 'Sons naturels · Arrêt automatique · Analyse du sommeil',
+    heroTagline: 'Sons pour dormir · Arrêt automatique · Détection du sommeil · Enregistrement des ronflements',
     heroCta: 'Télécharger sur l\'App Store', heroSub: 'Explorer les sons',
     resourcesTitle: 'Sons en vedette', resourcesDesc: 'Écoute en ligne, version complète dans l\'App', resourcesMore: 'Voir tous les sons →',
     tinnitusTitle: 'Soulagement des acouphènes',
@@ -198,7 +198,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   de: {
     brandName: 'Sleep Island',
-    heroTagline: 'Naturklänge · Auto-Stopp · Schlafanalyse',
+    heroTagline: 'Schlafklänge · Auto-Stopp · Schlaferkennung · Schnarch- & Schlafgeräusche',
     heroCta: 'Im App Store laden', heroSub: 'Klänge entdecken',
     resourcesTitle: 'Empfohlene Klänge', resourcesDesc: 'Online anhören, Vollversion in der App', resourcesMore: 'Alle Klänge anzeigen →',
     tinnitusTitle: 'Tinnitus-Linderung',
@@ -218,7 +218,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   pt: {
     brandName: 'Sleep Island',
-    heroTagline: 'Sons naturais · Parada automática · Análise do sono',
+    heroTagline: 'Sons para dormir · Parada automática · Detecção do sono · Gravação de ronco',
     heroCta: 'Baixar na App Store', heroSub: 'Explorar sons',
     resourcesTitle: 'Sons em destaque', resourcesDesc: 'Ouça na web, versão completa no App', resourcesMore: 'Ver todos os sons →',
     tinnitusTitle: 'Alívio do zumbido',
@@ -238,7 +238,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   ru: {
     brandName: 'Sleep Island',
-    heroTagline: 'Звуки природы · Авто-стоп · Анализ сна',
+    heroTagline: 'Звуки для сна · Авто-стоп · Отслеживание сна · Запись храпа и разговоров',
     heroCta: 'Скачать в App Store', heroSub: 'Смотреть звуки',
     resourcesTitle: 'Избранные звуки', resourcesDesc: 'Слушайте онлайн, полная версия в приложении', resourcesMore: 'Все звуки →',
     tinnitusTitle: 'Облегчение тиннитуса',
@@ -258,7 +258,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   ar: {
     brandName: 'Sleep Island',
-    heroTagline: 'أصوات طبيعية · توقف تلقائي · تحليل النوم',
+    heroTagline: 'أصوات للنوم · توقف تلقائي · كشف النوم · تسجيل الشخير والكلام',
     heroCta: 'تحميل من App Store', heroSub: 'استكشف الأصوات',
     resourcesTitle: 'أصوات مميزة', resourcesDesc: 'استمع على الويب، النسخة الكاملة في التطبيق', resourcesMore: 'عرض جميع الأصوات →',
     tinnitusTitle: 'تخفيف طنين الأذن',
@@ -278,7 +278,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   hi: {
     brandName: 'Sleep Island',
-    heroTagline: 'प्राकृतिक ध्वनियाँ · ऑटो-स्टॉप · नींद विश्लेषण',
+    heroTagline: 'नींद की ध्वनियाँ · ऑटो-स्टॉप · नींद पहचान · खर्राटे और नींद में बात रिकॉर्ड',
     heroCta: 'App Store से मुफ्त डाउनलोड', heroSub: 'ध्वनियाँ ब्राउज़ करें',
     resourcesTitle: 'चुनिंदा ध्वनियाँ', resourcesDesc: 'वेब पर सुनें, पूर्ण संस्करण ऐप में', resourcesMore: 'सभी ध्वनियाँ देखें →',
     tinnitusTitle: 'टिनिटस राहत',
@@ -298,7 +298,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   vi: {
     brandName: 'Sleep Island',
-    heroTagline: 'Âm thanh tự nhiên · Tự động dừng · Phân tích giấc ngủ',
+    heroTagline: 'Âm thanh ru ngủ · Tự động dừng · Phát hiện giấc ngủ · Ghi ngáy và nói mơ',
     heroCta: 'Tải miễn phí trên App Store', heroSub: 'Khám phá âm thanh',
     resourcesTitle: 'Âm thanh nổi bật', resourcesDesc: 'Nghe trên web, phiên bản đầy đủ trong App', resourcesMore: 'Xem tất cả âm thanh →',
     tinnitusTitle: 'Giảm ù tai',
@@ -318,7 +318,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   th: {
     brandName: 'Sleep Island',
-    heroTagline: 'เสียงธรรมชาติ · หยุดอัตโนมัติ · วิเคราะห์การนอน',
+    heroTagline: 'เสียงช่วยนอน · หยุดอัตโนมัติ · ตรวจจับการนอน · บันทึกเสียงกรนและละเมอ',
     heroCta: 'ดาวน์โหลดฟรีจาก App Store', heroSub: 'สำรวจเสียง',
     resourcesTitle: 'เสียงแนะนำ', resourcesDesc: 'ฟังออนไลน์ เวอร์ชันเต็มในแอป', resourcesMore: 'ดูเสียงทั้งหมด →',
     tinnitusTitle: 'บรรเทาหูอื้อ',
@@ -338,7 +338,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   id: {
     brandName: 'Sleep Island',
-    heroTagline: 'Suara alam · Auto-stop · Analisis tidur',
+    heroTagline: 'Suara tidur · Auto-stop · Deteksi tidur · Rekam dengkuran & igauan',
     heroCta: 'Unduh gratis di App Store', heroSub: 'Jelajahi suara',
     resourcesTitle: 'Suara pilihan', resourcesDesc: 'Dengarkan di web, versi lengkap di App', resourcesMore: 'Lihat semua suara →',
     tinnitusTitle: 'Redakan tinnitus',

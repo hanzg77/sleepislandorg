@@ -10,7 +10,6 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = UI[lang];
-const isZh = lang === 'zh-Hans';
 const prefix = lang === 'zh-Hans' ? '' : lang === 'en' ? '/en' : `/${lang}`;
 
 const featuredSlugs = ['rain-fireplace', 'tropical-rainforest', 'deep-sea-bubbles', 'winter-cave-fireplace', 'cricket-sounds', 'thunderstorm', 'pink-noise', 'lake-rain', 'crickets-insects'];
@@ -24,70 +23,41 @@ const resources = featuredSlugs.map(slug => ({
 }));
 ---
 
-<!-- Hero: simplified — logo + title block, tagline, one CTA -->
-<section class="text-center pt-24 pb-12 px-4 bg-gradient-to-b from-[#0f1528] via-[#0c1020] to-[var(--color-bg-primary)] relative overflow-hidden">
+<!-- Hero: logo + brand name + tagline + CTA, compact -->
+<section class="text-center pt-24 pb-8 px-4 bg-gradient-to-b from-[#0f1528] via-[#0c1020] to-[var(--color-bg-primary)] relative overflow-hidden">
   <!-- Ambient glow -->
   <div class="absolute inset-0 pointer-events-none">
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[radial-gradient(ellipse,rgba(139,100,220,0.12),transparent_70%)]"></div>
   </div>
 
   <div class="relative z-10">
-    <!-- Logo + Brand name as one visual block -->
-    <div class="flex flex-col items-center gap-5 mb-6">
-      <img src="/assets/logo-new-1024.png" alt="Sleep Island" width="140" height="140"
+    <div class="flex flex-col items-center gap-4 mb-5">
+      <img src="/assets/logo-new-1024.png" alt={t.brandName} width="120" height="120"
            class="rounded-[2rem] shadow-[0_12px_60px_rgba(139,100,220,0.3),0_0_0_1px_rgba(255,255,255,0.06)]" />
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tight">Sleep Island</h1>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight">{t.brandName}</h1>
     </div>
-
-    <!-- Single tagline -->
-    <p class="text-lg md:text-xl text-[var(--color-text-secondary)] mb-10 tracking-wide font-light">{t.heroTagline}</p>
-
-    <!-- One primary CTA -->
+    <p class="text-base md:text-lg text-[var(--color-text-secondary)] mb-8 tracking-wide font-light">{t.heroTagline}</p>
     <a href="https://apps.apple.com/app/id6747609991"
-       class="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white font-medium px-10 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg text-lg">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+       class="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white font-medium px-8 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
       {t.heroCta}
     </a>
   </div>
 </section>
 
-<!-- Features: compact 4-column strip -->
-<section class="max-w-5xl mx-auto px-4 -mt-2 pb-12">
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-    <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-5 text-center hover:border-[var(--color-accent)]/40 transition-colors group">
-      <div class="text-3xl mb-2">🌊</div>
-      <div class="font-semibold text-sm mb-1">{t.featSound}</div>
-      <div class="text-xs text-[var(--color-text-secondary)]">{t.featSoundDesc}</div>
-    </div>
-    <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-5 text-center hover:border-[var(--color-accent)]/40 transition-colors group">
-      <div class="text-3xl mb-2">🌙</div>
-      <div class="font-semibold text-sm mb-1">{t.featAutoStop}</div>
-      <div class="text-xs text-[var(--color-text-secondary)]">{t.featAutoStopDesc}</div>
-    </div>
-    <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-5 text-center hover:border-[var(--color-accent)]/40 transition-colors group">
-      <div class="text-3xl mb-2">📊</div>
-      <div class="font-semibold text-sm mb-1">{t.featTrack}</div>
-      <div class="text-xs text-[var(--color-text-secondary)]">{t.featTrackDesc}</div>
-    </div>
-    <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-5 text-center hover:border-[var(--color-accent)]/40 transition-colors group">
-      <div class="text-3xl mb-2">😌</div>
-      <div class="font-semibold text-sm mb-1">{t.featRelax}</div>
-      <div class="text-xs text-[var(--color-text-secondary)]">{t.featRelaxDesc}</div>
-    </div>
+<!-- Featured Resources: immediately after hero, large & prominent -->
+<section class="max-w-5xl mx-auto px-4 pt-8 pb-12">
+  <div class="text-center mb-8">
+    <h2 class="text-2xl md:text-3xl font-bold mb-3">{t.resourcesTitle}</h2>
+    <p class="text-lg text-[var(--color-text-secondary)]">{t.resourcesDesc}</p>
   </div>
-</section>
-
-<!-- Featured Resources: larger covers -->
-<section class="max-w-5xl mx-auto px-4 py-12">
-  <h2 class="text-2xl font-bold text-center mb-2">{t.resourcesTitle}</h2>
-  <p class="text-center text-[var(--color-text-secondary)] mb-8">{t.resourcesDesc}</p>
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
     {resources.map(r => (
       <ResourceCard {...r} lang={lang} />
     ))}
   </div>
   <div class="text-center mt-8">
-    <a href={`${prefix || ''}/resources/`} class="text-[var(--color-accent-light)] hover:underline">{t.resourcesMore}</a>
+    <a href={`${prefix || ''}/resources/`} class="text-[var(--color-accent-light)] hover:underline text-base">{t.resourcesMore}</a>
   </div>
 </section>
 

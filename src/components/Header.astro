@@ -8,10 +8,12 @@ const { lang = 'zh-Hans' } = Astro.props;
 const t = UI[lang];
 const prefix = lang === 'zh-Hans' ? '' : lang === 'en' ? '/en' : `/${lang}`;
 
+// Nav links matching real pages: resources, snore-detection, tinnitus-relief, faq
 const nav = [
-  { label: t.navResources, href: `${prefix}/resources/` },
-  { label: t.navGuides, href: `${prefix}/guides/` },
-  { label: t.navApp, href: `${prefix}/app/` },
+  { label: t.navSounds, href: `${prefix}/resources/` },
+  { label: t.navSnore, href: `${prefix}/snore-detection/` },
+  { label: t.navTinnitus, href: `${prefix}/tinnitus-relief/` },
+  { label: t.navFaq, href: `${prefix}/faq/` },
 ];
 
 const homeHref = prefix ? `${prefix}/` : '/';

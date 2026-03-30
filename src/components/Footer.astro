@@ -14,8 +14,8 @@ const prefix = lang === 'zh-Hans' ? '' : lang === 'en' ? '/en' : `/${lang}`;
     <div class="flex flex-col sm:flex-row justify-between gap-8">
       <div>
         <div class="flex items-center gap-2 mb-3">
-          <img src="/assets/logo-new-1024.png" alt="Sleep Island" width="28" height="28" class="rounded-lg" />
-          <span class="font-bold">Sleep Island</span>
+          <img src="/assets/logo-new-1024.png" alt={t.brandName} width="28" height="28" class="rounded-lg" />
+          <span class="font-bold">{t.brandName}</span>
         </div>
         <p class="text-sm text-[var(--color-text-secondary)] max-w-xs">{t.footerDesc}</p>
       </div>
@@ -24,10 +24,10 @@ const prefix = lang === 'zh-Hans' ? '' : lang === 'en' ? '/en' : `/${lang}`;
         <div>
           <h3 class="font-semibold mb-3">{t.footerPages}</h3>
           <ul class="space-y-2 text-[var(--color-text-secondary)]">
-            <li><a href={`${prefix}/resources/`} class="hover:text-white transition-colors">{t.footerResources}</a></li>
-            <li><a href={`${prefix}/guides/`} class="hover:text-white transition-colors">{t.footerGuides}</a></li>
+            <li><a href={`${prefix}/resources/`} class="hover:text-white transition-colors">{t.footerSounds}</a></li>
+            <li><a href={`${prefix}/snore-detection/`} class="hover:text-white transition-colors">{t.footerSnore}</a></li>
             <li><a href={`${prefix}/tinnitus-relief/`} class="hover:text-white transition-colors">{t.footerTinnitus}</a></li>
-            <li><a href={`${prefix}/app/`} class="hover:text-white transition-colors">App</a></li>
+            <li><a href={`${prefix}/guides/`} class="hover:text-white transition-colors">{t.footerGuides}</a></li>
           </ul>
         </div>
         <div>
@@ -41,7 +41,7 @@ const prefix = lang === 'zh-Hans' ? '' : lang === 'en' ? '/en' : `/${lang}`;
     </div>
 
     <div class="mt-8 pt-6 border-t border-[var(--color-border-card)] flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[var(--color-text-muted)]">
-      <span>&copy; 2026 Sleep Island. All rights reserved.</span>
+      <span>&copy; 2026 {t.brandName}. All rights reserved.</span>
       <a href="mailto:contact@sleepisland.org" class="hover:text-[var(--color-text-secondary)] transition-colors">contact@sleepisland.org</a>
     </div>
   </div>

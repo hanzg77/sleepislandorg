@@ -39,7 +39,7 @@ export const UI: Record<Lang, Record<string, string>> = {
     heroCta: '在 App Store 免费下载',
     heroSub: '浏览声音资源',
     resourcesTitle: '海量助眠声音，助你安然入睡',
-    resourcesDesc: '网页即可直接试听，下载睡眠岛，体验更丰富的声音内容与完整功能。',
+    resourcesDesc: '下载睡眠岛 App，体验更丰富的声音内容与完整功能。',
     resourcesMore: '查看全部资源 →',
     tinnitusTitle: '耳鸣缓解',
     tinnitusDesc: '蟋蟀声、夏夜虫鸣等自然声音，通过声音遮蔽疗法缓解耳鸣困扰。频率接近耳鸣声的自然白噪音效果最好——这是 Mayo Clinic 等权威机构推荐的方法。',

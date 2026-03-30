@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HomePage from '../../components/HomePage.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Sleep Island",
+    "operatingSystem": "iOS",
+    "applicationCategory": "HealthApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://sleepisland.org/ru/",
+    "downloadUrl": "https://apps.apple.com/app/id6747609991"
+  }
+];
+---
+
+<BaseLayout
+  title="Sleep Island - Звуки природы для сна · Авто-стоп"
+  description="Sleep Island — приложение для сна со звуками природы, облегчением тиннитуса и автоматической остановкой."
+  lang="ru"
+  alternateZh="https://sleepisland.org/"
+  alternateEn="https://sleepisland.org/en/"
+  alternateJa="https://sleepisland.org/ja/"
+  alternateEs="https://sleepisland.org/es/"
+  alternatePt="https://sleepisland.org/pt/" 
+  schema={schema}
+>
+  <HomePage lang="ru" />
+</BaseLayout>

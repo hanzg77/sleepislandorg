@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HomePage from '../../components/HomePage.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Sleep Island",
+    "operatingSystem": "iOS",
+    "applicationCategory": "HealthApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://sleepisland.org/hi/",
+    "downloadUrl": "https://apps.apple.com/app/id6747609991"
+  }
+];
+---
+
+<BaseLayout
+  title="Sleep Island - प्राकृतिक ध्वनियों से नींद · ऑटो-स्टॉप"
+  description="Sleep Island प्राकृतिक ध्वनियों, टिनिटस राहत और ऑटो-स्टॉप वाला नींद ऐप है।"
+  lang="hi"
+  alternateZh="https://sleepisland.org/"
+  alternateEn="https://sleepisland.org/en/"
+  alternateJa="https://sleepisland.org/ja/"
+  alternateEs="https://sleepisland.org/es/"
+  alternatePt="https://sleepisland.org/pt/" 
+  schema={schema}
+>
+  <HomePage lang="hi" />
+</BaseLayout>

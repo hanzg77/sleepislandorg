@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HomePage from '../../components/HomePage.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Sleep Island",
+    "operatingSystem": "iOS",
+    "applicationCategory": "HealthApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://sleepisland.org/ar/",
+    "downloadUrl": "https://apps.apple.com/app/id6747609991"
+  }
+];
+---
+
+<BaseLayout
+  title="Sleep Island - أصوات طبيعية للنوم · توقف تلقائي"
+  description="Sleep Island تطبيق نوم بأصوات طبيعية وتخفيف طنين الأذن والتوقف التلقائي."
+  lang="ar"
+  alternateZh="https://sleepisland.org/"
+  alternateEn="https://sleepisland.org/en/"
+  alternateJa="https://sleepisland.org/ja/"
+  alternateEs="https://sleepisland.org/es/"
+  alternatePt="https://sleepisland.org/pt/" 
+  schema={schema}
+>
+  <HomePage lang="ar" />
+</BaseLayout>

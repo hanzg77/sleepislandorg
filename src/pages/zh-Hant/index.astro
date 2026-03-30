@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HomePage from '../../components/HomePage.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Sleep Island",
+    "operatingSystem": "iOS",
+    "applicationCategory": "HealthApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://sleepisland.org/zh-Hant/",
+    "downloadUrl": "https://apps.apple.com/app/id6747609991"
+  }
+];
+---
+
+<BaseLayout
+  title="睡眠島 - 自然助眠聲音與入睡自動停止"
+  description="睡眠島是一款聲音驅動的睡眠 App：自然音景、耳鳴緩解、入睡自動停止、鼾聲與睡眠記錄反饋。"
+  lang="zh-Hant"
+  alternateZh="https://sleepisland.org/"
+  alternateEn="https://sleepisland.org/en/"
+  alternateJa="https://sleepisland.org/ja/"
+  alternateEs="https://sleepisland.org/es/"
+  alternatePt="https://sleepisland.org/pt/" 
+  schema={schema}
+>
+  <HomePage lang="zh-Hant" />
+</BaseLayout>

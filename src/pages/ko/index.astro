@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HomePage from '../../components/HomePage.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Sleep Island",
+    "operatingSystem": "iOS",
+    "applicationCategory": "HealthApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://sleepisland.org/ko/",
+    "downloadUrl": "https://apps.apple.com/app/id6747609991"
+  }
+];
+---
+
+<BaseLayout
+  title="Sleep Island - 자연의 소리로 잠들기 · 자동 정지 · 수면 분석"
+  description="Sleep Island는 소리로 잠을 돕는 앱입니다. 자연 사운드스케이프, 이명 완화, 수면 시 자동 정지, 코골이 및 수면 추적."
+  lang="ko"
+  alternateZh="https://sleepisland.org/"
+  alternateEn="https://sleepisland.org/en/"
+  alternateJa="https://sleepisland.org/ja/"
+  alternateEs="https://sleepisland.org/es/"
+  alternatePt="https://sleepisland.org/pt/" 
+  schema={schema}
+>
+  <HomePage lang="ko" />
+</BaseLayout>

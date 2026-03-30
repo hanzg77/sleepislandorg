@@ -1,34 +1,29 @@
 ---
+import { LANGS, UI, type Lang } from '../data/i18n';
+
 interface Props {
-  lang?: 'zh-Hans' | 'en';
+  lang?: Lang;
 }
 const { lang = 'zh-Hans' } = Astro.props;
-const isEn = lang === 'en';
+const t = UI[lang];
+const prefix = lang === 'zh-Hans' ? '' : lang === 'en' ? '/en' : `/${lang}`;
 
-const nav = isEn ? [
-  { label: 'Resources', href: '/en/resources/' },
-  { label: 'Guides', href: '/en/guides/' },
-  { label: 'App', href: '/en/app/' },
-] : [
-  { label: '资源', href: '/resources/' },
-  { label: '指南', href: '/guides/' },
-  { label: 'App', href: '/app/' },
+const nav = [
+  { label: t.navResources, href: `${prefix}/resources/` },
+  { label: t.navGuides, href: `${prefix}/guides/` },
+  { label: t.navApp, href: `${prefix}/app/` },
 ];
 
-const langSwitch = isEn
-  ? { label: '中文', href: '/' }
-  : { label: 'EN', href: '/en/' };
-
-const homeHref = isEn ? '/en/' : '/';
-const ctaLabel = isEn ? 'Download' : '下载';
+const homeHref = prefix ? `${prefix}/` : '/';
+const currentLangLabel = LANGS.find(l => l.code === lang)?.label || '中文';
 ---
 
 <header class="sticky top-0 z-50 bg-[var(--color-bg-primary)]/95 backdrop-blur border-b border-[var(--color-border-card)]">
   <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
     <!-- Logo -->
     <a href={homeHref} class="flex items-center gap-2 font-bold text-lg">
-      <img src="/assets/logo-60.png" alt="Hushbay" width="32" height="32" class="rounded-lg" />
-      <span class="hidden sm:inline">睡眠岛</span>
+      <img src="/assets/logo-new-1024.png" alt="Sleep Island" width="32" height="32" class="rounded-lg" />
+      <span class="hidden sm:inline">{t.brandName}</span>
     </a>
 
     <!-- Nav -->
@@ -38,16 +33,27 @@ const ctaLabel = isEn ? 'Download' : '下载';
       ))}
     </nav>
 
-    <!-- Right side -->
+    <!-- Right side: lang switcher + download -->
     <div class="flex items-center gap-3">
-      <a href={langSwitch.href} class="text-sm text-[var(--color-text-secondary)] hover:text-white transition-colors">
-        {langSwitch.label}
-      </a>
-      <a
-        href="https://apps.apple.com/app/id6747609991"
-        class="bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white text-sm font-medium px-4 py-2 rounded-full transition-colors"
-      >
-        {ctaLabel}
+      <!-- Language switcher -->
+      <div class="relative" id="langSwitcher">
+        <button id="langToggle" class="flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] hover:text-white transition-colors border border-[var(--color-border-card)] rounded-full px-3 py-1.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span>{currentLangLabel}</span>
+        </button>
+        <div id="langDropdown" class="absolute right-0 top-full mt-2 bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl py-1.5 min-w-[140px] shadow-xl opacity-0 invisible -translate-y-2 transition-all duration-200 z-50">
+          {LANGS.map(l => (
+            <a href={l.prefix ? `${l.prefix}/` : '/'}
+               class={`block px-4 py-2 text-sm hover:bg-white/5 transition-colors ${l.code === lang ? 'text-[var(--color-accent)] font-medium' : 'text-[var(--color-text-secondary)]'}`}>
+              {l.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <a href="https://apps.apple.com/app/id6747609991"
+         class="bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white text-sm font-medium px-4 py-2 rounded-full transition-colors">
+        {t.navDownload}
       </a>
     </div>
   </div>
@@ -59,3 +65,25 @@ const ctaLabel = isEn ? 'Download' : '下载';
     ))}
   </nav>
 </header>
+
+<script>
+  const toggle = document.getElementById('langToggle');
+  const dropdown = document.getElementById('langDropdown');
+  if (toggle && dropdown) {
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.contains('opacity-100');
+      if (isOpen) {
+        dropdown.classList.remove('opacity-100', 'visible', 'translate-y-0');
+        dropdown.classList.add('opacity-0', 'invisible', '-translate-y-2');
+      } else {
+        dropdown.classList.remove('opacity-0', 'invisible', '-translate-y-2');
+        dropdown.classList.add('opacity-100', 'visible', 'translate-y-0');
+      }
+    });
+    document.addEventListener('click', () => {
+      dropdown.classList.remove('opacity-100', 'visible', 'translate-y-0');
+      dropdown.classList.add('opacity-0', 'invisible', '-translate-y-2');
+    });
+  }
+</script>

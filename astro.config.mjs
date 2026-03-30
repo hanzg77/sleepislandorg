@@ -11,7 +11,7 @@ export default defineConfig({
     sitemap({
       i18n: {
         defaultLocale: 'zh',
-        locales: { zh: 'zh-Hans', en: 'en' }
+        locales: { zh: 'zh-Hans', en: 'en', ja: 'ja', es: 'es', pt: 'pt' }
       }
     })
   ]

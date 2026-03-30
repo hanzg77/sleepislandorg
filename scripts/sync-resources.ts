@@ -60,7 +60,7 @@ async function fetchAll(): Promise<ApiResource[]> {
     const json = await resp.json() as { data: ApiResource[]; has_more: boolean };
 
     const active = json.data.filter(
-      (r) => r.isPublished && r.status === 'active'
+      (r) => r.isPublished && r.status === 'active' && r.audioClipUrl
     );
     all.push(...active);
     console.log(`${active.length} resources`);
@@ -281,7 +281,7 @@ async function main() {
       const scenes = mapScenes(r.tags);
       const desc = cleanDesc(r.localizedContent.description);
       const cover = r.localizedContent.coverImageUrl || '';
-      const audio = r.audioClipUrl || r.audioUrl;
+      const audio = r.audioClipUrl;
       const video = r.videoClipUrl || r.videoUrl || '';
 
       newEntries.push(`  '${slug}': {

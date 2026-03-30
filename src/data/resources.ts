@@ -38,7 +38,7 @@ export const resources: Record<string, any> = {
     scenes: ['入睡', '放松', '减压'],
     duration: 'PT10H',
     durationLabel: '10 小时',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio_clips/68f723625c1b7e498cd53509_c_1.m4a',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68f723625c1b7e498cd53509_clip.m4a',
     cover: '/assets/covers/relaxing-rain.jpg',
     desc: '纯粹的雨声，没有音乐和雷声干扰，帮助你彻底放松并缓缓入睡。',
     descEn: 'Pure rain sounds without music or thunder, helping you fully relax and gently drift to sleep.',
@@ -52,7 +52,7 @@ export const resources: Record<string, any> = {
     scenes: ['入睡', '失眠', '放松'],
     duration: 'PT3H',
     durationLabel: '3 小时',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio_clips/684b0130cbbee57a39e40f24_c_1.m4a',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/684b0130cbbee57a39e40f24_clip.m4a',
     cover: '/assets/covers/gentle-night-rain.webp',
     desc: '夜间轻柔的雨声，无音乐无雷声，2 分钟内帮你安然入睡。',
     descEn: 'Soft night rain sounds, no music or thunder, helping you fall asleep within 2 minutes.',
@@ -66,7 +66,7 @@ export const resources: Record<string, any> = {
     scenes: ['入睡', '放松', '冥想'],
     duration: 'PT10H',
     durationLabel: '10 小时',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio_clips/696706a14a7ad44fa0e9b6bd_c_1.m4a',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/696706a14a7ad44fa0e9b6bd_clip.m4a',
     cover: '/assets/covers/rain-forest-stream.jpg',
     video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/696706a14a7ad44fa0e9b6bd_c.mp4',
     desc: '雨声与森林溪流声交融，流水潺潺加上淅淅雨声，双重自然白噪音。',
@@ -81,7 +81,7 @@ export const resources: Record<string, any> = {
     scenes: ['深度放松', '遮蔽噪音', '入睡'],
     duration: 'PT3H',
     durationLabel: '3 小时',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio_clips/69309157e992a1a94be4705a_c_1.m4a',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/69309157e992a1a94be4705a_clip.m4a',
     cover: '/assets/covers/thunderstorm.jpg',
     video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/69309157e992a1a94be4705a_c.mp4',
     desc: '铁皮屋顶上的倾盆大雨与远处雷声，强效遮蔽环境噪音，帮你快速入睡。',
@@ -98,7 +98,7 @@ export const resources: Record<string, any> = {
     scenes: ['入睡', '冥想', '放松'],
     duration: 'PT8H',
     durationLabel: '8 小时',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/vol05_rainforest.mp3',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/vol05_rainforest_5.mp3',
     cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/69949bde4a7ad44fa0f9a39a_zh_2.jpg',
     video: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/video/69949bde4a7ad44fa0f9a39a_2.mp4',
     desc: '雨林深处的鸟鸣声与倾盆大雨交织，沉浸式丛林白噪音伴你入眠。',
@@ -128,7 +128,7 @@ export const resources: Record<string, any> = {
     scenes: ['入睡', '放松', '遮蔽噪音'],
     duration: 'PT10H',
     durationLabel: '10 小时',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio_clips/684ab3b4cbbee57a39e40a70_c_1.m4a',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/684ab3b4cbbee57a39e40a70_clip.m4a',
     cover: '/assets/covers/blizzard.webp',
     video: 'http://uploadttcdn.fuciyuan7.com/video_clip/7BrIJrjxVxA.mp4',
     desc: '森林中的暴风雪声和呼啸的北极风，营造平静的氛围，帮助放松和入睡。',
@@ -145,7 +145,7 @@ export const resources: Record<string, any> = {
     scenes: ['放松', '入睡', '冥想'],
     duration: 'PT8H',
     durationLabel: '8 小时',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio_clips/6862ab1558388f37091ca5a6_c_1.m4a',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/6862ab1558388f37091ca5a6_clip.m4a',
     cover: '/assets/covers/winter-cave-fireplace.jpg',
     video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/6862ab1558388f37091ca5a5_c.mp4',
     desc: '在舒适的冬日洞穴中伴着噼啪作响的炉火放松身心，外面是荒野中柔和的自然之声。',
@@ -162,7 +162,7 @@ export const resources: Record<string, any> = {
     scenes: ['耳鸣缓解', '放松', '入睡'],
     duration: 'PT10H',
     durationLabel: '10 小时',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio_clips/692f6203e992a1a94be45a9f_c_1.m4a',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/materials/insects/cricket_3min.mp3',
     cover: '/assets/covers/cricket-sounds.jpg',
     video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/692f6203e992a1a94be45a9f_c.mp4',
     desc: '夜间蟋蟀对话声，频率范围（2000-6000Hz）与常见耳鸣接近，很多用户反馈可有效缓解耳鸣。',
@@ -177,7 +177,7 @@ export const resources: Record<string, any> = {
     scenes: ['耳鸣缓解', '助眠', '放松'],
     duration: 'PT10H',
     durationLabel: '10 小时',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio_clips/69729d6b4a7ad44fa0ef0329_c_1.m4a',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/69729d6b4a7ad44fa0ef0329_clip.m4a',
     cover: '/assets/covers/crickets-insects.jpg',
     video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/69729d6b4a7ad44fa0ef0329_c.mp4',
     desc: '草地上蟋蟀和昆虫在微风夜晚中的合唱，自然的节奏变化不会造成听觉疲劳，适合耳鸣缓解。',
@@ -194,13 +194,14 @@ export const resources: Record<string, any> = {
     scenes: ['入睡', '耳鸣缓解', '深度放松'],
     duration: 'PT10H',
     durationLabel: '10 小时',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio_clips/684b0bcbcbbee57a39e40f61_c_1.m4a',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/684b0bcbcbbee57a39e40f61_clip.m4a',
     cover: '/assets/covers/pink-noise.webp',
     video: 'http://uploadttcdn.fuciyuan7.com/video_clip/RA8gajb1KOU.mp4',
     desc: '低频能量更强的粉红噪音，比白噪音更柔和温暖，研究显示对深度睡眠有促进作用，也适合耳鸣缓解。',
     descEn: 'Pink noise with stronger low-frequency energy, softer and warmer than white noise, promotes deep sleep and tinnitus relief.',
     related: ['cricket-sounds', 'crickets-insects', 'blizzard', 'deep-sea-bubbles', 'thunderstorm'],
   },
+
 
   // ── Synced from API 2026-03-30 ──
   'asmr': {
@@ -215,6 +216,22 @@ export const resources: Record<string, any> = {
     cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/683dde83c259af71d8ce66bb_1.jpg',
     video: 'http://uploadttcdn.fuciyuan7.com/video/lHZ2azw5LCc.mp4',
     desc: '今天的视频是我过去发布的视频中最受欢迎的触发音合集 😊✨ 这个视频包括敲击、刮擦、耳刷、掏耳朵、耳部按摩、麦克风刷、保鲜膜、盖子声、塑料勺等。 感谢大家祝贺频道订阅人数达到200万！😊❤ 时间戳： 预览 塑料勺 蜡烛刮擦 蜡烛敲击 麦克风刷 毛毡杯垫刮擦 洗脸 盖子声 耳刷（深入） 保鲜膜 + ',
+    descEn: '', // TODO: add English description
+    related: [],
+  },
+
+  'res-69a80a4f': {
+    id: '69a80a4f4a7ad44fa0019524',
+    title: '穿过麦田，听风吹麦浪的声音',
+    titleEn: '', // TODO: add English title
+    category: 'White Noise',
+    scenes: ['入睡', '遮蔽噪音'],
+    duration: 'PT8H',
+    durationLabel: '8 小时',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/vol01_wind_autumn_field_1.mp3',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/69a80a4f4a7ad44fa0019524_zh_8.jpg',
+    video: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/video/69a80a4f4a7ad44fa0019524_5.mp4',
+    desc: '秋季草地上的微风，干草沙沙声混合轻柔风声，适合助眠和放松',
     descEn: '', // TODO: add English description
     related: [],
   },
@@ -235,6 +252,38 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
+  'relax-sleep-insomnia': {
+    id: '6909ad012f0f6a7319edd5fb',
+    title: '失眠疗愈，褪黑素和毒素释放，即时放松 - 疗愈睡眠音乐',
+    titleEn: '', // TODO: add English title
+    category: 'Music',
+    scenes: ['放松', '入睡'],
+    duration: 'PT3H44M',
+    durationLabel: '3 小时 44 分钟',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/6909ad012f0f6a7319edd5fb.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/6909ad012f0f6a7319edd5fb_1.jpg',
+    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/6909ad012f0f6a7319edd5fb_c.mp4',
+    desc: '失眠治疗，释放褪黑素和毒素，即时放松 - 疗愈睡眠音乐 🌙欢迎来到睡眠音乐。 伴随我们舒缓的音乐，体验宁静而充满活力的夜晚睡眠。 释放压力，拥抱褪黑素的镇静效果，让您的身体在您进入深度、安宁的睡眠时排毒。 使用此放松声音合集，营造完美的气氛，享受宁静的夜晚休息。 _________________',
+    descEn: '', // TODO: add English description
+    related: [],
+  },
+
+  'rain-forest-relax': {
+    id: '6842b124f6e588687f9badec',
+    title: '聆听森林小径上的雨声，放松身心，减轻焦虑，并深度睡眠。',
+    titleEn: '', // TODO: add English title
+    category: 'Nature',
+    scenes: ['入睡', '遮蔽噪音', '放松'],
+    duration: 'PT2H49M',
+    durationLabel: '2 小时 49 分钟',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/6842b124f6e588687f9badec.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/6842b124f6e588687f9badec_1.jpg',
+    video: 'http://uploadttcdn.fuciyuan7.com/video_clip/SnUBb-FAlCY.mp4',
+    desc: '自然雨声，睡眠音乐，白噪音，ASMR，雷暴雨，睡眠，雨，下雨天，真实雨声，学习，工作，冥想，失眠，催眠，生活记录，雨声助眠... #雨 #自然 #ASMR',
+    descEn: '', // TODO: add English description
+    related: [],
+  },
+
   'rain-forest-sleep': {
     id: '68f2031b43c57ba8c1c9dec4',
     title: '【4M】森林之夜最佳雨声 | 伴随大雨声深度睡眠',
@@ -251,18 +300,18 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
-  'res-69742f58': {
-    id: '69742f584a7ad44fa0ef8c5b',
-    title: '北派盗墓笔记【ZH有声书】广播剧 10',
+  'crickets-relax-sleep': {
+    id: '6862b81158388f37091ca68f',
+    title: '放松的睡眠音乐和夜晚的自然之声：轻柔的蟋蟀声、优美的钢琴声、深度睡眠音乐',
     titleEn: '', // TODO: add English title
-    category: 'Music',
-    scenes: ['放松', '入睡'],
-    duration: 'PT6H3M',
-    durationLabel: '6 小时 3 分钟',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio/69742f584a7ad44fa0ef8c5b.m4a',
-    cover: 'http://uploadttcdn.fuciyuan7.com/sleep/cover/69742f584a7ad44fa0ef8c5b.jpg',
-    video: 'https://www.youtube.com/watch?v=V1NDDLAXXTQ',
-    desc: '北派盗墓笔记【ZH有声书】广播剧',
+    category: 'Nature',
+    scenes: ['入睡', '放松'],
+    duration: 'PT3H27M',
+    durationLabel: '3 小时 27 分钟',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/6862b81158388f37091ca68f.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/6862b81158388f37091ca68f_1.jpg',
+    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/6862b81158388f37091ca68e_c.mp4',
+    desc: '优美的钢琴音乐和宁静的夏夜声音，伴有蟋蟀和萤火虫。 在 Spotify 上收听 ► ✨ Spotify 播放列表 ► 🌌 夜晚声音播放列表 ► 订阅 Dream Sounds 以获取未来上传的最新信息 ► 更多放松音乐： ☔ 放松雨声 ► 🌲 自然之声 ► 💧 水声 ► 🎧 下载/播放 ► ',
     descEn: '', // TODO: add English description
     related: [],
   },
@@ -315,22 +364,6 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
-  'sleep-aid-sleep-night': {
-    id: '68e3234ea68e75503cb86f87',
-    title: '【助眠历史故事】 在古代中国生活，你能撑过几个小时？ #睡眠 #助眠 #夜晚故事 #沉浸式#history#古代生活#夜晚故事 #古代中国 #农民生活',
-    titleEn: '', // TODO: add English title
-    category: 'Music',
-    scenes: ['放松', '入睡'],
-    duration: 'PT1H37M',
-    durationLabel: '1 小时 37 分钟',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68e3234ea68e75503cb86f87.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68e3234ea68e75503cb86f87_1.jpg',
-    video: 'https://www.youtube.com/watch?v=1vRVd4UK8Cg',
-    desc: '今晚就来放松一下吧，听一段专门为助眠设计的故事，让你的思绪慢慢安静下来，轻轻进入深度睡眠。这段一个小时四十分钟的影片，把温暖壁炉劈啪作响的声音，和温柔低语的讲述结合在一起，讲的是那些关于战争和历史时刻的故事。在火光微弱跳动中，带你揭开历史名人的不为人知一面，探索未解的谜团，还有那些令人难忘的往事。它',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
   'rain-sleep-insomnia': {
     id: '68bf1765f26e9b47b8bde497',
     title: '立即入睡 - 舒缓睡眠音乐 + 失眠 | 缓解压力、焦虑的雨声',
@@ -347,18 +380,34 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
-  'birds-chirping': {
-    id: '683dcc15c259af71d8ce6601',
-    title: '4K 自然环境音 / 涌泉流淌的河水声 鸟鸣 birds chirping',
+  'bgm-nature-sounds-hour': {
+    id: '6852e252ac14de312b614973',
+    title: '【睡眠用BGM│自然音】 乡村的夜晚│虫鸣・潺潺流水・青蛙・猫【Nature Sounds 3hour】',
     titleEn: '', // TODO: add English title
     category: 'Nature',
-    scenes: ['入睡', '遮蔽噪音', '放松'],
+    scenes: ['入睡', '放松', '遮蔽噪音'],
     duration: 'PT3H',
     durationLabel: '3 小时',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/683dcc15c259af71d8ce6601.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/683dcc15c259af71d8ce6601_1.jpg',
-    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/683dcc15c259af71d8ce6601_c.mp4',
-    desc: '4K 自然环境音 ASMR 涌水流淌的河川之音 鸟鸣 岐阜县山县市 圆原川 在圆原川，从春天到夏天可以听到极具特色的鸟鸣声。 这个视频中的鸟鸣声是在当地新录制的，并进行了视频编辑，请观看新的2025年版视频。 The bird sounds in this video have been newly',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/6852e252ac14de312b614973.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/6852e252ac14de312b614973_1.jpg',
+    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/6852e252ac14de312b614973_c.mp4',
+    desc: '遥远不知名的小镇的夜晚。 从屋外传来的虫鸣声和潺潺的流水声， 给人一种回到老家的安心感。 推荐用于工作、睡眠用BGM等^^ 今天也睡个好觉😴 ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ 【热门相关视频】 ■【自然音】噼啪作响的舒适篝火影像×催眠的朗读 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿ 感',
+    descEn: '', // TODO: add English description
+    related: [],
+  },
+
+  'sleep-aid-sleep-night': {
+    id: '68e3234ea68e75503cb86f87',
+    title: '【助眠历史故事】 在古代中国生活，你能撑过几个小时？ #睡眠 #助眠 #夜晚故事 #沉浸式#history#古代生活#夜晚故事 #古代中国 #农民生活',
+    titleEn: '', // TODO: add English title
+    category: 'Music',
+    scenes: ['放松', '入睡'],
+    duration: 'PT1H37M',
+    durationLabel: '1 小时 37 分钟',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68e3234ea68e75503cb86f87.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68e3234ea68e75503cb86f87_1.jpg',
+    video: 'https://www.youtube.com/watch?v=1vRVd4UK8Cg',
+    desc: '今晚就来放松一下吧，听一段专门为助眠设计的故事，让你的思绪慢慢安静下来，轻轻进入深度睡眠。这段一个小时四十分钟的影片，把温暖壁炉劈啪作响的声音，和温柔低语的讲述结合在一起，讲的是那些关于战争和历史时刻的故事。在火光微弱跳动中，带你揭开历史名人的不为人知一面，探索未解的谜团，还有那些令人难忘的往事。它',
     descEn: '', // TODO: add English description
     related: [],
   },
@@ -379,6 +428,38 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
+  'birds-chirping': {
+    id: '683dcc15c259af71d8ce6601',
+    title: '4K 自然环境音 / 涌泉流淌的河水声 鸟鸣 birds chirping',
+    titleEn: '', // TODO: add English title
+    category: 'Nature',
+    scenes: ['入睡', '遮蔽噪音', '放松'],
+    duration: 'PT3H',
+    durationLabel: '3 小时',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/683dcc15c259af71d8ce6601.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/683dcc15c259af71d8ce6601_1.jpg',
+    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/683dcc15c259af71d8ce6601_c.mp4',
+    desc: '4K 自然环境音 ASMR 涌水流淌的河川之音 鸟鸣 岐阜县山县市 圆原川 在圆原川，从春天到夏天可以听到极具特色的鸟鸣声。 这个视频中的鸟鸣声是在当地新录制的，并进行了视频编辑，请观看新的2025年版视频。 The bird sounds in this video have been newly',
+    descEn: '', // TODO: add English description
+    related: [],
+  },
+
+  'asmr-nature-sounds': {
+    id: '684b05aacbbee57a39e40f28',
+    title: '【环境音/ASMR】水的声音・虫鸣｜安静夜晚的虫鸣・轻柔的水声｜睡眠・放松｜自然环境音・Nature Sounds',
+    titleEn: '', // TODO: add English title
+    category: 'Nature',
+    scenes: ['入睡', '放松'],
+    duration: 'PT2H',
+    durationLabel: '2 小时',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/684b05aacbbee57a39e40f28.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/684b05aacbbee57a39e40f28_1.jpg',
+    video: 'http://uploadttcdn.fuciyuan7.com/video_clip/8gxWEYoJFMg.mp4',
+    desc: '【环境音/ASMR】水声・虫鸣｜静谧夜晚的虫鸣声・轻柔的水声。静静流淌的水声和虫鸣声能诱人舒适入眠。据说比起单一的鸣叫声，多种虫鸣声更能带来睡眠・放松等心理上的恢复效果。请尽情享受能舒适入睡的治愈环境音/ASMR“静谧夜晚的虫鸣声・平静的水声”。 这里的自然音是双耳录音（立体音响），因此完成了具有纵',
+    descEn: '', // TODO: add English description
+    related: [],
+  },
+
   'relax-piano': {
     id: '68d2861229b3d54f00a5ac39',
     title: '4 首动听的配乐 | 放松钢琴曲 [10分钟]',
@@ -391,22 +472,6 @@ export const resources: Record<string, any> = {
     cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68d2861229b3d54f00a5ac39_1.jpg',
     video: 'http://uploadttcdn.fuciyuan7.com/sleep/video/68d2861229b3d54f00a5ac39.mp4',
     desc: '🎼 学习乐谱，与 Jacob 一起 ▶ 🎵 乐谱 ▶ 🎹 学习钢琴 ► 🎧 Spotify ► ► MIDI 文件: 我的原创钢琴曲 ► 不用 Spotify？ 别担心： ► 专辑页面: ► Apple Music (iTunes): ► Amazon Music: ▼曲目列表▼ ; 天使爱',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
-  'rain-meditation-sleep-aid': {
-    id: '68a8a2fc3a9c31fde20e68c1',
-    title: '疗愈睡眠冥想 - 打开窗户雨声 - 1小时雨声助眠，多动症失眠',
-    titleEn: '', // TODO: add English title
-    category: 'Nature',
-    scenes: ['入睡', '遮蔽噪音', '放松'],
-    duration: 'PT1H',
-    durationLabel: '1 小时',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio/68a8a2fc3a9c31fde20e68c1.m4a',
-    cover: 'http://uploadttcdn.fuciyuan7.com/sleep/cover/68a8a2fc3a9c31fde20e68c1.jpg',
-    video: 'https://www.youtube.com/watch?v=UA2K_8ay1w4',
-    desc: 'Relax to the calming sounds of rain from an open window. For healing sleep meditation, insomnia, ADHD, Relaxing and Yoga. 1 hours. @rainandthundersoun',
     descEn: '', // TODO: add English description
     related: [],
   },
@@ -443,22 +508,6 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
-  'asmr-2': {
-    id: '68f0def3d89ffd86fb96e849',
-    title: '越南全身护理课程 ASMR采耳，足部护理，面部 & 背部按摩，洗发',
-    titleEn: '', // TODO: add English title
-    category: 'ASMR',
-    scenes: ['放松', '入睡'],
-    duration: 'PT1H19M',
-    durationLabel: '1 小时 19 分钟',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68f0def3d89ffd86fb96e849.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68f0def3d89ffd86fb96e849_1.jpg',
-    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video/68f0def3d89ffd86fb96e849.mp4',
-    desc: '你好 :) 在这个视频中，我将通过耳部清洁、足部护理、面部和背部按摩以及洗发来帮助您放松。 请享受。 非常感谢您的观看，希望您有一个平静的夜晚！ 时间戳🧺 介绍 欢迎 足部护理 泡沫 足部喷雾 去除老茧 足部乳液 面部刮胡 面部按摩 头皮按摩 颈部和肩部按摩 敷黄瓜片 耳部清洁 左耳清洁 指甲护理',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
   'hz-malte-marten': {
     id: '687a1b51846a1db211d08396',
     title: '成长的种子 (1111hz) | 1 小时手碟音乐 | Malte Marten',
@@ -471,6 +520,22 @@ export const resources: Record<string, any> = {
     cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/687a1b51846a1db211d08396_1.jpg',
     video: 'http://uploadttcdn.fuciyuan7.com/sleep/video/687a1b51846a1db211d08395.mp4',
     desc: '在我们内心深处有这样一个地方，只有当我们敢于向无尽的可能之海敞开胸怀时，它才会变得鲜活。允许它存在会让我们感到最脆弱和最危险。它又如此的不安全，以至于我们大多数人甚至从未想过完全地进入它。 正是这个地方，也被称为我们的心，提供了最大的自由和难以形容的活力。 正是在这里，成长的种子找到了肥沃的土壤来扎',
+    descEn: '', // TODO: add English description
+    related: [],
+  },
+
+  'asmr-2': {
+    id: '68f0def3d89ffd86fb96e849',
+    title: '越南全身护理课程 ASMR采耳，足部护理，面部 & 背部按摩，洗发',
+    titleEn: '', // TODO: add English title
+    category: 'ASMR',
+    scenes: ['放松', '入睡'],
+    duration: 'PT1H19M',
+    durationLabel: '1 小时 19 分钟',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68f0def3d89ffd86fb96e849.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68f0def3d89ffd86fb96e849_1.jpg',
+    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video/68f0def3d89ffd86fb96e849.mp4',
+    desc: '你好 :) 在这个视频中，我将通过耳部清洁、足部护理、面部和背部按摩以及洗发来帮助您放松。 请享受。 非常感谢您的观看，希望您有一个平静的夜晚！ 时间戳🧺 介绍 欢迎 足部护理 泡沫 足部喷雾 去除老茧 足部乳液 面部刮胡 面部按摩 头皮按摩 颈部和肩部按摩 敷黄瓜片 耳部清洁 左耳清洁 指甲护理',
     descEn: '', // TODO: add English description
     related: [],
   },
@@ -491,22 +556,6 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
-  'asmr-sleep-like-baby': {
-    id: '68abcf033a9c31fde20eb8fe',
-    title: 'ASMR Sleep Like a Baby! 100+ Triggers Collection For Sleep (ASMR No Talking)',
-    titleEn: '', // TODO: add English title
-    category: 'ASMR',
-    scenes: ['放松', '入睡'],
-    duration: 'PT3H19M',
-    durationLabel: '3 小时 19 分钟',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio/68abcf033a9c31fde20eb8fe.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68abcf033a9c31fde20eb8fe_1.jpg',
-    video: 'https://www.youtube.com/watch?v=b1XxYxOCyJc',
-    desc: 'ASMR Sleep Like a Baby! 100+ Triggers Collection For Sleep (ASMR No Talking). ASMR for sleep will relax your brain and mind. More than 100 triggers no',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
   'asmr-spa': {
     id: '69030dbffe59907d39b0cf00',
     title: 'ASMR 为了缓解压力去做了头部SPA，简直像在天堂一样。 尖叫吧 订阅者活动~~~头皮按摩，体验酥麻的睡眠~',
@@ -519,6 +568,22 @@ export const resources: Record<string, any> = {
     cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/69030dbffe59907d39b0cf00_1.jpg',
     video: 'http://uploadttcdn.fuciyuan7.com/sleep/video/69030dbffe59907d39b0cf00.mp4',
     desc: '``` #asmr #头皮按摩 #头部SPA #睡眠 #酥麻 #esteASMR 大家好，我是 este ASMR😪 今天好久没去做了头部SPA和头皮按摩， 在一个氛围超棒的地方接受舒适的护理，简直就是治愈本身~ 酥麻的声音此起彼伏，感觉就要进入梦乡了。 不仅有管理师凉爽的按摩技巧，还有\'wate',
+    descEn: '', // TODO: add English description
+    related: [],
+  },
+
+  'healing-zen': {
+    id: '68f740575c1b7e498cd53780',
+    title: '西藏禅音疗愈全身，疗愈净化情绪与心灵 - 528 Hz',
+    titleEn: '', // TODO: add English title
+    category: 'Meditation',
+    scenes: ['冥想', '放松'],
+    duration: 'PT1H44M',
+    durationLabel: '1 小时 44 分钟',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68f740575c1b7e498cd53780.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68f740575c1b7e498cd53780_1.jpg',
+    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/68f740575c1b7e498cd53780_c_v1761042212.mp4',
+    desc: '藏传禅音疗愈全身，净化情绪与灵魂 - 528 Hz 🌿 藏传禅音与528 Hz频率（被称为爱与疗愈的频率）结合，带来深刻的体验，疗愈整个身体，净化情绪和灵魂。 这些纯净的振动温和地影响每个细胞，唤起平衡和谐的能量。 当您聆听时，您会感受到平静的蔓延，有助于缓解压力，治愈情感创伤，并为灵魂打开一个清',
     descEn: '', // TODO: add English description
     related: [],
   },
@@ -571,38 +636,6 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
-  'healing-zen': {
-    id: '68f740575c1b7e498cd53780',
-    title: '西藏禅音疗愈全身，疗愈净化情绪与心灵 - 528 Hz',
-    titleEn: '', // TODO: add English title
-    category: 'Meditation',
-    scenes: ['冥想', '放松'],
-    duration: 'PT1H44M',
-    durationLabel: '1 小时 44 分钟',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68f740575c1b7e498cd53780.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68f740575c1b7e498cd53780_1.jpg',
-    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/68f740575c1b7e498cd53780_c_v1761042212.mp4',
-    desc: '藏传禅音疗愈全身，净化情绪与灵魂 - 528 Hz 🌿 藏传禅音与528 Hz频率（被称为爱与疗愈的频率）结合，带来深刻的体验，疗愈整个身体，净化情绪和灵魂。 这些纯净的振动温和地影响每个细胞，唤起平衡和谐的能量。 当您聆听时，您会感受到平静的蔓延，有助于缓解压力，治愈情感创伤，并为灵魂打开一个清',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
-  'res-68aac82d': {
-    id: '68aac82d3a9c31fde20ead83',
-    title: '孙中山与洪门的恩怨情仇',
-    titleEn: '', // TODO: add English title
-    category: 'Music',
-    scenes: ['放松', '入睡'],
-    duration: 'PT24M',
-    durationLabel: '24 分钟',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio/68aac82d3a9c31fde20ead83.m4a',
-    cover: 'http://uploadttcdn.fuciyuan7.com/sleep/cover/68aac82d3a9c31fde20ead83.jpg',
-    video: 'https://www.youtube.com/watch?v=bUuwEz9Y0zo',
-    desc: '＼为说历史公开课／ ■ 如何分析历史？从历史中学到精华的独家方法 ■ 1921-1945年专题历史课程 免费领取： 孙中山说过，华侨为革命之母。在武昌起义前，孙中山一共发动过十次革命，革命的经费哪里来？很大部分都是海外华侨，而在华侨中最有影响力的洪门致公堂，给了孙中山鼎力的帮助。洪门兄弟是出人出命又',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
   'hz-dna': {
     id: '6862a65858388f37091ca3ca',
     title: '【528Hz・睡眠导入】用修复DNA的索尔菲日频率和安静的冥想音乐，在得到治愈的同时享受高质量的睡眠…听着音乐轻松入睡、缓解压力、恢复疲劳',
@@ -635,70 +668,6 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
-  'res-68a2b053': {
-    id: '68a2b05366b315411652e9b0',
-    title: '【漫话欧洲史001集】欧洲历史的起源：从克里特岛到米诺斯文明。欧洲历史、克里特岛、米诺斯文明、神话、历史谜团、文明起源、考古、古希腊、迷宫、失落帝国',
-    titleEn: '', // TODO: add English title
-    category: 'Music',
-    scenes: ['放松', '入睡'],
-    duration: 'PT18M',
-    durationLabel: '18 分钟',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio/68a2b05366b315411652e9b0.m4a',
-    cover: 'http://uploadttcdn.fuciyuan7.com/sleep/cover/68a2b05366b315411652e9b0.jpg',
-    video: 'https://www.youtube.com/watch?v=GQf8qLfhszc',
-    desc: '《漫话欧洲史》系列节目带您踏上一段跨越千年的历史旅程，从古希腊罗马时期直至二战结束，深入探讨欧洲历史的每一个精彩瞬间。本系列旨在超越极简史的局限，揭示历史的丰富纹理和复杂性，让您领略到历史全貌的深刻洞察。 在本期节目中，我们将从一个关于欧洲名字起源的神话故事开始，追溯克里特岛上的克里特文明，探讨它是',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
-  'res-68bf46a8': {
-    id: '68bf46a8f26e9b47b8bde804',
-    title: '太平天国（合集）| 全网最详细讲解太平天国',
-    titleEn: '', // TODO: add English title
-    category: 'Music',
-    scenes: ['放松', '入睡'],
-    duration: 'PT7H20M',
-    durationLabel: '7 小时 20 分钟',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68bf46a8f26e9b47b8bde804.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68bf46a8f26e9b47b8bde804_1.jpg',
-    video: 'https://www.youtube.com/watch?v=nRr0wOxUbyo',
-    desc: '＼免费公开课／ ■如何分析历史？从历史中学到精华的独家方法 ■「1921-1945年专题历史课程」 免费领取： 太平天国（1） | 洪秀全创教、传教 太平天国（2） | 拜上帝教为什么传的比基督教快 | 上帝在人间的七个孩子 太平天国（3）| 金田起义、永安建制 太平天国（4）| 围攻长沙，攻克武昌',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
-  'relax-night-healing': {
-    id: '6842a929f6e588687f9badd0',
-    title: '【疗愈】新绿信州安昙野的清流与疗愈音效4小时／静谧时光的片刻……疲惫身心的恢复、放松效果、学习或工作时、清晨醒来、难以入眠的夜晚也请随意享用。',
-    titleEn: '', // TODO: add English title
-    category: 'Nature',
-    scenes: ['入睡', '放松'],
-    duration: 'PT4H24M',
-    durationLabel: '4 小时 24 分钟',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/6842a929f6e588687f9badd0.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/6842a929f6e588687f9badd0_1.jpg',
-    video: 'http://uploadttcdn.fuciyuan7.com/video_clip/Ka3Smc5OfZg.mp4',
-    desc: '用柔和的声音，信州・长野县安昙野的清澈流水声和鸟鸣声，以及美丽的新绿来治愈身心的疲惫吧。清爽的绿色和雄伟的自然会让心情放松。 ▼如果喜欢的话，请订阅频道 ▼蓝光光盘版（HD画质）请从雅虎购物购买。 如果能稍微缓解您的内心不安，我会很高兴的。 请在房间观赏、工作、学习时，或者在清晨醒来和睡眠时，聆听治',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
-  'malte-marten-chantress-seba': {
-    id: '68a1895366b315411652dbf9',
-    title: '嗡甘咒 (1 小时) - 清除能量 & 移除障碍 - Malte Marten & Chantress Seba',
-    titleEn: '', // TODO: add English title
-    category: 'Meditation',
-    scenes: ['冥想', '放松'],
-    duration: 'PT1H5M',
-    durationLabel: '1 小时 5 分钟',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68a1895366b315411652dbf9.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68a1895366b315411652dbf9_1.jpg',
-    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video/68a1895366b315411652dbf8.mp4',
-    desc: '祝福大家，我们邀请您加入我们一起吟唱象头神伽内什真言。通过以下简单的步骤，您可以驾驭伽内什强大的能量，并将和平、清晰和指引带入您的生活。 第一步：找到一个安静舒适的空间 舒适地坐好，做几次深呼吸。 第二步：重复真言 缓慢而清晰地吟唱“Om Gam Ganapataye Namaha”，让真言深入你的',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
   'asmr-3': {
     id: '68f1cf0243c57ba8c1c9d8bb',
     title: '摩卡慕斯妆容 ASMR ⸝ ⸝ 无语声 𐬹 ˙ ｡ ˚ ⠀༘',
@@ -727,6 +696,70 @@ export const resources: Record<string, any> = {
     cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68c0e2f7f26e9b47b8bdf3fe_1.jpg',
     video: 'https://www.youtube.com/watch?v=zFhfksjf_mY',
     desc: '🎼 | 在 Spotify、Apple Music 等平台收听 → 💬 | 加入 Lofi Girl 社区 → → 🌎 | Lofi Girl 在所有社交媒体平台 → 👕 | Lofi Girl 周边 → 📝 | 提交你的音乐/艺术作品 → 🎨 Julia Shi 的艺术作品 → → →',
+    descEn: '', // TODO: add English description
+    related: [],
+  },
+
+  'res-68bf46a8': {
+    id: '68bf46a8f26e9b47b8bde804',
+    title: '太平天国（合集）| 全网最详细讲解太平天国',
+    titleEn: '', // TODO: add English title
+    category: 'Music',
+    scenes: ['放松', '入睡'],
+    duration: 'PT7H20M',
+    durationLabel: '7 小时 20 分钟',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68bf46a8f26e9b47b8bde804.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68bf46a8f26e9b47b8bde804_1.jpg',
+    video: 'https://www.youtube.com/watch?v=nRr0wOxUbyo',
+    desc: '＼免费公开课／ ■如何分析历史？从历史中学到精华的独家方法 ■「1921-1945年专题历史课程」 免费领取： 太平天国（1） | 洪秀全创教、传教 太平天国（2） | 拜上帝教为什么传的比基督教快 | 上帝在人间的七个孩子 太平天国（3）| 金田起义、永安建制 太平天国（4）| 围攻长沙，攻克武昌',
+    descEn: '', // TODO: add English description
+    related: [],
+  },
+
+  'meditation-relax-music': {
+    id: '684af55bcbbee57a39e40ef9',
+    title: '内在平静之声 14 | 528 Hz | 用于冥想、禅修、瑜伽和减压的放松音乐',
+    titleEn: '', // TODO: add English title
+    category: 'Meditation',
+    scenes: ['冥想', '放松'],
+    duration: 'PT3H',
+    durationLabel: '3 小时',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/684af55bcbbee57a39e40ef9.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/684af55bcbbee57a39e40ef9_1.jpg',
+    video: 'http://uploadttcdn.fuciyuan7.com/video_clip/FTqrQsSIKR0.mp4',
+    desc: '[3 小时] 用于冥想、禅、瑜伽和压力缓解的放松音乐 | 内心平静之声 14 | 528 Hz 这段 3 小时的平静和放松的环境音乐以 528 Hz 频率为特色 - 它带来转变和增加的爱能量、思维清晰、意识、激活的创造力和内心平静 - 以及舒缓的溪流声。 佛像的视频和动态的香烟雾气补充了氛围。 这非',
+    descEn: '', // TODO: add English description
+    related: [],
+  },
+
+  'music': {
+    id: '68b2e1b565c4fc213f58c63f',
+    title: '古典音乐：莫扎特、肖邦、德彪西、柴可夫斯基...（适合阅读时聆听）',
+    titleEn: '', // TODO: add English title
+    category: 'Music',
+    scenes: ['放松', '入睡'],
+    duration: 'PT2H27M',
+    durationLabel: '2 小时 27 分钟',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68b2e1b565c4fc213f58c63f.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68b2e1b565c4fc213f58c63f_1.jpg',
+    video: 'https://www.youtube.com/watch?v=mIYzp5rcTvU',
+    desc: '🎵 在 Halidon Music 官方商店购买 MP3 专辑： 🎧 在 Spotify 上收听我们的播放列表： 💿 在亚马逊上订购“阅读音乐”！ 黑胶唱片： 2-CD 套装： 这些录音可用于网络视频制作、企业宣传片、电影、广告和音乐合辑的同步授权。 如需更多信息和授权，请联系 info@ha',
+    descEn: '', // TODO: add English description
+    related: [],
+  },
+
+  'malte-marten-chantress-seba': {
+    id: '68a1895366b315411652dbf9',
+    title: '嗡甘咒 (1 小时) - 清除能量 & 移除障碍 - Malte Marten & Chantress Seba',
+    titleEn: '', // TODO: add English title
+    category: 'Meditation',
+    scenes: ['冥想', '放松'],
+    duration: 'PT1H5M',
+    durationLabel: '1 小时 5 分钟',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68a1895366b315411652dbf9.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68a1895366b315411652dbf9_1.jpg',
+    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video/68a1895366b315411652dbf8.mp4',
+    desc: '祝福大家，我们邀请您加入我们一起吟唱象头神伽内什真言。通过以下简单的步骤，您可以驾驭伽内什强大的能量，并将和平、清晰和指引带入您的生活。 第一步：找到一个安静舒适的空间 舒适地坐好，做几次深呼吸。 第二步：重复真言 缓慢而清晰地吟唱“Om Gam Ganapataye Namaha”，让真言深入你的',
     descEn: '', // TODO: add English description
     related: [],
   },
@@ -779,34 +812,18 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
-  'meditation-relax-music': {
-    id: '684af55bcbbee57a39e40ef9',
-    title: '内在平静之声 14 | 528 Hz | 用于冥想、禅修、瑜伽和减压的放松音乐',
-    titleEn: '', // TODO: add English title
-    category: 'Meditation',
-    scenes: ['冥想', '放松'],
-    duration: 'PT3H',
-    durationLabel: '3 小时',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/684af55bcbbee57a39e40ef9.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/684af55bcbbee57a39e40ef9_1.jpg',
-    video: 'http://uploadttcdn.fuciyuan7.com/video_clip/FTqrQsSIKR0.mp4',
-    desc: '[3 小时] 用于冥想、禅、瑜伽和压力缓解的放松音乐 | 内心平静之声 14 | 528 Hz 这段 3 小时的平静和放松的环境音乐以 528 Hz 频率为特色 - 它带来转变和增加的爱能量、思维清晰、意识、激活的创造力和内心平静 - 以及舒缓的溪流声。 佛像的视频和动态的香烟雾气补充了氛围。 这非',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
-  'relax-piano-2': {
-    id: '683dd847c259af71d8ce666f',
-    title: '魔法是存在的。- 10分钟放松钢琴曲 (詹姆斯·马利基 作)',
+  'rain-sleep-healing': {
+    id: '6862a22a58388f37091ca33a',
+    title: '3 分钟入睡 - 快速入睡，焦虑症、抑郁症的疗愈 - 雨天 [深度睡眠]',
     titleEn: '', // TODO: add English title
     category: 'Music',
     scenes: ['放松', '入睡'],
-    duration: 'PT9M',
-    durationLabel: '9 分钟',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/683dd847c259af71d8ce666f.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/683dd847c259af71d8ce666f_1.jpg',
-    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/683dd847c259af71d8ce666e_c.mp4',
-    desc: '这是翻译成简体中文的结果： 我的E大调即兴演奏，一次录制完成，灵感来自维也纳迷人的夜景——城市逐渐消逝的灯光和迷人的、颜色变幻的喷泉。 “琴键只有黑白两色， 但挑战在于演奏出介于两者之间的所有色彩。” “魔法确实存在。 音乐是它诞生的源泉之一。” 献给 Alessandro 老师 如果您喜欢我的内容',
+    duration: 'PT3H54M',
+    durationLabel: '3 小时 54 分钟',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/6862a22a58388f37091ca33a.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/6862a22a58388f37091ca33a_1.jpg',
+    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/6862a22a58388f37091ca339_c.mp4',
+    desc: '3 分钟入睡 - 快速入睡，治疗焦虑症、抑郁症 - 雨天 [深度睡眠] 视频制作：Moose _______________________ 📜 您今天过得怎么样？ 我的今天就是来创作这些旋律、声音。音乐是生活中不可或缺的。如果我的音乐能帮助您变得快乐，忘记生活中的烦恼，我会非常高兴。 听我的音乐',
     descEn: '', // TODO: add English description
     related: [],
   },
@@ -827,18 +844,34 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
-  'music': {
-    id: '68b2e1b565c4fc213f58c63f',
-    title: '古典音乐：莫扎特、肖邦、德彪西、柴可夫斯基...（适合阅读时聆听）',
+  'relax-night-healing': {
+    id: '6842a929f6e588687f9badd0',
+    title: '【疗愈】新绿信州安昙野的清流与疗愈音效4小时／静谧时光的片刻……疲惫身心的恢复、放松效果、学习或工作时、清晨醒来、难以入眠的夜晚也请随意享用。',
+    titleEn: '', // TODO: add English title
+    category: 'Nature',
+    scenes: ['入睡', '放松'],
+    duration: 'PT4H24M',
+    durationLabel: '4 小时 24 分钟',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/6842a929f6e588687f9badd0.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/6842a929f6e588687f9badd0_1.jpg',
+    video: 'http://uploadttcdn.fuciyuan7.com/video_clip/Ka3Smc5OfZg.mp4',
+    desc: '用柔和的声音，信州・长野县安昙野的清澈流水声和鸟鸣声，以及美丽的新绿来治愈身心的疲惫吧。清爽的绿色和雄伟的自然会让心情放松。 ▼如果喜欢的话，请订阅频道 ▼蓝光光盘版（HD画质）请从雅虎购物购买。 如果能稍微缓解您的内心不安，我会很高兴的。 请在房间观赏、工作、学习时，或者在清晨醒来和睡眠时，聆听治',
+    descEn: '', // TODO: add English description
+    related: [],
+  },
+
+  'relax-piano-2': {
+    id: '683dd847c259af71d8ce666f',
+    title: '魔法是存在的。- 10分钟放松钢琴曲 (詹姆斯·马利基 作)',
     titleEn: '', // TODO: add English title
     category: 'Music',
     scenes: ['放松', '入睡'],
-    duration: 'PT2H27M',
-    durationLabel: '2 小时 27 分钟',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68b2e1b565c4fc213f58c63f.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68b2e1b565c4fc213f58c63f_1.jpg',
-    video: 'https://www.youtube.com/watch?v=mIYzp5rcTvU',
-    desc: '🎵 在 Halidon Music 官方商店购买 MP3 专辑： 🎧 在 Spotify 上收听我们的播放列表： 💿 在亚马逊上订购“阅读音乐”！ 黑胶唱片： 2-CD 套装： 这些录音可用于网络视频制作、企业宣传片、电影、广告和音乐合辑的同步授权。 如需更多信息和授权，请联系 info@ha',
+    duration: 'PT9M',
+    durationLabel: '9 分钟',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/683dd847c259af71d8ce666f.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/683dd847c259af71d8ce666f_1.jpg',
+    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/683dd847c259af71d8ce666e_c.mp4',
+    desc: '这是翻译成简体中文的结果： 我的E大调即兴演奏，一次录制完成，灵感来自维也纳迷人的夜景——城市逐渐消逝的灯光和迷人的、颜色变幻的喷泉。 “琴键只有黑白两色， 但挑战在于演奏出介于两者之间的所有色彩。” “魔法确实存在。 音乐是它诞生的源泉之一。” 献给 Alessandro 老师 如果您喜欢我的内容',
     descEn: '', // TODO: add English description
     related: [],
   },
@@ -891,6 +924,22 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
+  'water-healing': {
+    id: '68c0ddb1f26e9b47b8bdf384',
+    title: '水声疗愈 (30分钟) - 净化您的能量 - 舒缓焦虑、压力和悲伤',
+    titleEn: '', // TODO: add English title
+    category: 'Meditation',
+    scenes: ['冥想', '放松'],
+    duration: 'PT31M',
+    durationLabel: '31 分钟',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68c0ddb1f26e9b47b8bdf384.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68c0ddb1f26e9b47b8bdf384_1.jpg',
+    video: 'https://www.youtube.com/watch?v=wQiSW_0iTPc',
+    desc: '本周 30 分钟的声音疗愈，融入了柔和的水流，旨在让你更贴近自然流动状态，净化任何稠密能量，释放压力，让情绪自由流动。 这段视频中的吟唱纯粹是直觉式的，是一种通灵的声音疗愈激活，并配以原创的手碟乐曲。 祝福 Chantress Seba Gemini and Finn I and I #睡眠 #睡眠',
+    descEn: '', // TODO: add English description
+    related: [],
+  },
+
   'jungle': {
     id: '6874b163846a1db211d06ceb',
     title: '在我的丛林营地独自露营两天 - 睡在土制庇护所 - 在泥炉上烹饪大牛排',
@@ -939,18 +988,18 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
-  'rain-sleep-healing': {
-    id: '6862a22a58388f37091ca33a',
-    title: '3 分钟入睡 - 快速入睡，焦虑症、抑郁症的疗愈 - 雨天 [深度睡眠]',
+  'jungle-fireplace': {
+    id: '68776a6e846a1db211d07a35',
+    title: '建造完整且温暖的生存避难所 | 丛林工艺土屋、草屋顶和带粘土的壁炉',
     titleEn: '', // TODO: add English title
-    category: 'Music',
-    scenes: ['放松', '入睡'],
-    duration: 'PT3H54M',
-    durationLabel: '3 小时 54 分钟',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/6862a22a58388f37091ca33a.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/6862a22a58388f37091ca33a_1.jpg',
-    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/6862a22a58388f37091ca339_c.mp4',
-    desc: '3 分钟入睡 - 快速入睡，治疗焦虑症、抑郁症 - 雨天 [深度睡眠] 视频制作：Moose _______________________ 📜 您今天过得怎么样？ 我的今天就是来创作这些旋律、声音。音乐是生活中不可或缺的。如果我的音乐能帮助您变得快乐，忘记生活中的烦恼，我会非常高兴。 听我的音乐',
+    category: 'Nature',
+    scenes: ['入睡', '放松'],
+    duration: 'PT20M',
+    durationLabel: '20 分钟',
+    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68776a6e846a1db211d07a35.m4a',
+    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68776a6e846a1db211d07a35_1.jpg',
+    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video/68776a6e846a1db211d07a35.720p.mp4',
+    desc: '我建造了一个小泥屋来隐藏在自然中，我用枯木做结构，黏土和石头做壁炉，草做屋顶。这里有很多野猪，我安顿在了它们的领地！ 🎮 TWITCH | ➯ 在社交网络上加入冒险者团队 ☟ 🚩 INSTAGRAM | 🚩 FACEBOOK | 🚩 TIKTOK | 🚩 YOUTUBE | ➯ 有想法？有',
     descEn: '', // TODO: add English description
     related: [],
   },
@@ -967,22 +1016,6 @@ export const resources: Record<string, any> = {
     cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/683dd759c259af71d8ce666d_1.jpg',
     video: 'http://uploadttcdn.fuciyuan7.com/video/9Zq79uu_o5E.mp4',
     desc: '#musicforthesoul #sleepmusic #pianomusic Music therapy 🌿Soothes the nervous system and refreshes the soul, relaxing #2 🌞 Beautiful Relaxing Music 💝',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
-  'jungle-fireplace': {
-    id: '68776a6e846a1db211d07a35',
-    title: '建造完整且温暖的生存避难所 | 丛林工艺土屋、草屋顶和带粘土的壁炉',
-    titleEn: '', // TODO: add English title
-    category: 'Nature',
-    scenes: ['入睡', '放松'],
-    duration: 'PT20M',
-    durationLabel: '20 分钟',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68776a6e846a1db211d07a35.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68776a6e846a1db211d07a35_1.jpg',
-    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video/68776a6e846a1db211d07a35.720p.mp4',
-    desc: '我建造了一个小泥屋来隐藏在自然中，我用枯木做结构，黏土和石头做壁炉，草做屋顶。这里有很多野猪，我安顿在了它们的领地！ 🎮 TWITCH | ➯ 在社交网络上加入冒险者团队 ☟ 🚩 INSTAGRAM | 🚩 FACEBOOK | 🚩 TIKTOK | 🚩 YOUTUBE | ➯ 有想法？有',
     descEn: '', // TODO: add English description
     related: [],
   },
@@ -1015,22 +1048,6 @@ export const resources: Record<string, any> = {
     cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68961df2189e8b47d8a4635f_1.jpg',
     video: 'https://www.youtube.com/watch?v=WTYgWZb9V1M',
     desc: '',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
-  'res-6863328e': {
-    id: '6863328e58388f37091caadb',
-    title: '【有声书】最近13000年来所有人的简短历史巨著 历史上到底发生了什么事让世界这么不平等《枪炮、病菌与钢铁》「人类社会的命运」（下）完整版（高音质）无广告',
-    titleEn: '', // TODO: add English title
-    category: 'Music',
-    scenes: ['放松', '入睡'],
-    duration: 'PT8H7M',
-    durationLabel: '8 小时 7 分钟',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio/6863328e58388f37091caada.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/6863328e58388f37091caadb_1.jpg',
-    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/6863328e58388f37091caada_c.mp4',
-    desc: '#听音阅读 #听书 #聽書 #有声书 #有聲書 #有声小说 #有声读物 #精读 #有聲小說 #思维 #知识 #成长 #提升 📚 每天听本好书，每日只用30分钟的时间感受成长的快乐，变成更丰富的自己。总有一本书能解决您生命中某个问题。 --------------------------------',
     descEn: '', // TODO: add English description
     related: [],
   },
@@ -1083,22 +1100,6 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
-  'water-healing': {
-    id: '68c0ddb1f26e9b47b8bdf384',
-    title: '水声疗愈 (30分钟) - 净化您的能量 - 舒缓焦虑、压力和悲伤',
-    titleEn: '', // TODO: add English title
-    category: 'Meditation',
-    scenes: ['冥想', '放松'],
-    duration: 'PT31M',
-    durationLabel: '31 分钟',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/68c0ddb1f26e9b47b8bdf384.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68c0ddb1f26e9b47b8bdf384_1.jpg',
-    video: 'https://www.youtube.com/watch?v=wQiSW_0iTPc',
-    desc: '本周 30 分钟的声音疗愈，融入了柔和的水流，旨在让你更贴近自然流动状态，净化任何稠密能量，释放压力，让情绪自由流动。 这段视频中的吟唱纯粹是直觉式的，是一种通灵的声音疗愈激活，并配以原创的手碟乐曲。 祝福 Chantress Seba Gemini and Finn I and I #睡眠 #睡眠',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
   'music-2': {
     id: '68cbc145575572c43dbcbac4',
     title: '电脑工作时的音乐 | 专注和提高效率的背景音乐',
@@ -1147,38 +1148,6 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
-  'crickets-relax-sleep': {
-    id: '6862b81158388f37091ca68f',
-    title: '放松的睡眠音乐和夜晚的自然之声：轻柔的蟋蟀声、优美的钢琴声、深度睡眠音乐',
-    titleEn: '', // TODO: add English title
-    category: 'Nature',
-    scenes: ['入睡', '放松'],
-    duration: 'PT3H27M',
-    durationLabel: '3 小时 27 分钟',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/6862b81158388f37091ca68f.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/6862b81158388f37091ca68f_1.jpg',
-    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/6862b81158388f37091ca68e_c.mp4',
-    desc: '优美的钢琴音乐和宁静的夏夜声音，伴有蟋蟀和萤火虫。 在 Spotify 上收听 ► ✨ Spotify 播放列表 ► 🌌 夜晚声音播放列表 ► 订阅 Dream Sounds 以获取未来上传的最新信息 ► 更多放松音乐： ☔ 放松雨声 ► 🌲 自然之声 ► 💧 水声 ► 🎧 下载/播放 ► ',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
-  'rain-forest-relax': {
-    id: '6842b124f6e588687f9badec',
-    title: '聆听森林小径上的雨声，放松身心，减轻焦虑，并深度睡眠。',
-    titleEn: '', // TODO: add English title
-    category: 'Nature',
-    scenes: ['入睡', '遮蔽噪音', '放松'],
-    duration: 'PT2H49M',
-    durationLabel: '2 小时 49 分钟',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/6842b124f6e588687f9badec.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/6842b124f6e588687f9badec_1.jpg',
-    video: 'http://uploadttcdn.fuciyuan7.com/video_clip/SnUBb-FAlCY.mp4',
-    desc: '自然雨声，睡眠音乐，白噪音，ASMR，雷暴雨，睡眠，雨，下雨天，真实雨声，学习，工作，冥想，失眠，催眠，生活记录，雨声助眠... #雨 #自然 #ASMR',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
   'res-68b31c6e': {
     id: '68b31c6e65c4fc213f58c780',
     title: '你需要睡觉。',
@@ -1195,22 +1164,6 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
-  'bgm-nature-sounds-hour': {
-    id: '6852e252ac14de312b614973',
-    title: '【睡眠用BGM│自然音】 乡村的夜晚│虫鸣・潺潺流水・青蛙・猫【Nature Sounds 3hour】',
-    titleEn: '', // TODO: add English title
-    category: 'Nature',
-    scenes: ['入睡', '放松', '遮蔽噪音'],
-    duration: 'PT3H',
-    durationLabel: '3 小时',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/6852e252ac14de312b614973.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/6852e252ac14de312b614973_1.jpg',
-    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/6852e252ac14de312b614973_c.mp4',
-    desc: '遥远不知名的小镇的夜晚。 从屋外传来的虫鸣声和潺潺的流水声， 给人一种回到老家的安心感。 推荐用于工作、睡眠用BGM等^^ 今天也睡个好觉😴 ◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆◇◆ 【热门相关视频】 ■【自然音】噼啪作响的舒适篝火影像×催眠的朗读 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿ 感',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
   'rain-sleep': {
     id: '6863367a58388f37091caba1',
     title: '最舒心的睡前故事：雨天面包房 | 睡眠故事讲述',
@@ -1223,22 +1176,6 @@ export const resources: Record<string, any> = {
     cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/6863367a58388f37091caba1_1.jpg',
     video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/6863367a58388f37091caba0_c.mp4',
     desc: '在今晚温馨的睡前故事合集中，让我们回到雨天面包房，那里闪烁的彩灯和令人舒适的香气，一定会照亮最灰暗的日子。 旁白：Thomas Jones 🇬🇧 作者：Shady Grove ✍ 音效设计：轻柔的雨打窗户声 🌧 包括提及：食物，猫，怀旧，烹饪 欢迎来到 Get Sleepy 南瓜派和咖啡 狂风',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
-  'asmr-nature-sounds': {
-    id: '684b05aacbbee57a39e40f28',
-    title: '【环境音/ASMR】水的声音・虫鸣｜安静夜晚的虫鸣・轻柔的水声｜睡眠・放松｜自然环境音・Nature Sounds',
-    titleEn: '', // TODO: add English title
-    category: 'Nature',
-    scenes: ['入睡', '放松'],
-    duration: 'PT2H',
-    durationLabel: '2 小时',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/684b05aacbbee57a39e40f28.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/684b05aacbbee57a39e40f28_1.jpg',
-    video: 'http://uploadttcdn.fuciyuan7.com/video_clip/8gxWEYoJFMg.mp4',
-    desc: '【环境音/ASMR】水声・虫鸣｜静谧夜晚的虫鸣声・轻柔的水声。静静流淌的水声和虫鸣声能诱人舒适入眠。据说比起单一的鸣叫声，多种虫鸣声更能带来睡眠・放松等心理上的恢复效果。请尽情享受能舒适入睡的治愈环境音/ASMR“静谧夜晚的虫鸣声・平静的水声”。 这里的自然音是双耳录音（立体音响），因此完成了具有纵',
     descEn: '', // TODO: add English description
     related: [],
   },
@@ -1419,22 +1356,6 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
-  'res-69a80a4f': {
-    id: '69a80a4f4a7ad44fa0019524',
-    title: '穿过麦田，听风吹麦浪的声音',
-    titleEn: '', // TODO: add English title
-    category: 'White Noise',
-    scenes: ['入睡', '遮蔽噪音'],
-    duration: 'PT8H',
-    durationLabel: '8 小时',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/vol01_wind_autumn_field_1.mp3',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/69a80a4f4a7ad44fa0019524_zh_8.jpg',
-    video: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/video/69a80a4f4a7ad44fa0019524_5.mp4',
-    desc: '秋季草地上的微风，干草沙沙声混合轻柔风声，适合助眠和放松',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
   'sleep-music': {
     id: '692c7cefe992a1a94be4042f',
     title: '三分钟内快速入睡 婴儿睡眠音乐 莫扎特勃拉姆斯摇篮曲',
@@ -1451,38 +1372,6 @@ export const resources: Record<string, any> = {
     related: [],
   },
 
-  'res-692871fd': {
-    id: '692871fde992a1a94be398fa',
-    title: '对不起 | 英语学习播客对话 | 第6集',
-    titleEn: '', // TODO: add English title
-    category: 'Music',
-    scenes: ['放松', '入睡'],
-    duration: 'PT19M',
-    durationLabel: '19 分钟',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio/692871fde992a1a94be398fa.m4a',
-    cover: 'http://uploadttcdn.fuciyuan7.com/sleep/cover/692871fde992a1a94be398fa.jpg',
-    video: 'https://www.youtube.com/watch?v=1WhhTiNTdk8',
-    desc: 'I\'m sorry | English learning podcast Conversation | Episode 6 #english 欢迎来到英语播客区！ 我们很高兴您能加入我们，踏上这段激动人心的英语学习之旅！我们的频道旨在让英语学习变得轻松、有趣且引人入胜——尤其是通过我们独特的播客系列',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
-  'relax-sleep-insomnia': {
-    id: '6909ad012f0f6a7319edd5fb',
-    title: '失眠疗愈，褪黑素和毒素释放，即时放松 - 疗愈睡眠音乐',
-    titleEn: '', // TODO: add English title
-    category: 'Music',
-    scenes: ['放松', '入睡'],
-    duration: 'PT3H44M',
-    durationLabel: '3 小时 44 分钟',
-    audio: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/6909ad012f0f6a7319edd5fb.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/6909ad012f0f6a7319edd5fb_1.jpg',
-    video: 'http://uploadttcdn.fuciyuan7.com/sleep/video_clips/6909ad012f0f6a7319edd5fb_c.mp4',
-    desc: '失眠治疗，释放褪黑素和毒素，即时放松 - 疗愈睡眠音乐 🌙欢迎来到睡眠音乐。 伴随我们舒缓的音乐，体验宁静而充满活力的夜晚睡眠。 释放压力，拥抱褪黑素的镇静效果，让您的身体在您进入深度、安宁的睡眠时排毒。 使用此放松声音合集，营造完美的气氛，享受宁静的夜晚休息。 _________________',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
   'res-6908ec1d': {
     id: '6908ec1d2f0f6a7319edd2c2',
     title: '【有声书】《小岛经济学》（完整版）',
@@ -1495,22 +1384,6 @@ export const resources: Record<string, any> = {
     cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/6908ec1d2f0f6a7319edd2c2_1.jpg',
     video: 'https://www.youtube.com/watch?v=ID3jj1qeR3w',
     desc: '【本书链接 How an Economy Grows and Why It Crashes】 【荐阅 Economics in One Lesson】 ============================================ :00 01.《小岛经济学》第一章 一个好点子出炉了 :0',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
-  'sleep-aid': {
-    id: '68dc912fa68e75503cb86648',
-    title: '无聊的历史助眠 | 为什么你无法在中世纪生存一天等等',
-    titleEn: '', // TODO: add English title
-    category: 'Music',
-    scenes: ['放松', '入睡'],
-    duration: 'PT2H7M',
-    durationLabel: '2 小时 7 分钟',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio/68dc912fa68e75503cb86648.m4a',
-    cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68dc912fa68e75503cb86648_1.jpg',
-    video: 'https://www.youtube.com/watch?v=9jnekLeHz3c',
-    desc: '今晚聆听一个睡眠故事来放松身心，这个故事旨在平复你的思绪，让你轻柔地进入深度睡眠。这个2小时的视频将舒适壁炉的噼啪声与轻柔的讲述相结合，交织着战争的故事和历史中的瞬间。在闪烁的火焰的宁静光芒中，揭开著名历史人物背后隐藏的真相，探索未解之谜，并思考过去令人难忘的事件。这款视频非常适合睡眠冥想、成人放松',
     descEn: '', // TODO: add English description
     related: [],
   },
@@ -1655,38 +1528,6 @@ export const resources: Record<string, any> = {
     cover: 'https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/cover/68aa34063a9c31fde20e9e19_1.jpg',
     video: 'https://www.youtube.com/watch?v=5gO0xpY_Y3E',
     desc: '``` \'\'重要提示 我不拥有此处任何作品的版权。 每首作品均属于我喜爱和尊重的古典新音乐艺术家。 如果您有版权问题，可以通过电子邮件 (perissann@gmail.com) 与我联系。 您最晚会在 8 小时内收到回复。 感谢您的理解，祝您收听愉快。\'\' 所有音乐均由 dhe Perissann',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
-  'res-68a846be': {
-    id: '68a846be3a9c31fde20e5294',
-    title: '梁文道┃八分半┃68┃伊朗和以色列何以至此？',
-    titleEn: '', // TODO: add English title
-    category: 'Music',
-    scenes: ['放松', '入睡'],
-    duration: 'PT1H21M',
-    durationLabel: '1 小时 21 分钟',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio/68a846be3a9c31fde20e5294.m4a',
-    cover: 'http://uploadttcdn.fuciyuan7.com/sleep/cover/68a846be3a9c31fde20e5294.jpg',
-    video: 'https://www.youtube.com/watch?v=QZMfzTYAbeg',
-    desc: '#梁文道 #八分半 1、会有新的势力方加入这场战争吗？ 2、波斯帝国是如何建立的？ 3、什么叫泛阿拉伯主义？ 4、回应一些听友留言。',
-    descEn: '', // TODO: add English description
-    related: [],
-  },
-
-  'night-2': {
-    id: '68a7c0fe7c9a7e583d56c11e',
-    title: '资金链断裂，九成员工一夜之间突然离职，“宫斗”惊魂，差点被踢出自己创办的公司',
-    titleEn: '', // TODO: add English title
-    category: 'Music',
-    scenes: ['放松', '入睡'],
-    duration: 'PT0M',
-    durationLabel: '0 分钟',
-    audio: 'http://uploadttcdn.fuciyuan7.com/sleep/audio/68a7c0fe7c9a7e583d56c11e.m4a',
-    cover: 'http://uploadttcdn.fuciyuan7.com/sleep/cover/68a7c0fe7c9a7e583d56c11e.jpg',
-    video: 'https://www.youtube.com/watch?v=lWh9jzy1uZ0',
-    desc: '',
     descEn: '', // TODO: add English description
     related: [],
   },

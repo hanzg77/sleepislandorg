@@ -23,14 +23,14 @@ const categories = ['All', ...new Set(allResources.map(r => r.category))];
   alternateZh="https://www.sleepisland.org/resources/"
   alternateEn="https://www.sleepisland.org/en/resources/"
 >
-  <section class="max-w-5xl mx-auto px-4 py-16">
-    <h1 class="text-3xl md:text-4xl font-bold text-center mb-3">声音资源</h1>
-    <p class="text-center text-[var(--color-text-secondary)] mb-8">网页可直接试听，完整版在 App 内播放，支持入睡自动停止</p>
+  <section class="max-w-[1060px] mx-auto px-5 py-16 md:py-20">
+    <h1 class="text-[2rem] md:text-[2.5rem] font-bold tracking-[-0.03em] text-center mb-3 text-white">声音资源</h1>
+    <p class="text-center text-[15px] text-[var(--color-text-secondary)] mb-10">网页可直接试听，完整版在 App 内播放，支持入睡自动停止</p>
 
-    <div class="flex gap-2 overflow-x-auto pb-4 mb-8" role="tablist">
+    <div class="flex gap-2 overflow-x-auto pb-4 mb-10" role="tablist">
       {categories.map((cat, i) => (
         <button
-          class={`px-4 py-2 rounded-full text-sm whitespace-nowrap transition-colors ${i === 0 ? 'bg-[var(--color-accent)] text-white' : 'bg-[var(--color-bg-card)] border border-[var(--color-border-card)] text-[var(--color-text-secondary)] hover:text-white'}`}
+          class={`px-4 py-2 rounded-full text-[13px] whitespace-nowrap transition-all duration-300 font-medium ${i === 0 ? 'bg-white text-black' : 'bg-white/[0.06] text-[var(--color-text-secondary)] hover:bg-white/[0.1] hover:text-white'}`}
           role="tab"
           data-category={cat}
         >
@@ -39,7 +39,7 @@ const categories = ['All', ...new Set(allResources.map(r => r.category))];
       ))}
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="resource-grid">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6" id="resource-grid">
       {allResources.map(r => (
         <div data-category={r.category}>
           <ResourceCard {...r} lang="zh-Hans" />
@@ -56,8 +56,8 @@ const categories = ['All', ...new Set(allResources.map(r => r.category))];
         const cat = btn.getAttribute('data-category');
         document.querySelectorAll('[role="tab"]').forEach(b => {
           b.className = b === btn
-            ? 'px-4 py-2 rounded-full text-sm whitespace-nowrap transition-colors bg-[var(--color-accent)] text-white'
-            : 'px-4 py-2 rounded-full text-sm whitespace-nowrap transition-colors bg-[var(--color-bg-card)] border border-[var(--color-border-card)] text-[var(--color-text-secondary)] hover:text-white';
+            ? 'px-4 py-2 rounded-full text-[13px] whitespace-nowrap transition-all duration-300 font-medium bg-white text-black'
+            : 'px-4 py-2 rounded-full text-[13px] whitespace-nowrap transition-all duration-300 font-medium bg-white/[0.06] text-[var(--color-text-secondary)] hover:bg-white/[0.1] hover:text-white';
         });
         document.querySelectorAll('#resource-grid > div').forEach(card => {
           (card as HTMLElement).style.display = (cat === 'All' || card.getAttribute('data-category') === cat) ? '' : 'none';

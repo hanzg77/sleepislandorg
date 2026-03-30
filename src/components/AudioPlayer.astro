@@ -9,7 +9,7 @@ const isEn = lang === 'en';
 const label = isEn ? `Play preview: ${title}` : `试听：${title}`;
 ---
 
-<div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
+<div class="bg-[var(--color-bg-card)] border border-white/[0.06] rounded-2xl p-6 md:p-7">
   <audio
     controls
     preload="metadata"
@@ -19,7 +19,7 @@ const label = isEn ? `Play preview: ${title}` : `试听：${title}`;
     <source src={src} type="audio/mpeg" />
     {isEn ? 'Your browser does not support audio playback.' : '你的浏览器不支持音频播放。'}
   </audio>
-  <p class="text-xs text-[var(--color-text-muted)] mt-3">
+  <p class="text-[12px] text-[var(--color-text-muted)] mt-3">
     {isEn
       ? 'This is a short preview. Get the full version with auto-stop in the app.'
       : '这是一段简短试听。完整版请在 App 内播放，支持入睡自动停止。'}

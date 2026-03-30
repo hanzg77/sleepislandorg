@@ -34,34 +34,34 @@ const features = [
   alternateEn="https://www.sleepisland.org/en/app/"
   schema={schema}
 >
-  <section class="max-w-3xl mx-auto px-4 py-16">
-    <header class="text-center mb-12">
-      <img src="/assets/logo-1024.png" alt="睡眠岛 Logo" width="100" height="100" class="mx-auto mb-4 rounded-2xl" />
-      <h1 class="text-3xl md:text-4xl font-bold mb-3">睡眠岛 Sleep Island</h1>
-      <p class="text-[var(--color-text-secondary)]">声音驱动的睡眠 App · 免费下载</p>
+  <section class="max-w-[680px] mx-auto px-5 py-16 md:py-20">
+    <header class="text-center mb-14">
+      <img src="/assets/logo-1024.png" alt="睡眠岛 Logo" width="100" height="100" class="mx-auto mb-5 rounded-[1.5rem] shadow-[0_12px_40px_rgba(0,0,0,0.4)]" />
+      <h1 class="text-[2rem] md:text-[2.5rem] font-bold tracking-[-0.03em] mb-3 text-white">睡眠岛 Sleep Island</h1>
+      <p class="text-[15px] text-[var(--color-text-secondary)]">声音驱动的睡眠 App · 免费下载</p>
     </header>
 
-    <dl class="summary mb-12" role="contentinfo" aria-label="App 摘要">
+    <dl class="summary mb-14" role="contentinfo" aria-label="App 摘要">
       <dt>Type</dt><dd>iOS App</dd>
       <dt>Price</dt><dd>Free / 免费</dd>
       <dt>Features</dt><dd>自然音景、耳鸣缓解、入睡自动停止、鼾声监测、AI 睡眠分析</dd>
-      <dt>Download</dt><dd><a href="https://apps.apple.com/app/id6747609991" class="text-[var(--color-accent-light)] hover:underline">App Store</a></dd>
+      <dt>Download</dt><dd><a href="https://apps.apple.com/app/id6747609991" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">App Store</a></dd>
     </dl>
 
-    <h2 class="text-2xl font-bold text-center mb-8">核心功能</h2>
-    <div class="grid sm:grid-cols-2 gap-4 mb-12">
+    <h2 class="text-[1.5rem] md:text-[1.75rem] font-bold tracking-[-0.02em] text-center mb-8 text-white">核心功能</h2>
+    <div class="grid sm:grid-cols-2 gap-4 mb-14">
       {features.map(f => (
-        <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
-          <div class="text-2xl mb-2" set:html={f.icon} />
-          <h3 class="font-semibold mb-2">{f.title}</h3>
-          <p class="text-sm text-[var(--color-text-secondary)]">{f.desc}</p>
+        <div class="bg-[var(--color-bg-card)] border border-white/[0.06] rounded-2xl p-6 hover:border-white/[0.1] transition-colors duration-500">
+          <div class="text-2xl mb-3" set:html={f.icon} />
+          <h3 class="font-semibold text-[15px] mb-2 text-white">{f.title}</h3>
+          <p class="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">{f.desc}</p>
         </div>
       ))}
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-xl font-bold mb-4">隐私说明</h2>
-      <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6 space-y-3 text-sm text-[var(--color-text-secondary)]">
+    <section class="mb-14">
+      <h2 class="text-xl font-bold mb-5 text-white">隐私说明</h2>
+      <div class="bg-[var(--color-bg-card)] border border-white/[0.06] rounded-2xl p-6 md:p-7 space-y-3.5 text-[14px] text-[var(--color-text-secondary)] leading-relaxed">
         <p><strong class="text-white">麦克风权限：</strong>仅用于鼾声监测，音频在本地处理，不上传服务器。</p>
         <p><strong class="text-white">睡眠数据：</strong>存储在你的设备本地，你可以随时导出或删除。</p>
         <p><strong class="text-white">无广告追踪：</strong>我们不使用第三方广告 SDK，不追踪你的个人信息。</p>

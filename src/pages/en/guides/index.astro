@@ -21,18 +21,18 @@ const guides = [
   alternateZh="https://www.sleepisland.org/guides/"
   alternateEn="https://www.sleepisland.org/en/guides/"
 >
-  <section class="max-w-3xl mx-auto px-4 py-16">
-    <h1 class="text-3xl md:text-4xl font-bold text-center mb-3">Sleep Guides</h1>
-    <p class="text-center text-[var(--color-text-secondary)] mb-10">Practical sleep knowledge, each with sound resources you can preview</p>
+  <section class="max-w-[680px] mx-auto px-5 py-16 md:py-20">
+    <h1 class="text-[2rem] md:text-[2.5rem] font-bold tracking-[-0.03em] text-center mb-3 text-white">Sleep Guides</h1>
+    <p class="text-center text-[15px] text-[var(--color-text-secondary)] mb-10 md:mb-14">Practical sleep knowledge, each with sound resources you can preview</p>
 
-    <div class="space-y-4">
+    <div class="space-y-3">
       {guides.map(g => (
-        <a href={`/en/guides/${g.slug}/`} class="block bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6 hover:border-[var(--color-accent)]/40 transition-colors">
+        <a href={`/en/guides/${g.slug}/`} class="block bg-[var(--color-bg-card)] border border-white/[0.06] rounded-2xl p-6 md:p-7 hover:border-white/[0.1] transition-colors duration-500">
           <div class="flex items-center justify-between mb-2">
-            <span class="text-xs text-[var(--color-brand-start)] font-medium">{g.topic}</span>
+            <span class="text-[12px] text-[var(--color-brand-start)] font-medium">{g.topic}</span>
           </div>
-          <h2 class="font-semibold text-base mb-1">{g.title}</h2>
-          <p class="text-sm text-[var(--color-text-secondary)]">{g.desc}</p>
+          <h2 class="font-semibold text-[15px] mb-1 text-white">{g.title}</h2>
+          <p class="text-[14px] text-[var(--color-text-secondary)]">{g.desc}</p>
         </a>
       ))}
     </div>

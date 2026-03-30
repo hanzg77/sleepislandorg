@@ -8,7 +8,6 @@ const { lang = 'zh-Hans' } = Astro.props;
 const t = UI[lang];
 const prefix = lang === 'zh-Hans' ? '' : lang === 'en' ? '/en' : `/${lang}`;
 
-// Nav links matching real pages: resources, snore-detection, tinnitus-relief, faq
 const nav = [
   { label: t.navSounds, href: `${prefix}/resources/` },
   { label: t.navSnore, href: `${prefix}/snore-detection/` },
@@ -20,33 +19,33 @@ const homeHref = prefix ? `${prefix}/` : '/';
 const currentLangLabel = LANGS.find(l => l.code === lang)?.label || '中文';
 ---
 
-<header class="sticky top-0 z-50 bg-[var(--color-bg-primary)]/95 backdrop-blur border-b border-[var(--color-border-card)]">
-  <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+<header class="sticky top-0 z-50 bg-[rgba(0,0,0,0.72)] backdrop-blur-2xl backdrop-saturate-[180%] border-b border-white/[0.06]">
+  <div class="max-w-[980px] mx-auto px-5 h-12 flex items-center justify-between">
     <!-- Logo -->
-    <a href={homeHref} class="flex items-center gap-2 font-bold text-lg">
-      <img src="/assets/logo-new-1024.png" alt="Sleep Island" width="32" height="32" class="rounded-lg" />
+    <a href={homeHref} class="flex items-center gap-2.5 font-semibold text-[15px] text-[var(--color-text-primary)] hover:text-white transition-colors">
+      <img src="/assets/logo-new-1024.png" alt="Sleep Island" width="28" height="28" class="rounded-[7px]" />
       <span class="hidden sm:inline">{t.brandName}</span>
     </a>
 
     <!-- Nav -->
-    <nav class="hidden md:flex items-center gap-6 text-sm text-[var(--color-text-secondary)]">
+    <nav class="hidden md:flex items-center gap-7 text-[13px] text-[var(--color-text-secondary)]">
       {nav.map(item => (
-        <a href={item.href} class="hover:text-white transition-colors">{item.label}</a>
+        <a href={item.href} class="hover:text-[var(--color-text-primary)] transition-colors duration-300">{item.label}</a>
       ))}
     </nav>
 
     <!-- Right side: lang switcher + download -->
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-2.5">
       <!-- Language switcher -->
       <div class="relative" id="langSwitcher">
-        <button id="langToggle" class="flex items-center gap-1.5 text-sm text-[var(--color-text-secondary)] hover:text-white transition-colors border border-[var(--color-border-card)] rounded-full px-3 py-1.5">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <button id="langToggle" class="flex items-center gap-1.5 text-[13px] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-300 px-2.5 py-1.5 rounded-full hover:bg-white/[0.06]">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           <span>{currentLangLabel}</span>
         </button>
-        <div id="langDropdown" class="absolute right-0 top-full mt-2 bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl py-1.5 min-w-[140px] shadow-xl opacity-0 invisible -translate-y-2 transition-all duration-200 z-50">
+        <div id="langDropdown" class="absolute right-0 top-full mt-2 bg-[rgba(28,28,30,0.92)] backdrop-blur-2xl border border-white/[0.1] rounded-2xl py-2 min-w-[160px] shadow-[0_8px_40px_rgba(0,0,0,0.55)] opacity-0 invisible -translate-y-1.5 transition-all duration-200 z-50">
           {LANGS.map(l => (
             <a href={l.prefix ? `${l.prefix}/` : '/'}
-               class={`block px-4 py-2 text-sm hover:bg-white/5 transition-colors ${l.code === lang ? 'text-[var(--color-accent)] font-medium' : 'text-[var(--color-text-secondary)]'}`}>
+               class={`block px-4 py-2 text-[13px] hover:bg-white/[0.06] transition-colors duration-200 ${l.code === lang ? 'text-[var(--color-accent)] font-medium' : 'text-[var(--color-text-secondary)]'}`}>
               {l.label}
             </a>
           ))}
@@ -54,16 +53,16 @@ const currentLangLabel = LANGS.find(l => l.code === lang)?.label || '中文';
       </div>
 
       <a href="https://apps.apple.com/app/id6747609991"
-         class="bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white text-sm font-medium px-4 py-2 rounded-full transition-colors">
+         class="bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white text-[13px] font-medium px-4 py-1.5 rounded-full transition-colors duration-300">
         {t.navDownload}
       </a>
     </div>
   </div>
 
   <!-- Mobile nav -->
-  <nav class="md:hidden border-t border-[var(--color-border-card)] px-4 py-2 flex gap-4 overflow-x-auto text-sm text-[var(--color-text-secondary)]">
+  <nav class="md:hidden border-t border-white/[0.06] px-5 py-2.5 flex gap-5 overflow-x-auto text-[13px] text-[var(--color-text-secondary)]">
     {nav.map(item => (
-      <a href={item.href} class="whitespace-nowrap hover:text-white transition-colors">{item.label}</a>
+      <a href={item.href} class="whitespace-nowrap hover:text-[var(--color-text-primary)] transition-colors duration-300">{item.label}</a>
     ))}
   </nav>
 </header>
@@ -77,15 +76,15 @@ const currentLangLabel = LANGS.find(l => l.code === lang)?.label || '中文';
       const isOpen = dropdown.classList.contains('opacity-100');
       if (isOpen) {
         dropdown.classList.remove('opacity-100', 'visible', 'translate-y-0');
-        dropdown.classList.add('opacity-0', 'invisible', '-translate-y-2');
+        dropdown.classList.add('opacity-0', 'invisible', '-translate-y-1.5');
       } else {
-        dropdown.classList.remove('opacity-0', 'invisible', '-translate-y-2');
+        dropdown.classList.remove('opacity-0', 'invisible', '-translate-y-1.5');
         dropdown.classList.add('opacity-100', 'visible', 'translate-y-0');
       }
     });
     document.addEventListener('click', () => {
       dropdown.classList.remove('opacity-100', 'visible', 'translate-y-0');
-      dropdown.classList.add('opacity-0', 'invisible', '-translate-y-2');
+      dropdown.classList.add('opacity-0', 'invisible', '-translate-y-1.5');
     });
   }
 </script>

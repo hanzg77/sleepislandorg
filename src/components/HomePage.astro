@@ -12,50 +12,54 @@ const { lang } = Astro.props;
 const t = UI[lang];
 const prefix = lang === 'zh-Hans' ? '' : lang === 'en' ? '/en' : `/${lang}`;
 
-const featuredSlugs = ['rain-fireplace', 'tropical-rainforest', 'deep-sea-bubbles', 'winter-cave-fireplace', 'cricket-sounds', 'thunderstorm', 'pink-noise', 'lake-rain', 'crickets-insects'];
-const resources = featuredSlugs.map(slug => ({
-  title: getResourceTitle(slug, lang, allRes),
-  slug,
-  category: allRes[slug].category,
-  scene: getScenes(allRes[slug].scenes, lang),
-  duration: allRes[slug].durationLabel,
-  cover: allRes[slug].cover,
-}));
+// Take top 9 resources by rank (lower rank = higher position), filter out entries without covers
+const resources = Object.entries(allRes)
+  .filter(([, r]) => r.cover)
+  .sort((a, b) => (a[1].rank ?? 99999) - (b[1].rank ?? 99999))
+  .slice(0, 12)
+  .map(([slug, r]) => ({
+    title: getResourceTitle(slug, lang, allRes),
+    slug,
+    category: r.category,
+    scene: getScenes(r.scenes, lang),
+    duration: r.durationLabel,
+    cover: r.cover,
+  }));
 ---
 
-<!-- Hero: aligned two-column foundation that shares the same text baseline as the section below -->
-<section class="pt-14 md:pt-18 pb-6 md:pb-8 px-4 bg-gradient-to-b from-[#0f1528] via-[#0c1020] to-[var(--color-bg-primary)] relative overflow-hidden">
-  <!-- Ambient glow -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[720px] h-[420px] bg-[radial-gradient(ellipse,rgba(139,100,220,0.08),transparent_72%)]"></div>
-  </div>
+<!-- Hero -->
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-[#111125] via-[#0a0a14] to-black"></div>
+  <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-[radial-gradient(ellipse,rgba(110,70,190,0.1),transparent_65%)] pointer-events-none"></div>
 
-  <div class="relative z-10 max-w-6xl mx-auto">
-    <div class="grid gap-6 lg:grid-cols-[11rem_minmax(0,1fr)] lg:gap-10 items-center lg:items-start">
-      <div class="relative flex justify-center lg:justify-start lg:pt-1">
-        <div class="absolute inset-0 m-auto md:mx-0 h-28 w-28 sm:h-32 sm:w-32 md:h-40 md:w-40 rounded-full bg-[radial-gradient(circle,rgba(139,100,220,0.18),transparent_72%)] blur-2xl"></div>
+  <div class="relative z-10 max-w-[980px] mx-auto px-5 pt-10 pb-6 md:pt-14 md:pb-8">
+    <div class="flex items-start justify-center gap-5 md:gap-7">
+      <!-- Logo -->
+      <div class="relative shrink-0 pt-1">
+        <div class="absolute inset-0 m-auto w-20 h-20 md:w-24 md:h-24 rounded-full bg-[radial-gradient(circle,rgba(120,80,200,0.18),transparent_70%)] blur-2xl"></div>
         <img
           src="/assets/logo-new-1024.png"
           alt={t.brandName}
-          width="160"
-          height="160"
-          class="relative w-24 h-24 sm:w-28 sm:h-28 md:w-40 md:h-40 rounded-[1.75rem] md:rounded-[2rem] ring-1 ring-white/8 shadow-[0_18px_44px_rgba(6,10,22,0.34)]"
+          width="96"
+          height="96"
+          class="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-[1.1rem] md:rounded-[1.5rem] shadow-[0_12px_36px_rgba(0,0,0,0.45)] ring-1 ring-white/[0.06]"
         />
       </div>
 
-      <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
-        <h1 class="text-[3.5rem] leading-[0.94] sm:text-[4.5rem] md:text-[5rem] lg:text-[5.35rem] font-semibold tracking-[-0.045em] text-white">
+      <!-- Title + Tagline + CTA -->
+      <div class="min-w-0">
+        <h1 class="text-[2.2rem] sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] font-bold tracking-[-0.04em] leading-[1] text-white">
           {t.brandName}
         </h1>
-        <p class="mt-3 max-w-none text-[1.02rem] leading-[1.55] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.34rem] lg:leading-[1.35] lg:whitespace-nowrap text-[var(--color-text-secondary)] font-normal tracking-[-0.01em]">
+        <p class="mt-1.5 md:mt-2 text-[0.85rem] sm:text-[0.95rem] md:text-[1.1rem] leading-[1.5] text-[var(--color-text-secondary)] tracking-[-0.01em]">
           {t.heroTagline}
         </p>
-        <div class="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start lg:items-center">
+        <div class="mt-4 md:mt-5">
           <a
             href="https://apps.apple.com/app/id6747609991"
-            class="inline-flex min-w-[17rem] md:min-w-[18.5rem] items-center justify-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white text-base md:text-[1.05rem] font-medium px-7 py-3.5 rounded-full transition-colors shadow-[0_10px_30px_rgba(59,130,246,0.24)]"
+            class="inline-flex items-center justify-center gap-2 bg-white text-black text-[14px] md:text-[15px] font-semibold px-7 py-2.5 md:px-8 md:py-3 rounded-full transition-all duration-300 hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98]"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
             {t.heroCta}
           </a>
         </div>
@@ -64,56 +68,66 @@ const resources = featuredSlugs.map(slug => ({
   </div>
 </section>
 
-<!-- Featured Resources: immediately after hero, large & prominent -->
-<section class="max-w-6xl mx-auto px-4 pt-6 md:pt-8 pb-12">
-  <div class="grid gap-4 lg:grid-cols-[11rem_minmax(0,1fr)] lg:gap-10">
-    <div class="hidden lg:block"></div>
-    <div>
-      <div class="text-center lg:text-left mb-8">
-        <h2 class="text-2xl md:text-3xl font-bold mb-3">{t.resourcesTitle}</h2>
-        <p class="text-lg text-[var(--color-text-secondary)]">{t.resourcesDesc}</p>
-      </div>
-      <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
-        {resources.map(r => (
-          <ResourceCard {...r} lang={lang} />
-        ))}
-      </div>
-      <div class="text-center lg:text-left mt-8">
-        <a href={`${prefix || ''}/resources/`} class="text-[var(--color-accent-light)] hover:underline text-base">{t.resourcesMore}</a>
-      </div>
-    </div>
+<!-- Featured Resources -->
+<section class="max-w-[1060px] mx-auto px-5 pt-4 md:pt-6 pb-16 md:pb-24">
+  <div class="text-center mb-8 md:mb-10">
+    <h2 class="text-[1.75rem] md:text-[2.5rem] font-bold tracking-[-0.03em] text-white">{t.resourcesTitle}</h2>
+    <p class="mt-3 text-[15px] md:text-[17px] text-[var(--color-text-secondary)]">{t.resourcesDesc}</p>
+  </div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+    {resources.map(r => (
+      <ResourceCard {...r} lang={lang} />
+    ))}
+  </div>
+  <div class="text-center mt-10 md:mt-12">
+    <a href={`${prefix || ''}/resources/`} class="inline-flex items-center gap-1 text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] text-[15px] font-medium transition-colors duration-300">
+      {t.resourcesMore}
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
   </div>
 </section>
+
+<!-- Divider -->
+<div class="max-w-[680px] mx-auto border-t border-white/[0.06]"></div>
 
 <!-- Tinnitus Relief -->
-<section class="max-w-3xl mx-auto px-4 py-12">
-  <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-8">
-    <div class="text-3xl mb-3">&#x1F997;</div>
-    <h2 class="text-xl font-bold mb-3">{t.tinnitusTitle}</h2>
-    <p class="text-[var(--color-text-secondary)] mb-4">{t.tinnitusDesc}</p>
-    <a href={`${prefix || ''}/tinnitus-relief/`} class="text-[var(--color-accent-light)] hover:underline">{t.tinnitusMore}</a>
+<section class="max-w-[680px] mx-auto px-5 py-16 md:py-24">
+  <div class="bg-[var(--color-bg-card)] rounded-3xl p-8 md:p-10 border border-white/[0.06] hover:border-white/[0.1] transition-colors duration-500">
+    <div class="text-3xl mb-4">&#x1F997;</div>
+    <h2 class="text-xl md:text-2xl font-bold tracking-[-0.02em] mb-3 text-white">{t.tinnitusTitle}</h2>
+    <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed mb-5">{t.tinnitusDesc}</p>
+    <a href={`${prefix || ''}/tinnitus-relief/`} class="inline-flex items-center gap-1 text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] text-[15px] font-medium transition-colors duration-300">
+      {t.tinnitusMore}
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
   </div>
 </section>
 
+<!-- Divider -->
+<div class="max-w-[680px] mx-auto border-t border-white/[0.06]"></div>
+
 <!-- FAQ -->
-<section class="max-w-3xl mx-auto px-4 py-12">
-  <h2 class="text-2xl font-bold text-center mb-8">{t.faqTitle}</h2>
-  <div class="space-y-4">
-    <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
-      <h3 class="font-semibold mb-2">{t.faq1q}</h3>
-      <p class="text-sm text-[var(--color-text-secondary)]">{t.faq1a}</p>
+<section class="max-w-[680px] mx-auto px-5 py-16 md:py-24">
+  <h2 class="text-[1.75rem] md:text-[2.5rem] font-bold tracking-[-0.03em] text-center mb-10 md:mb-14 text-white">{t.faqTitle}</h2>
+  <div class="space-y-3">
+    <div class="bg-[var(--color-bg-card)] rounded-2xl p-6 md:p-7 border border-white/[0.06] hover:border-white/[0.1] transition-colors duration-500">
+      <h3 class="font-semibold text-[15px] md:text-base mb-2 text-white">{t.faq1q}</h3>
+      <p class="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">{t.faq1a}</p>
     </div>
-    <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
-      <h3 class="font-semibold mb-2">{t.faq2q}</h3>
-      <p class="text-sm text-[var(--color-text-secondary)]">{t.faq2a}</p>
+    <div class="bg-[var(--color-bg-card)] rounded-2xl p-6 md:p-7 border border-white/[0.06] hover:border-white/[0.1] transition-colors duration-500">
+      <h3 class="font-semibold text-[15px] md:text-base mb-2 text-white">{t.faq2q}</h3>
+      <p class="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">{t.faq2a}</p>
     </div>
-    <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
-      <h3 class="font-semibold mb-2">{t.faq3q}</h3>
-      <p class="text-sm text-[var(--color-text-secondary)]">{t.faq3a}</p>
+    <div class="bg-[var(--color-bg-card)] rounded-2xl p-6 md:p-7 border border-white/[0.06] hover:border-white/[0.1] transition-colors duration-500">
+      <h3 class="font-semibold text-[15px] md:text-base mb-2 text-white">{t.faq3q}</h3>
+      <p class="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">{t.faq3a}</p>
     </div>
   </div>
-  <div class="text-center mt-6">
-    <a href={`${prefix || ''}/faq/`} class="text-[var(--color-accent-light)] hover:underline">{t.faqMore}</a>
+  <div class="text-center mt-8 md:mt-10">
+    <a href={`${prefix || ''}/faq/`} class="inline-flex items-center gap-1 text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] text-[15px] font-medium transition-colors duration-300">
+      {t.faqMore}
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
   </div>
 </section>
 

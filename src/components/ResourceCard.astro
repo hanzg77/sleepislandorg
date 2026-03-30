@@ -25,27 +25,27 @@ const fallbackGradient: Record<string, string> = {
 const gradient = fallbackGradient[category] || 'from-indigo-900/80 to-slate-900/80';
 ---
 
-<article class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl overflow-hidden flex flex-col hover:border-[var(--color-accent)]/40 hover:-translate-y-1 transition-all duration-300 group">
+<article class="bg-[var(--color-bg-card)] rounded-2xl overflow-hidden flex flex-col border border-white/[0.06] hover:border-white/[0.12] transition-all duration-500 group hover:shadow-[0_8px_40px_rgba(0,0,0,0.4)]">
   <a href={href} class="block">
-    <div class="aspect-[4/3] relative overflow-hidden">
+    <div class="aspect-video relative overflow-hidden">
       {cover ? (
-        <img src={cover} alt={title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+        <img src={cover} alt={title} class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out" loading="lazy" />
       ) : (
         <div class={`w-full h-full bg-gradient-to-br ${gradient}`}></div>
       )}
-      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-      <span class="absolute top-2.5 right-2.5 text-[11px] bg-black/40 backdrop-blur-sm text-white/90 px-2.5 py-1 rounded-full">{duration}</span>
-      <span class="absolute bottom-2.5 left-3 text-[11px] text-white/80 font-medium uppercase tracking-wide">{category}</span>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+      <span class="absolute top-3 right-3 text-[11px] bg-black/50 backdrop-blur-md text-white/90 px-2.5 py-1 rounded-full font-medium">{duration}</span>
+      <span class="absolute bottom-3 left-3.5 text-[11px] text-white/70 font-medium uppercase tracking-wider">{category}</span>
     </div>
   </a>
-  <div class="p-4 flex flex-col gap-1.5 flex-1">
-    <h3 class="font-semibold text-sm leading-snug">{title}</h3>
-    <p class="text-xs text-[var(--color-text-secondary)] line-clamp-1">{scene}</p>
-    <div class="flex gap-2 mt-auto pt-2">
-      <a href={href} class="flex-1 text-center text-xs py-1.5 rounded-lg border border-[var(--color-border-card)] text-[var(--color-text-secondary)] hover:text-white hover:border-[var(--color-accent)]/60 transition-colors">
+  <div class="p-4 md:p-5 flex flex-col gap-1.5 flex-1">
+    <h3 class="font-semibold text-[14px] md:text-[15px] leading-snug text-white">{title}</h3>
+    <p class="text-[13px] text-[var(--color-text-secondary)] line-clamp-1">{scene}</p>
+    <div class="flex gap-2.5 mt-auto pt-3">
+      <a href={href} class="flex-1 text-center text-[13px] py-2 rounded-xl bg-white/[0.06] text-[var(--color-text-secondary)] hover:bg-white/[0.1] hover:text-white transition-all duration-300 font-medium">
         &#9654; {t.preview}
       </a>
-      <a href="https://apps.apple.com/app/id6747609991" class="flex-1 text-center text-xs py-1.5 rounded-lg bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white transition-colors">
+      <a href="https://apps.apple.com/app/id6747609991" class="flex-1 text-center text-[13px] py-2 rounded-xl bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white transition-colors duration-300 font-medium">
         {t.fullInApp}
       </a>
     </div>

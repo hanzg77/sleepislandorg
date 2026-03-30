@@ -173,21 +173,21 @@ const schema = [
   alternateEn={`https://www.sleepisland.org/en/guides/${slug}/`}
   schema={schema}
 >
-  <article class="max-w-3xl mx-auto px-4">
-    <nav aria-label="Breadcrumb" class="pt-6 text-sm text-[var(--color-text-muted)]">
-      <a href="/en/" class="hover:text-[var(--color-text-secondary)]">Home</a>
+  <article class="max-w-[680px] mx-auto px-5">
+    <nav aria-label="Breadcrumb" class="pt-6 text-[13px] text-[var(--color-text-muted)]">
+      <a href="/en/" class="hover:text-[var(--color-text-secondary)] transition-colors">Home</a>
       <span class="mx-2">/</span>
-      <a href="/en/guides/" class="hover:text-[var(--color-text-secondary)]">Guides</a>
+      <a href="/en/guides/" class="hover:text-[var(--color-text-secondary)] transition-colors">Guides</a>
       <span class="mx-2">/</span>
       <span class="text-[var(--color-text-secondary)]">{g.titleEn}</span>
     </nav>
 
-    <header class="py-10">
-      <span class="text-xs text-[var(--color-brand-start)] font-medium mb-2 block">{currentTopic}</span>
-      <h1 class="text-3xl md:text-4xl font-bold mb-4">{g.titleEn}</h1>
+    <header class="py-10 md:py-12">
+      <span class="text-[12px] text-[var(--color-brand-start)] font-medium mb-2 block">{currentTopic}</span>
+      <h1 class="text-[1.75rem] md:text-[2.25rem] font-bold tracking-[-0.02em] mb-4 text-white">{g.titleEn}</h1>
     </header>
 
-    <dl class="summary mb-10" role="contentinfo" aria-label="Guide summary">
+    <dl class="summary mb-12" role="contentinfo" aria-label="Guide summary">
       <dt>Type</dt><dd>Guide</dd>
       <dt>Topic</dt><dd>{g.titleEn}</dd>
       <dt>Key Advice</dt><dd>{currentSummary}</dd>
@@ -195,47 +195,47 @@ const schema = [
       <dt>App</dt><dd>Sleep Island (iOS)</dd>
     </dl>
 
-    <section class="mb-10">
-      <p class="text-[var(--color-text-secondary)]">{currentProblem}</p>
+    <section class="mb-12">
+      <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">{currentProblem}</p>
     </section>
 
-    <section class="mb-10">
-      <h2 class="text-xl font-bold mb-4">Solution</h2>
-      <div class="space-y-4">
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-5 text-white">Solution</h2>
+      <div class="space-y-3">
         {currentSteps.map((s: any, i: number) => (
-          <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-5 flex gap-4 items-start">
-            <span class="bg-[var(--color-accent)] text-white w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold shrink-0">{i + 1}</span>
+          <div class="bg-[var(--color-bg-card)] border border-white/[0.06] rounded-2xl p-5 flex gap-4 items-start hover:border-white/[0.1] transition-colors duration-500">
+            <span class="bg-[var(--color-accent)] text-white w-7 h-7 rounded-full flex items-center justify-center text-[13px] font-bold shrink-0">{i + 1}</span>
             <div>
-              <h3 class="font-semibold mb-1">{s.title}</h3>
-              <p class="text-sm text-[var(--color-text-secondary)]">{s.desc}</p>
+              <h3 class="font-semibold text-[15px] mb-1 text-white">{s.title}</h3>
+              <p class="text-[14px] text-[var(--color-text-secondary)]">{s.desc}</p>
             </div>
           </div>
         ))}
       </div>
     </section>
 
-    <section class="mb-10">
-      <h2 class="text-xl font-bold mb-4">Recommended Sounds</h2>
-      <div class="grid sm:grid-cols-3 gap-4">
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-5 text-white">Recommended Sounds</h2>
+      <div class="grid sm:grid-cols-3 gap-5">
         {g.resources.map((r: any) => (
           <ResourceCard title={r.title} slug={r.slug} category={r.category} scene={resourceSceneMap[r.scene] || r.scene} duration={r.duration} cover={r.cover} lang="en" />
         ))}
       </div>
     </section>
 
-    <section class="mb-10">
-      <h2 class="text-xl font-bold mb-2">Do It All in the App</h2>
-      <p class="text-[var(--color-text-secondary)] text-sm mb-4">Open Sleep Island, choose a soundscape, enable auto-stop on sleep, put your phone down, and drift off.</p>
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-2 text-white">Do It All in the App</h2>
+      <p class="text-[14px] text-[var(--color-text-secondary)] mb-5">Open Sleep Island, choose a soundscape, enable auto-stop on sleep, put your phone down, and drift off.</p>
       <CTABanner lang="en" variant="mid" />
     </section>
 
-    <section class="py-10">
-      <h2 class="text-xl font-bold mb-6">FAQ</h2>
-      <div class="space-y-4">
+    <section class="py-12 md:py-14">
+      <h2 class="text-xl font-bold mb-6 text-white">FAQ</h2>
+      <div class="space-y-3">
         {currentFaqs.map((f: any) => (
-          <div class="bg-[var(--color-bg-card)] border border-[var(--color-border-card)] rounded-xl p-6">
-            <h3 class="font-semibold mb-2">{f.q}</h3>
-            <p class="text-sm text-[var(--color-text-secondary)]">{f.a}</p>
+          <div class="bg-[var(--color-bg-card)] border border-white/[0.06] rounded-2xl p-6 md:p-7 hover:border-white/[0.1] transition-colors duration-500">
+            <h3 class="font-semibold text-[15px] mb-2 text-white">{f.q}</h3>
+            <p class="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">{f.a}</p>
           </div>
         ))}
       </div>

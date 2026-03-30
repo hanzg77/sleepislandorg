@@ -1,10 +1,13 @@
-# Hushbay 睡眠岛
+# Sleep Island 睡眠岛
 
-> Hushbay is a sound-driven sleep app: natural soundscapes, auto-stop on sleep onset, snore detection, and tinnitus relief. This website provides free sound previews; full versions are available in the iOS app.
+> Sleep Island is a sound-driven sleep app with natural soundscapes, auto-stop on sleep onset, snore detection, and tinnitus relief. This website provides free sound previews, practical sleep guides, and multilingual landing pages. Full versions are available in the iOS app.
 
 ## Key Pages
 - Homepage (中文): https://www.sleepisland.org/
 - Homepage (English): https://www.sleepisland.org/en/
+- Homepage (Traditional Chinese): https://www.sleepisland.org/zh-Hant/
+- Homepage (Japanese): https://www.sleepisland.org/ja/
+- Homepage (French): https://www.sleepisland.org/fr/
 - App Info: https://www.sleepisland.org/app/
 - Sound Resources: https://www.sleepisland.org/resources/
 - Sleep Guides: https://www.sleepisland.org/guides/

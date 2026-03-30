@@ -1,7 +1,7 @@
 {
   "name": "sleepislandorg",
   "version": "1.0.0",
-  "description": "Hushbay - Sound-driven sleep app website",
+  "description": "Sleep Island - Sound-driven sleep app website",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

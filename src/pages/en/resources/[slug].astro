@@ -36,7 +36,7 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "AudioObject",
     "name": r.titleEn,
-    "description": `${r.titleEn} - natural sound for sleep and relaxation. Free preview available on web, full version in the Hushbay app.`,
+    "description": `${r.titleEn} - natural sound for sleep and relaxation. Free preview available on web, full version in the Sleep Island app.`,
     "contentUrl": r.audio.startsWith('http') ? r.audio : `https://www.sleepisland.org${r.audio}`,
     "duration": r.duration,
     "inLanguage": ["en", "zh-Hans"],
@@ -60,8 +60,8 @@ const relatedResources = r.related.map((s: string) => resources[s]).filter(Boole
 ---
 
 <BaseLayout
-  title={`${r.titleEn} - Free Preview | Hushbay`}
-  description={`${r.titleEn} - natural sound for sleep and relaxation. Free preview available on web, full version in the Hushbay app.`}
+  title={`${r.titleEn} - Free Preview | Sleep Island`}
+  description={`${r.titleEn} - natural sound for sleep and relaxation. Free preview available on web, full version in the Sleep Island app.`}
   lang="en"
   alternateZh={`https://www.sleepisland.org/resources/${slug}/`}
   alternateEn={`https://www.sleepisland.org/en/resources/${slug}/`}
@@ -93,7 +93,7 @@ const relatedResources = r.related.map((s: string) => resources[s]).filter(Boole
       <dt>Category</dt><dd>{r.category}</dd>
       <dt>Use Cases</dt><dd>{scenesEnList.join(', ')}</dd>
       <dt>Preview Duration</dt><dd>{r.durationLabel}</dd>
-      <dt>App</dt><dd>Hushbay (iOS)</dd>
+      <dt>App</dt><dd>Sleep Island (iOS)</dd>
       <dt>Download</dt><dd><a href="https://apps.apple.com/app/id6747609991" class="text-[var(--color-accent-light)] hover:underline">App Store</a></dd>
     </dl>
 
@@ -112,7 +112,7 @@ const relatedResources = r.related.map((s: string) => resources[s]).filter(Boole
           </li>
         ))}
       </ul>
-      <p class="text-[var(--color-text-secondary)] mt-4">{r.titleEn} - natural sound for sleep and relaxation. Free preview available on web, full version in the Hushbay app.</p>
+      <p class="text-[var(--color-text-secondary)] mt-4">{r.titleEn} - natural sound for sleep and relaxation. Free preview available on web, full version in the Sleep Island app.</p>
     </section>
 
     <section id="settings" class="mb-10">

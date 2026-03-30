@@ -139,8 +139,8 @@ const schema = [
     "headline": g.titleEn,
     "description": currentSummary,
     "inLanguage": "en",
-    "mainEntityOfPage": `https://sleepisland.org/en/guides/${slug}/`,
-    "publisher": { "@type": "Organization", "name": "Hushbay", "url": "https://sleepisland.org/" },
+    "mainEntityOfPage": `https://www.sleepisland.org/en/guides/${slug}/`,
+    "publisher": { "@type": "Organization", "name": "Hushbay", "url": "https://www.sleepisland.org/" },
     "datePublished": "2026-02-19",
     "dateModified": "2026-02-19"
   },
@@ -157,9 +157,9 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sleepisland.org/en/" },
-      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sleepisland.org/en/guides/" },
-      { "@type": "ListItem", "position": 3, "name": g.titleEn, "item": `https://sleepisland.org/en/guides/${slug}/` }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sleepisland.org/en/" },
+      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://www.sleepisland.org/en/guides/" },
+      { "@type": "ListItem", "position": 3, "name": g.titleEn, "item": `https://www.sleepisland.org/en/guides/${slug}/` }
     ]
   }
 ];
@@ -169,8 +169,8 @@ const schema = [
   title={`${g.titleEn} | Hushbay`}
   description={currentSummary}
   lang="en"
-  alternateZh={`https://sleepisland.org/guides/${slug}/`}
-  alternateEn={`https://sleepisland.org/en/guides/${slug}/`}
+  alternateZh={`https://www.sleepisland.org/guides/${slug}/`}
+  alternateEn={`https://www.sleepisland.org/en/guides/${slug}/`}
   schema={schema}
 >
   <article class="max-w-3xl mx-auto px-4">

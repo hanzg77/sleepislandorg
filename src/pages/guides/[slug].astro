@@ -19,8 +19,8 @@ const schema = [
     "headline": g.title,
     "description": g.summary,
     "inLanguage": "zh-Hans",
-    "mainEntityOfPage": `https://sleepisland.org/guides/${slug}/`,
-    "publisher": { "@type": "Organization", "name": "睡眠岛 Hushbay", "url": "https://sleepisland.org/" },
+    "mainEntityOfPage": `https://www.sleepisland.org/guides/${slug}/`,
+    "publisher": { "@type": "Organization", "name": "睡眠岛 Hushbay", "url": "https://www.sleepisland.org/" },
     "datePublished": "2026-02-19",
     "dateModified": "2026-02-19"
   },
@@ -37,9 +37,9 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://sleepisland.org/" },
-      { "@type": "ListItem", "position": 2, "name": "指南", "item": "https://sleepisland.org/guides/" },
-      { "@type": "ListItem", "position": 3, "name": g.title, "item": `https://sleepisland.org/guides/${slug}/` }
+      { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.sleepisland.org/" },
+      { "@type": "ListItem", "position": 2, "name": "指南", "item": "https://www.sleepisland.org/guides/" },
+      { "@type": "ListItem", "position": 3, "name": g.title, "item": `https://www.sleepisland.org/guides/${slug}/` }
     ]
   }
 ];
@@ -49,8 +49,8 @@ const schema = [
   title={`${g.title} | 睡眠岛 Hushbay`}
   description={g.summary}
   lang="zh-Hans"
-  alternateZh={`https://sleepisland.org/guides/${slug}/`}
-  alternateEn={`https://sleepisland.org/en/guides/${slug}/`}
+  alternateZh={`https://www.sleepisland.org/guides/${slug}/`}
+  alternateEn={`https://www.sleepisland.org/en/guides/${slug}/`}
   schema={schema}
 >
   <article class="max-w-3xl mx-auto px-4">

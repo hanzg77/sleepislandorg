@@ -37,7 +37,7 @@ const schema = [
     "@type": "AudioObject",
     "name": r.titleEn,
     "description": `${r.titleEn} - natural sound for sleep and relaxation. Free preview available on web, full version in the Hushbay app.`,
-    "contentUrl": r.audio.startsWith('http') ? r.audio : `https://sleepisland.org${r.audio}`,
+    "contentUrl": r.audio.startsWith('http') ? r.audio : `https://www.sleepisland.org${r.audio}`,
     "duration": r.duration,
     "inLanguage": ["en", "zh-Hans"],
     "encodingFormat": "audio/mpeg"
@@ -46,9 +46,9 @@ const schema = [
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sleepisland.org/en/" },
-      { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://sleepisland.org/en/resources/" },
-      { "@type": "ListItem", "position": 3, "name": r.titleEn, "item": `https://sleepisland.org/en/resources/${slug}/` }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sleepisland.org/en/" },
+      { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.sleepisland.org/en/resources/" },
+      { "@type": "ListItem", "position": 3, "name": r.titleEn, "item": `https://www.sleepisland.org/en/resources/${slug}/` }
     ]
   }
 ];
@@ -63,8 +63,8 @@ const relatedResources = r.related.map((s: string) => resources[s]).filter(Boole
   title={`${r.titleEn} - Free Preview | Hushbay`}
   description={`${r.titleEn} - natural sound for sleep and relaxation. Free preview available on web, full version in the Hushbay app.`}
   lang="en"
-  alternateZh={`https://sleepisland.org/resources/${slug}/`}
-  alternateEn={`https://sleepisland.org/en/resources/${slug}/`}
+  alternateZh={`https://www.sleepisland.org/resources/${slug}/`}
+  alternateEn={`https://www.sleepisland.org/en/resources/${slug}/`}
   schema={schema}
 >
   <article class="max-w-3xl mx-auto px-4">

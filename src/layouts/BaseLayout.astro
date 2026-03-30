@@ -32,7 +32,7 @@ const {
   schema = []
 } = Astro.props;
 
-const siteUrl = 'https://sleepisland.org';
+const siteUrl = 'https://www.sleepisland.org';
 const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, siteUrl).href;
 const ogLocale = lang === 'en' ? 'en_US' : lang === 'ja' ? 'ja_JP' : lang === 'es' ? 'es_ES' : lang === 'pt' ? 'pt_BR' : 'zh_CN';

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>睡眠岛 Sleep Island — 自然声音助眠 · 入睡自动停止 · 睡眠记录</title>
+  <meta name="description" content="睡眠岛是一款声音驱动的睡眠 App：自然音景、入睡自动停止、鼾声与睡眠记录反馈。网页提供免费试听资源，完整版在 App 内。" />
+  <link rel="canonical" href="https://sleepisland.org/" />
+  <link rel="alternate" hreflang="en" href="https://sleepisland.org/en/" />
+  <link rel="alternate" hreflang="zh" href="https://sleepisland.org/" />
+  <link rel="alternate" hreflang="ja" href="https://sleepisland.org/?lang=ja" />
+  <link rel="alternate" hreflang="es" href="https://sleepisland.org/?lang=es" />
+  <link rel="alternate" hreflang="pt" href="https://sleepisland.org/?lang=pt" />
+  <link rel="icon" href="/assets/logo-new-1024.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="睡眠岛 Sleep Island" />
+  <meta property="og:description" content="自然声音助眠 · 入睡自动停止 · 睡眠记录反馈" />
+  <meta property="og:image" content="https://sleepisland.org/assets/logo-new-1024.png" />
+  <meta property="og:url" content="https://sleepisland.org/" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"睡眠岛 Sleep Island",
+    "url":"https://sleepisland.org/",
+    "inLanguage":["zh-Hans","en","ja","es","pt"],
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://sleepisland.org/resources/?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"睡眠岛 Sleep Island",
+    "url":"https://sleepisland.org/",
+    "logo":"https://sleepisland.org/assets/logo-new-1024.png"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo">
+        <img src="/assets/logo-new-1024.png" alt="Sleep Island" width="36" height="36" />
+        <span data-i18n="brandName">睡眠岛</span>
+      </a>
+      <nav class="header__nav">
+        <a href="/resources/" data-i18n="navSounds">声音</a>
+        <a data-i18n-href="snoreLink" href="/snore-detection/" data-i18n="navSnore">鼾声监测</a>
+        <a data-i18n-href="tinnitusLink" href="/tinnitus-relief/" data-i18n="navTinnitus">耳鸣缓解</a>
+        <a data-i18n-href="faqLink" href="/faq/" data-i18n="navFaq">FAQ</a>
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+          <button class="lang-current" id="langToggle" aria-label="Language">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span id="langLabel">中文</span>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-btn active" data-lang="zh">中文</button>
+            <button class="lang-btn" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="ja">日本語</button>
+            <button class="lang-btn" data-lang="es">Español</button>
+            <button class="lang-btn" data-lang="pt">Português</button>
+          </div>
+        </div>
+        <a href="https://apps.apple.com/app/id6747609991" class="header__cta" target="_blank" rel="noopener" data-i18n="navDownload">下载 App</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__content">
+      <div class="hero__logo-block">
+        <img src="/assets/logo-new-1024.png" alt="Sleep Island" class="hero__logo" width="140" height="140" />
+        <h1 class="hero__title">Sleep Island</h1>
+      </div>
+      <p class="hero__tagline" data-i18n="heroTagline">
+        自然音景 · 入睡自动停止 · 睡眠分析
+      </p>
+      <div class="hero__actions">
+        <a href="https://apps.apple.com/app/id6747609991" class="btn btn--primary btn--lg" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <span data-i18n="heroDownload">App Store 免费下载</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Features (compact strip) ===== -->
+  <section class="features-strip">
+    <div class="container">
+      <div class="features">
+        <div class="feature fade-in">
+          <div class="feature__icon">🌊</div>
+          <div class="feature__label" data-i18n="featNature">自然音景</div>
+          <div class="feature__sub" data-i18n="featNatureDesc">雨·海·篝火·森林</div>
+        </div>
+        <div class="feature fade-in">
+          <div class="feature__icon">🌙</div>
+          <div class="feature__label" data-i18n="featAutoStop">入睡自停</div>
+          <div class="feature__sub" data-i18n="featAutoStopDesc">睡着后自动静音</div>
+        </div>
+        <div class="feature fade-in">
+          <div class="feature__icon">📊</div>
+          <div class="feature__label" data-i18n="featAnalysis">睡眠分析</div>
+          <div class="feature__sub" data-i18n="featAnalysisDesc">AI 助手解读数据</div>
+        </div>
+        <div class="feature fade-in">
+          <div class="feature__icon">😴</div>
+          <div class="feature__label" data-i18n="featSnore">鼾声监测</div>
+          <div class="feature__sub" data-i18n="featSnoreDesc">记录并追踪鼾声</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Sound Preview ===== -->
+  <section class="section" id="sounds">
+    <div class="container">
+      <div class="section--center fade-in">
+        <p class="section__label" data-i18n="soundsLabel">在线试听</p>
+        <h2 class="section__title" data-i18n="soundsTitle">戴上耳机，什么都不用做</h2>
+        <p class="section__desc" data-i18n="soundsDesc">点击播放，感受这些声音。完整版在 App 内。</p>
+      </div>
+
+      <div class="sounds-grid" id="soundsGrid">
+        <!-- JS renders -->
+      </div>
+
+      <div style="text-align:center; margin-top:40px;" class="fade-in">
+        <a href="/resources/" class="btn btn--ghost" data-i18n="soundsMore">查看全部声音 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA Banner ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner fade-in">
+        <h2 class="cta-banner__title" data-i18n="ctaTitle">完全免费，没有套路</h2>
+        <p class="cta-banner__text" data-i18n="ctaText">睡眠监测、鼾声记录、白噪音助眠，核心功能全部免费。</p>
+        <a href="https://apps.apple.com/app/id6747609991" class="btn btn--primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <span data-i18n="ctaBtn">免费下载</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand">
+            <img src="/assets/logo-new-1024.png" alt="" width="28" height="28" />
+            <span data-i18n="brandFull">睡眠岛 Sleep Island</span>
+          </div>
+          <p class="footer__copy" data-i18n="footerCopy">&copy; 2025–2026 睡眠岛. All rights reserved.</p>
+        </div>
+        <div class="footer__links">
+          <a href="/resources/" data-i18n="footerSounds">声音资源</a>
+          <a data-i18n-href="snoreLink" href="/snore-detection/" data-i18n="footerSnore">鼾声监测</a>
+          <a data-i18n-href="tinnitusLink" href="/tinnitus-relief/" data-i18n="footerTinnitus">耳鸣缓解</a>
+          <a data-i18n-href="faqLink" href="/faq/" data-i18n="footerFaq">常见问题</a>
+          <a href="/privacy.html" data-i18n="footerPrivacy">隐私政策</a>
+          <a href="/terms.html" data-i18n="footerTerms">使用条款</a>
+          <a href="mailto:contact@sleepisland.org" data-i18n="footerContact">联系我们</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Player Bar ===== -->
+  <div class="player" id="player">
+    <div class="player__inner">
+      <img class="player__cover" id="playerCover" src="" alt="" width="48" height="48" />
+      <div class="player__info">
+        <div class="player__title" id="playerTitle">—</div>
+        <div class="player__progress" id="playerProgress">
+          <div class="player__progress-bar" id="playerBar"></div>
+        </div>
+      </div>
+      <div class="player__controls">
+        <button class="player__btn player__btn--play" id="playerPlayBtn" aria-label="Play/Pause">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" id="playerPlayIcon">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+        </button>
+      </div>
+      <a href="https://apps.apple.com/app/id6747609991" class="player__cta" target="_blank" rel="noopener" data-i18n="playerFull">在 App 中播放完整版 →</a>
+    </div>
+  </div>
+
+  <!-- ===== Mobile Download Bar ===== -->
+  <div class="mobile-dl" id="mobileDl">
+    <div class="mobile-dl__info">
+      <img src="/assets/logo-new-1024.png" alt="" width="36" height="36" />
+      <span data-i18n="mobileDlName">睡眠岛</span>
+    </div>
+    <a href="https://apps.apple.com/app/id6747609991" class="btn btn--primary" target="_blank" rel="noopener" data-i18n="mobileDlBtn">免费下载</a>
+  </div>
+
+  <script src="/js/i18n.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

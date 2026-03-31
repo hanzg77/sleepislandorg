@@ -27,40 +27,30 @@ const resources = Object.entries(allRes)
   }));
 ---
 
-<!-- Hero with video background -->
-<section class="relative overflow-hidden min-h-[280px] md:min-h-[320px]">
-  <!-- Video background -->
-  <video
-    id="hero-video"
-    class="absolute inset-0 w-full h-full object-cover"
-    autoplay muted loop playsinline
-    preload="auto"
-    poster="/assets/covers/gentle-night-rain.webp"
-  >
-    <source src="/assets/video/rain-hero.mp4" type="video/mp4" />
-  </video>
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black/55"></div>
-  <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/80"></div>
+<!-- Hero -->
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-[#111125] via-[#0a0a14] to-black"></div>
+  <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-[radial-gradient(ellipse,rgba(110,70,190,0.1),transparent_65%)] pointer-events-none"></div>
 
   <div class="relative z-10 max-w-[980px] mx-auto px-5 pt-8 pb-5 md:pt-12 md:pb-7 flex flex-col items-center text-center">
     <!-- Logo + Title -->
     <div class="flex items-center gap-3.5 md:gap-4">
       <div class="relative shrink-0">
+        <div class="absolute inset-0 m-auto w-12 h-12 md:w-14 md:h-14 rounded-full bg-[radial-gradient(circle,rgba(120,80,200,0.18),transparent_70%)] blur-2xl"></div>
         <img
           src="/assets/logo-new-1024.png"
           alt={t.brandName}
           width="56"
           height="56"
-          class="relative w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-[0.8rem] md:rounded-[1rem] shadow-[0_10px_30px_rgba(0,0,0,0.4)] ring-1 ring-white/[0.08]"
+          class="relative w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-[0.8rem] md:rounded-[1rem] shadow-[0_10px_30px_rgba(0,0,0,0.4)] ring-1 ring-white/[0.06]"
         />
       </div>
-      <h1 class="text-[2rem] sm:text-[2.4rem] md:text-[3rem] lg:text-[3.4rem] font-bold tracking-[-0.04em] leading-[1] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+      <h1 class="text-[2rem] sm:text-[2.4rem] md:text-[3rem] lg:text-[3.4rem] font-bold tracking-[-0.04em] leading-[1] text-white">
         {t.brandName}
       </h1>
     </div>
     <!-- Tagline -->
-    <p class="mt-2 text-[0.82rem] sm:text-[0.88rem] md:text-[1rem] leading-[1.5] text-white/70 tracking-[0.01em]">
+    <p class="mt-2 text-[0.82rem] sm:text-[0.88rem] md:text-[1rem] leading-[1.5] text-[var(--color-text-secondary)] tracking-[0.01em]">
       {t.heroTagline}
     </p>
     <!-- CTA -->
@@ -74,29 +64,6 @@ const resources = Object.entries(allRes)
       </a>
     </div>
   </div>
-
-  <!-- Rain sound toggle: bottom-right of hero -->
-  <button
-    id="rain-toggle"
-    class="absolute bottom-3 right-4 z-20 flex items-center gap-1.5 text-white/40 hover:text-white/70 transition-colors duration-300"
-    aria-label="Toggle rain sound"
-  >
-    <!-- Volume off icon (default) -->
-    <svg id="rain-icon-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-      <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
-    </svg>
-    <!-- Volume on icon (hidden) -->
-    <svg id="rain-icon-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="hidden">
-      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
-    </svg>
-    <span id="rain-label" class="text-[11px]">🌧</span>
-  </button>
-
-  <audio id="ambient-audio" preload="none" loop>
-    <source src="https://cdnringbd.shoujiduoduo.com/ringres/aimusic/sleep/audio/vol04_rain_fireplace_2.mp3" type="audio/mpeg" />
-  </audio>
 </section>
 
 <!-- Featured Resources -->
@@ -165,34 +132,3 @@ const resources = Object.entries(allRes)
 <!-- Bottom CTA -->
 <CTABanner lang={lang} variant="bottom" />
 
-<script>
-  const audio = document.getElementById('ambient-audio') as HTMLAudioElement;
-  const btn = document.getElementById('rain-toggle');
-  const iconOff = document.getElementById('rain-icon-off');
-  const iconOn = document.getElementById('rain-icon-on');
-
-  if (audio && btn) {
-    audio.volume = 0.2;
-    let playing = false;
-
-    btn.addEventListener('click', () => {
-      if (playing) {
-        audio.pause();
-        playing = false;
-        iconOff?.classList.remove('hidden');
-        iconOn?.classList.add('hidden');
-      } else {
-        audio.play().then(() => {
-          playing = true;
-          iconOff?.classList.add('hidden');
-          iconOn?.classList.remove('hidden');
-        }).catch(() => {});
-      }
-    });
-
-    // Stop when navigating to detail pages
-    document.querySelectorAll('a[href*="/resources/"]').forEach(link => {
-      link.addEventListener('click', () => audio.pause());
-    });
-  }
-</script>

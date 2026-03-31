@@ -28,7 +28,7 @@ const resources = Object.entries(allRes)
 ---
 
 <!-- Hero with video background -->
-<section class="relative overflow-hidden">
+<section class="relative overflow-hidden min-h-[280px] md:min-h-[320px]">
   <!-- Video background -->
   <video
     id="hero-video"
@@ -39,9 +39,9 @@ const resources = Object.entries(allRes)
   >
     <source src="/assets/video/rain-hero.mp4" type="video/mp4" />
   </video>
-  <!-- Overlay: darken video so text is readable -->
-  <div class="absolute inset-0 bg-black/60"></div>
-  <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black"></div>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/55"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/80"></div>
 
   <div class="relative z-10 max-w-[980px] mx-auto px-5 pt-8 pb-5 md:pt-12 md:pb-7 flex flex-col items-center text-center">
     <!-- Logo + Title -->

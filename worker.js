@@ -13,16 +13,26 @@ export default {
       return Response.redirect(url.toString(), 308);
     }
 
-    // Geo-aware App Store redirect. The bare apps.apple.com/app/id<ID> link drops the
-    // app id for some storefronts (e.g. CN bounces to /cn/iphone/today), so we send each
-    // visitor to a country-coded link built from their Cloudflare-detected region.
-    // Cloudflare emits XX (unknown) / T1 (Tor) and a few ISO regions have no App Store;
-    // those fall back to the US storefront.
+    // App Store redirect. The bare apps.apple.com/app/id<ID> link drops the app id on the
+    // mainland-China storefront (it bounces to /cn/iphone/today), so China-store visitors
+    // must get an explicit /cn/ link. Cloudflare's IP geo can disagree with Apple's (we saw
+    // CF=JP while Apple=CN for the same IP), so IP country alone is unreliable. We instead
+    // infer "Chinese-store visitor" primarily from the referring page's locale — a user on
+    // the zh-Hans (prefix-less) site is overwhelmingly on the China store — and keep CF
+    // country only as a secondary signal. Everyone else gets the bare link, which Apple
+    // geo-routes to their own storefront (works for every non-China store, no mismatch).
     if (url.pathname === '/go/ios' || url.pathname === '/go/ios/') {
-      const NO_STORE = new Set(['xx', 't1', 'cu', 'ir', 'kp', 'sy']);
-      const detected = (request.cf?.country || request.headers.get('cf-ipcountry') || 'US').toLowerCase();
-      const country = (/^[a-z]{2}$/.test(detected) && !NO_STORE.has(detected)) ? detected : 'us';
-      return Response.redirect(`https://apps.apple.com/${country}/app/id${APP_ID}`, 302);
+      const PREFIXED = ['en', 'zh-Hant', 'ja', 'ko', 'es', 'fr', 'de', 'pt', 'ru', 'ar', 'hi', 'vi', 'th', 'id'];
+      let zhHansPage = false;
+      try {
+        const seg = new URL(request.headers.get('referer') || '').pathname.split('/')[1] || '';
+        zhHansPage = !PREFIXED.includes(seg); // no language prefix === the simplified-Chinese site
+      } catch (_) { /* missing or invalid referer — fall back to CF country below */ }
+      const cfCountry = (request.cf?.country || request.headers.get('cf-ipcountry') || '').toLowerCase();
+      if (zhHansPage || cfCountry === 'cn') {
+        return Response.redirect(`https://apps.apple.com/cn/app/id${APP_ID}`, 302);
+      }
+      return Response.redirect(`https://apps.apple.com/app/id${APP_ID}`, 302);
     }
 
     return env.ASSETS.fetch(request);

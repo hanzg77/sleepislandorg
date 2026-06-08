@@ -1,0 +1,101 @@
+---
+import CTABanner from './CTABanner.astro';
+import type { Lang } from '../data/i18n';
+import { ST } from '../data/sleep-tracking';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const cl: 'zh' | 'en' = lang === 'zh-Hans' || lang === 'zh-Hant' ? 'zh' : 'en';
+const prefix = lang === 'zh-Hans' ? '' : lang === 'en' ? '/en' : `/${lang}`;
+const isZh = cl === 'zh';
+const homeLabel = isZh ? '首页' : 'Home';
+const snoreLabel = isZh ? '了解鼾声监测' : 'About snore detection';
+---
+
+<article class="max-w-[680px] mx-auto px-5">
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb" class="pt-5 text-[13px] text-[var(--color-text-muted)]">
+    <a href={prefix ? `${prefix}/` : '/'} class="hover:text-[var(--color-text-secondary)] transition-colors">{homeLabel}</a>
+    <span class="mx-1.5">/</span>
+    <span class="text-[var(--color-text-secondary)]">{ST.heroTitle[cl]}</span>
+  </nav>
+
+  <!-- Hero -->
+  <header class="text-center py-12 md:py-16">
+    <h1 class="text-[2rem] md:text-[2.5rem] font-bold tracking-[-0.03em] mb-4 text-white">{ST.heroTitle[cl]}</h1>
+    <p class="text-[15px] md:text-[16px] text-[var(--color-text-secondary)] max-w-[520px] mx-auto leading-relaxed">{ST.heroSub[cl]}</p>
+    <div class="mt-6">
+      <a href="/go/ios" class="inline-flex items-center justify-center gap-2 bg-white text-black text-[14px] font-semibold px-6 py-2.5 rounded-full transition-all duration-300 hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98]">
+        {isZh ? '在 App Store 免费下载' : 'Download free on the App Store'}
+      </a>
+    </div>
+  </header>
+
+  <section class="mb-12">
+    <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">{ST.intro[cl]}</p>
+  </section>
+
+  <!-- How it works -->
+  <section class="mb-12">
+    <h2 class="text-xl font-bold mb-5 text-white">{ST.howHeading[cl]}</h2>
+    <div class="space-y-3">
+      {ST.how.map((step, i) => (
+        <div class="bg-[var(--color-bg-card)] border border-white/[0.06] rounded-2xl p-5 flex gap-4 items-start hover:border-white/[0.1] transition-colors duration-500">
+          <span class="bg-[var(--color-accent)] text-white w-7 h-7 rounded-full flex items-center justify-center text-[13px] font-bold shrink-0">{i + 1}</span>
+          <div>
+            <h3 class="font-semibold text-[15px] text-white">{step.title[cl]}</h3>
+            <p class="text-[14px] text-[var(--color-text-secondary)] leading-relaxed mt-0.5">{step.desc[cl]}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- What you get -->
+  <section class="mb-12">
+    <h2 class="text-xl font-bold mb-5 text-white">{ST.givesHeading[cl]}</h2>
+    <ul class="space-y-2.5 text-[var(--color-text-secondary)] text-[14px] leading-relaxed">
+      {ST.gives.map((g) => (
+        <li class="flex gap-2.5"><span class="text-[var(--color-accent)] shrink-0">✓</span><span>{g[cl]}</span></li>
+      ))}
+    </ul>
+    <p class="mt-5 text-[14px]"><a href={`${prefix}/snore-detection/`} class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">{snoreLabel} →</a></p>
+  </section>
+
+  <!-- Honest limits — the trust differentiator -->
+  <section class="mb-12">
+    <div class="bg-[var(--color-bg-card)] border border-white/[0.06] rounded-2xl p-6 md:p-7">
+      <h2 class="text-lg md:text-xl font-bold mb-3 text-white">{ST.honestHeading[cl]}</h2>
+      <p class="text-[14px] md:text-[15px] text-[var(--color-text-secondary)] leading-relaxed">{ST.honest[cl]}</p>
+    </div>
+  </section>
+
+  <CTABanner lang={lang} variant="mid" />
+
+  <!-- Auto-stop -->
+  <section class="my-12">
+    <h2 class="text-xl font-bold mb-3 text-white">{ST.autostopHeading[cl]}</h2>
+    <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">{ST.autostop[cl]}</p>
+  </section>
+
+  <!-- Privacy -->
+  <section class="mb-12">
+    <h2 class="text-xl font-bold mb-3 text-white">{ST.privacyHeading[cl]}</h2>
+    <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">{ST.privacy[cl]}</p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="pb-14">
+    <h2 class="text-xl font-bold mb-6 text-white">{ST.faqHeading[cl]}</h2>
+    <div class="space-y-3">
+      {ST.faq.map((f) => (
+        <div class="bg-[var(--color-bg-card)] border border-white/[0.06] rounded-2xl p-6 md:p-7 hover:border-white/[0.1] transition-colors duration-500">
+          <h3 class="font-semibold text-[15px] mb-2 text-white">{f.q[cl]}</h3>
+          <p class="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">{f.a[cl]}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</article>
+
+<CTABanner lang={lang} variant="bottom" />

@@ -14,6 +14,7 @@ const hasFullPages = lang === 'zh-Hans' || lang === 'en';
 const nav = [
   { label: t.navSounds, href: `${prefix}/resources/` },
   ...(hasFullPages ? [
+    { label: lang === 'zh-Hans' ? '睡眠监测' : 'Sleep Tracking', href: `${prefix}/sleep-tracking/` },
     { label: t.navSnore, href: `${prefix}/snore-detection/` },
     { label: t.navTinnitus, href: `${prefix}/tinnitus-relief/` },
     { label: t.navFaq, href: `${prefix}/faq/` },

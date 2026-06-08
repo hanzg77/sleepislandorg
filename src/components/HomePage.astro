@@ -91,6 +91,23 @@ const resources = Object.entries(allRes)
 <!-- Divider -->
 <div class="max-w-[680px] mx-auto border-t border-white/[0.06]"></div>
 
+<!-- Sleep Tracking (core feature; zh-Hans + en, where the page exists) -->
+{hasFullPages && (
+  <section class="max-w-[680px] mx-auto px-5 py-16 md:py-24">
+    <div class="bg-[var(--color-bg-card)] rounded-3xl p-8 md:p-10 border border-white/[0.06] hover:border-white/[0.1] transition-colors duration-500">
+      <div class="text-3xl mb-4">&#x1F319;</div>
+      <h2 class="text-xl md:text-2xl font-bold tracking-[-0.02em] mb-3 text-white">{lang === 'zh-Hans' ? '睡眠监测 · 入睡自动停止' : 'Sleep tracking + auto-stop'}</h2>
+      <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed mb-5">{lang === 'zh-Hans'
+        ? '不用手表手环——手机放床头就能记录你的一夜。检测到你真正睡着后,助眠声音会自动停止,而不是按固定定时器在你还醒着时切掉。'
+        : 'No wearable — leave your phone on the nightstand and it tracks your night. Once it detects you’ve actually fallen asleep, the sound stops on its own, instead of a fixed timer cutting out while you’re still awake.'}</p>
+      <a href={`${prefix || ''}/sleep-tracking/`} class="inline-flex items-center gap-1 text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] text-[15px] font-medium transition-colors duration-300">
+        {lang === 'zh-Hans' ? '了解睡眠监测' : 'Learn about sleep tracking'}
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+)}
+
 <!-- Tinnitus Relief -->
 <section class="max-w-[680px] mx-auto px-5 py-16 md:py-24">
   <div class="bg-[var(--color-bg-card)] rounded-3xl p-8 md:p-10 border border-white/[0.06] hover:border-white/[0.1] transition-colors duration-500">

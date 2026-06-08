@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SleepTrackingPage from '../../components/SleepTrackingPage.astro';
+import { ST } from '../../data/sleep-tracking';
+
+const lang = 'en' as const;
+const cl = 'en' as const;
+const pageUrl = 'https://www.sleepisland.org/en/sleep-tracking/';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": ST.howHeading[cl],
+    "description": ST.metaDesc[cl],
+    "step": ST.how.map((s) => ({ "@type": "HowToStep", "name": s.title[cl], "text": s.desc[cl] }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": ST.faq.map((f) => ({
+      "@type": "Question",
+      "name": f.q[cl],
+      "acceptedAnswer": { "@type": "Answer", "text": f.a[cl] }
+    }))
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sleepisland.org/en/" },
+      { "@type": "ListItem", "position": 2, "name": ST.heroTitle[cl], "item": pageUrl }
+    ]
+  }
+];
+---
+
+<BaseLayout title={ST.metaTitle[cl]} description={ST.metaDesc[cl]} lang={lang} schema={schema}>
+  <SleepTrackingPage lang={lang} />
+</BaseLayout>

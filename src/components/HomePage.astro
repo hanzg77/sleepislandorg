@@ -14,6 +14,10 @@ const prefix = lang === 'zh-Hans' ? '' : lang === 'en' ? '/en' : `/${lang}`;
 // tinnitus-relief / faq pages only exist in zh-Hans + en; keep the localized section
 // copy for every language but hide the "read more" link where the target would 404.
 const hasFullPages = lang === 'zh-Hans' || lang === 'en';
+// App Store screenshots exist (localized) for these langs; others reuse English.
+const SHOT_LANGS = new Set(['en', 'zh-Hans', 'zh-Hant', 'de', 'fr', 'es', 'ja', 'ko', 'pt', 'ar']);
+const shotDir = SHOT_LANGS.has(lang) ? lang : 'en';
+const seeItLabel = lang === 'zh-Hans' ? '看看 App 实际样子' : 'See it in action';
 
 // Take top 9 resources by rank (lower rank = higher position), filter out entries without covers
 const resources = Object.entries(allRes)
@@ -66,6 +70,24 @@ const resources = Object.entries(allRes)
         {t.heroCta}
       </a>
     </div>
+  </div>
+</section>
+
+<!-- See it in action (App Store screenshots, localized) -->
+<section class="max-w-[1060px] mx-auto px-5 pt-2 pb-10 md:pb-14">
+  <h2 class="text-center text-[13px] uppercase tracking-wider text-[var(--color-text-muted)] mb-6">{seeItLabel}</h2>
+  <div class="flex gap-4 md:gap-5 overflow-x-auto pb-4 snap-x [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+    {[1, 2, 3, 4, 5, 6].map((n) => (
+      <img
+        src={`/assets/screenshots/${shotDir}/screen_${n}.webp`}
+        alt={`${t.brandName} — App screenshot ${n}`}
+        width="560"
+        height="1217"
+        loading="lazy"
+        decoding="async"
+        class="shrink-0 snap-start w-[180px] md:w-[210px] h-auto rounded-[1.6rem] border border-white/[0.08] shadow-[0_10px_40px_rgba(0,0,0,0.35)]"
+      />
+    ))}
   </div>
 </section>
 

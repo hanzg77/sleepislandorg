@@ -1,0 +1,65 @@
+---
+import CTABanner from './CTABanner.astro';
+import type { Lang } from '../data/i18n';
+import { articleFor } from '../data/methodology';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const a = articleFor(lang);
+const prefix = lang === 'zh-Hans' ? '' : lang === 'en' ? '/en' : `/${lang}`;
+const isZh = lang === 'zh-Hans' || lang === 'zh-Hant';
+const homeLabel = isZh ? '首页' : 'Home';
+const tocLabel = isZh ? '目录' : 'Contents';
+const appLabel = isZh ? '睡眠岛是一款 iOS 应用,本文描述的就是它的实现。' : 'Sleep Island is the iOS app this write-up describes.';
+---
+
+<article class="max-w-[720px] mx-auto px-5">
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb" class="pt-6 text-[13px] text-[var(--color-text-muted)]">
+    <a href={prefix ? `${prefix}/` : '/'} class="hover:text-[var(--color-text-secondary)] transition-colors">{homeLabel}</a>
+    <span class="mx-1.5">/</span>
+    <a href={`${prefix}/sleep-tracking/`} class="hover:text-[var(--color-text-secondary)] transition-colors">{isZh ? '睡眠监测' : 'Sleep Tracking'}</a>
+    <span class="mx-1.5">/</span>
+    <span class="text-[var(--color-text-secondary)]">{isZh ? '技术实现' : 'Engineering'}</span>
+  </nav>
+
+  <!-- Title -->
+  <header class="py-10 md:py-12">
+    <h1 class="text-[1.9rem] md:text-[2.4rem] font-bold tracking-[-0.03em] leading-tight text-white">{a.title}</h1>
+    <p class="mt-4 text-[16px] md:text-[17px] text-[var(--color-text-secondary)] leading-relaxed">{a.dek}</p>
+  </header>
+
+  <!-- Table of contents -->
+  <nav aria-label={tocLabel} class="mb-12 rounded-2xl border border-white/[0.06] bg-[var(--color-bg-card)] p-5">
+    <div class="text-[12px] uppercase tracking-wider text-[var(--color-text-muted)] mb-3">{tocLabel}</div>
+    <ol class="space-y-1.5 text-[14px]">
+      {a.sections.map((s, i) => (
+        <li>
+          <a href={`#${s.id}`} class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors">
+            <span class="text-[var(--color-text-muted)] tabular-nums mr-2">{String(i + 1).padStart(2, '0')}</span>{s.heading}
+          </a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+
+  <!-- Body -->
+  <div class="space-y-12">
+    {a.sections.map((s) => (
+      <section id={s.id} class="scroll-mt-20">
+        <h2 class="text-[1.4rem] md:text-[1.65rem] font-bold tracking-[-0.02em] text-white mb-4">
+          <a href={`#${s.id}`} class="hover:text-[var(--color-accent)] transition-colors">{s.heading}</a>
+        </h2>
+        <div class="space-y-4">
+          {s.paragraphs.map((p) => (
+            <p class="text-[15px] md:text-[16px] text-[var(--color-text-secondary)] leading-relaxed">{p}</p>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <p class="mt-12 text-[14px] text-[var(--color-text-muted)] border-t border-white/[0.06] pt-6">{appLabel}</p>
+</article>
+
+<CTABanner lang={lang} variant="bottom" />

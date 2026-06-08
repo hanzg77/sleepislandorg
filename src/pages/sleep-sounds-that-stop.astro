@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "为什么助眠声音会在我睡着后自动停?", "acceptedAnswer": { "@type": "Answer", "text": "睡眠岛通过手机的运动传感器检测到你真正入睡后才停止声音,而不是按固定定时器在你还醒着时突然切掉,也不是开一整晚费电。" } },
+      { "@type": "Question", "name": "这不就是睡眠定时器吗?", "acceptedAnswer": { "@type": "Answer", "text": "不是。定时器到点就停,不管你睡没睡。自动停是以「检测到入睡 + 持续约 10 分钟安静」为条件的,定时器只作兜底,所以失败模式是「停得稍微晚一点」,而不是「在你还醒着时就停了」。" } },
+      { "@type": "Question", "name": "需要穿戴设备吗?", "acceptedAnswer": { "@type": "Answer", "text": "不需要。它用 iPhone 的运动传感器,手机放床上或床头柜即可,无需手表手环。" } }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="入睡后自动停止的助眠声音 | 睡眠岛 Sleep Island"
+  description="睡眠岛的助眠声音会在检测到你入睡后自动停止——不是固定定时器在你还醒着时切掉。免费、iOS、无需穿戴设备。"
+  lang="zh-Hans"
+  schema={schema}
+>
+  <article class="max-w-[680px] mx-auto px-5">
+    <header class="text-center py-16 md:py-20">
+      <h1 class="text-[2rem] md:text-[2.5rem] font-bold tracking-[-0.03em] mb-4 text-white">入睡后自动停止的助眠声音</h1>
+      <p class="text-[15px] md:text-[16px] text-[var(--color-text-secondary)] max-w-[520px] mx-auto leading-relaxed">雨声、海浪、白噪音在你清醒时持续播放,在你睡着后自动停止——不是那种你还躺着没睡、声音却突然切掉的定时器。</p>
+      <div class="mt-6">
+        <a href="/go/ios" class="inline-flex items-center justify-center gap-2 bg-white text-black text-[14px] font-semibold px-6 py-2.5 rounded-full transition-all duration-300 hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98]">在 App Store 免费下载</a>
+      </div>
+    </header>
+
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-3 text-white">固定定时器的问题</h2>
+      <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">固定定时器有两个糟糕的失败模式:设得太短,你还醒着声音就突然安静——反而把你弄醒;设得太长(或整夜不停)又费电、累耳朵。无论哪种,定时器都不知道你到底睡没睡。</p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-3 text-white">自动停是怎么做到的</h2>
+      <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">睡眠岛通过 iPhone 的运动传感器观察你的体动,在检测到你入睡后才停止声音——具体是"入睡 + 持续约 10 分钟安静",定时器只作兜底。所以失败模式是"停得稍微晚一点",而不是"在你还醒着时就停了"。无需穿戴设备。</p>
+      <p class="mt-4 text-[14px]"><a href="/sleep-tracking/" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">睡眠检测是怎么做的(以及它的限制)→</a></p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-3 text-white">挑个声音,剩下交给它</h2>
+      <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">浏览免费音景——雨声、海浪、白噪音、炉火、虫鸣——App 会在你睡着后替你把它们停掉。</p>
+      <p class="mt-4 text-[14px]"><a href="/resources/" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">浏览免费助眠声音 →</a></p>
+    </section>
+
+    <CTABanner lang="zh-Hans" variant="bottom" />
+  </article>
+</BaseLayout>

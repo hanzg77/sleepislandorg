@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Why do my sleep sounds stop after I fall asleep?", "acceptedAnswer": { "@type": "Answer", "text": "Sleep Island detects when you've actually fallen asleep (from your phone's motion sensors) and then stops the audio — instead of cutting out on a fixed timer while you're still awake, or running all night and draining your battery." } },
+      { "@type": "Question", "name": "Isn't that just a sleep timer?", "acceptedAnswer": { "@type": "Answer", "text": "No. A timer stops at a fixed time whether you're asleep or not. Auto-stop is conditioned on detected sleep (asleep plus about ten quiet minutes), with a timer only as a fallback, so the failure mode is 'stops a little late,' not 'stops while you're still awake.'" } },
+      { "@type": "Question", "name": "Do I need a wearable for this?", "acceptedAnswer": { "@type": "Answer", "text": "No. It uses your iPhone's motion sensors — no smartwatch or band. Leave the phone on the bed or nightstand." } }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Sleep Sounds That Stop After You Fall Asleep | Sleep Island"
+  description="Sleep Island plays sleep sounds that stop on their own once it detects you're asleep — not a fixed timer that cuts out while you're still awake. Free, iOS, no wearable."
+  lang="en"
+  schema={schema}
+>
+  <article class="max-w-[680px] mx-auto px-5">
+    <header class="text-center py-16 md:py-20">
+      <h1 class="text-[2rem] md:text-[2.5rem] font-bold tracking-[-0.03em] mb-4 text-white">Sleep Sounds That Stop After You Fall Asleep</h1>
+      <p class="text-[15px] md:text-[16px] text-[var(--color-text-secondary)] max-w-[520px] mx-auto leading-relaxed">Rain, waves and white noise that keep playing while you're awake and stop on their own once you've drifted off — not a timer that cuts out while you're still lying there.</p>
+      <div class="mt-6">
+        <a href="/go/ios" class="inline-flex items-center justify-center gap-2 bg-white text-black text-[14px] font-semibold px-6 py-2.5 rounded-full transition-all duration-300 hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98]">Download free on the App Store</a>
+      </div>
+    </header>
+
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-3 text-white">The problem with sleep timers</h2>
+      <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">A fixed timer has two bad failure modes: set it too short and the sudden silence cuts in while you're still awake — and wakes you. Set it too long (or leave sound on all night) and it drains your battery and tires your ears. Either way, the timer has no idea whether you're actually asleep.</p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-3 text-white">How auto-stop works</h2>
+      <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">Sleep Island watches your movement through your iPhone's motion sensors and stops the audio only after it detects you're asleep — specifically, asleep plus about ten quiet minutes — with a timer only as a fallback. So the failure mode is "stops a little late," never "stops while you're still awake." No wearable needed.</p>
+      <p class="mt-4 text-[14px]"><a href="/en/sleep-tracking/" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">How the sleep detection works (and its limits) →</a></p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-3 text-white">Pick a sound, it handles the rest</h2>
+      <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">Browse free soundscapes — rain, ocean, white noise, fireplace, crickets — and the app stops them for you once you're asleep.</p>
+      <p class="mt-4 text-[14px]"><a href="/en/resources/" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">Browse free sleep sounds →</a></p>
+    </section>
+
+    <CTABanner lang="en" variant="bottom" />
+  </article>
+</BaseLayout>

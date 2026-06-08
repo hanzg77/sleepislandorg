@@ -6,13 +6,13 @@ const schema = [
   {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    "name": "How to Detect Snoring with Your Phone",
-    "description": "Use the Sleep Island app to monitor snoring for free and understand your snoring patterns",
+    "name": "How to Record Your Snoring with an iPhone",
+    "description": "Use the free Sleep Island app to record and review your snoring with just your iPhone — no wearable needed",
     "step": [
       { "@type": "HowToStep", "name": "Download Sleep Island", "text": "Search for Sleep Island on the App Store and download it for free" },
-      { "@type": "HowToStep", "name": "Start sleep tracking", "text": "Open the app before bed, tap start sleep tracking, and enable the snore detection toggle" },
-      { "@type": "HowToStep", "name": "Place your phone", "text": "Place your phone on the nightstand, screen facing down. The phone will automatically monitor snoring via the microphone" },
-      { "@type": "HowToStep", "name": "View the report", "text": "Check your snoring report in the morning, including snore count, total duration, average and peak decibels, and severity assessment" }
+      { "@type": "HowToStep", "name": "Start sleep tracking", "text": "Open the app before bed, tap start sleep tracking, and enable the snore recording toggle" },
+      { "@type": "HowToStep", "name": "Place your phone", "text": "Place your phone on the nightstand. The phone records snoring via the microphone, screen off" },
+      { "@type": "HowToStep", "name": "View the report", "text": "Review your snoring report in the morning: snore count, total duration, average and peak loudness, and a severity score" }
     ]
   },
   {
@@ -20,12 +20,16 @@ const schema = [
     "@type": "FAQPage",
     "mainEntity": [
       {
-        "@type": "Question", "name": "Is phone-based snore detection accurate?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Sleep Island uses AI algorithms to analyze audio and can accurately distinguish between snoring, sleep talking, and environmental noise. It is more than sufficient for everyday snoring monitoring." }
+        "@type": "Question", "name": "How accurate is iPhone snore recording?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Snore detection runs on-device using Apple's SoundAnalysis machine-learning model plus a loudness (RMS) gate, and it tells snoring apart from sleep talking and background noise well enough to see your patterns night to night. It is a wellness tool, not a medical device." }
+      },
+      {
+        "@type": "Question", "name": "Do I need a wearable or a special device?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Sleep Island records snoring with your iPhone's microphone — no smartwatch, band, or extra hardware. Put the phone on your nightstand and it records with the screen off." }
       },
       {
         "@type": "Question", "name": "Should I see a doctor for severe snoring?",
-        "acceptedAnswer": { "@type": "Answer", "text": "For severe snoring (more than 30 times per hour), it is recommended to check for obstructive sleep apnea (OSA). Sleep Island reports can serve as a reference when visiting your doctor." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Sleep Island does not diagnose anything. If your recordings show heavy or frequent snoring, or you suspect sleep apnea, see a clinician — the recordings can be a useful reference, not a diagnosis." }
       }
     ]
   }
@@ -33,8 +37,8 @@ const schema = [
 ---
 
 <BaseLayout
-  title="Snore Detection - Free Phone-Based Snoring Monitor | Sleep Island"
-  description="Sleep Island's free snore detection uses your phone's microphone to monitor snoring in real-time. Records snore count, loudness, frequency, distinguishes snoring from sleep talking, and generates detailed reports."
+  title="Snore Recorder for iPhone — Free, On-Device, No Wearable | Sleep Island"
+  description="Record and review your snoring with just your iPhone. Sleep Island's free snore recorder runs on-device (Apple's SoundAnalysis), needs no wearable, and tells snoring apart from sleep talking and noise."
   lang="en"
   alternateZh="https://www.sleepisland.org/snore-detection/"
   alternateEn="https://www.sleepisland.org/en/snore-detection/"
@@ -42,25 +46,25 @@ const schema = [
 >
   <article class="max-w-[680px] mx-auto px-5">
     <header class="text-center py-16 md:py-20">
-      <h1 class="text-[2rem] md:text-[2.5rem] font-bold tracking-[-0.03em] mb-4 text-white">Snore Detection</h1>
-      <p class="text-[15px] text-[var(--color-text-secondary)]">Place your phone on the nightstand, detect snoring for free</p>
+      <h1 class="text-[2rem] md:text-[2.5rem] font-bold tracking-[-0.03em] mb-4 text-white">Snore Recorder for iPhone</h1>
+      <p class="text-[15px] text-[var(--color-text-secondary)]">Record and review your snoring with just your phone — on-device, free, no wearable.</p>
     </header>
 
     <dl class="summary mb-12" role="contentinfo" aria-label="Page summary">
       <dt>Type</dt><dd>Feature Guide</dd>
-      <dt>Topic</dt><dd>Snore Detection</dd>
-      <dt>Method</dt><dd>Phone microphone + AI audio analysis</dd>
+      <dt>Topic</dt><dd>Snore Recording (iPhone)</dd>
+      <dt>Method</dt><dd>On-device ML (Apple SoundAnalysis) + loudness gate</dd>
       <dt>Data</dt><dd>Snore count, duration, loudness, severity</dd>
       <dt>App</dt><dd>Sleep Island (iOS)</dd>
       <dt>Download</dt><dd><a href="/go/ios" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">App Store</a></dd>
     </dl>
 
     <section class="mb-12">
-      <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">Many people don't know they snore, let alone how severe it is. Snoring can be a health signal. Sleep Island uses your phone's microphone to monitor snoring -- no extra devices needed.</p>
+      <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">Many people don't know they snore, let alone how loud or how often. Sleep Island turns your iPhone into a snore recorder: it listens with the mic, records and scores your snoring through the night, and tells snoring apart from sleep talking and background noise — no wearable, no extra hardware.</p>
     </section>
 
     <section class="mb-12">
-      <h2 class="text-xl font-bold mb-5 text-white">What Does It Track?</h2>
+      <h2 class="text-xl font-bold mb-5 text-white">What It Records</h2>
       <div class="grid grid-cols-2 gap-3">
         {[
           { label: 'Snore Count', value: '23' },
@@ -75,9 +79,9 @@ const schema = [
         ))}
       </div>
       <ul class="mt-6 space-y-2.5 text-[var(--color-text-secondary)] list-disc list-inside text-[14px] leading-relaxed">
-        <li>Hourly snore distribution (see which hours are worst)</li>
-        <li>Sleep talking count and heavy breathing events</li>
-        <li>AI-powered distinction between snoring and environmental noise (music, conversation)</li>
+        <li>Audio clips of your loudest snores, so you can hear them yourself</li>
+        <li>Sleep-talk recordings, kept separate from snoring</li>
+        <li>Hourly distribution, so you see which hours are worst</li>
       </ul>
     </section>
 
@@ -85,10 +89,10 @@ const schema = [
       <h2 class="text-xl font-bold mb-5 text-white">How to Use</h2>
       <div class="space-y-3">
         {[
-          { n: '1', title: 'Download Sleep Island', desc: 'Search for Sleep Island on the App Store, free download' },
-          { n: '2', title: 'Start Sleep Tracking', desc: 'Tap start before bed, and enable the snore detection toggle' },
-          { n: '3', title: 'Place Your Phone', desc: 'Put your phone on the nightstand -- it works with the screen off' },
-          { n: '4', title: 'View Your Report', desc: 'Check the detailed snoring report when you wake up' },
+          { n: '1', title: 'Download Sleep Island', desc: 'Free on the App Store — no account needed' },
+          { n: '2', title: 'Enable Snore Recording', desc: 'Tap start before bed and turn on the snore recording toggle' },
+          { n: '3', title: 'Place Your Phone', desc: 'Put your phone on the nightstand — it records with the screen off' },
+          { n: '4', title: 'Review in the Morning', desc: 'Listen back to clips and check your snoring report' },
         ].map(step => (
           <div class="bg-[var(--color-bg-card)] border border-white/[0.06] rounded-2xl p-5 flex gap-4 items-start hover:border-white/[0.1] transition-colors duration-500">
             <span class="bg-[var(--color-accent)] text-white w-7 h-7 rounded-full flex items-center justify-center text-[13px] font-bold shrink-0">{step.n}</span>
@@ -101,22 +105,27 @@ const schema = [
       </div>
     </section>
 
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-3 text-white">How it works — and what it isn't</h2>
+      <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">Snore detection runs <strong class="text-white font-medium">on your phone</strong>, using Apple's SoundAnalysis machine-learning model plus a loudness (RMS) gate — your recorded audio stays on the device. It's good for seeing your snoring patterns over time, but it is a wellness tool, <strong class="text-white font-medium">not a medical device, and its reports are not a diagnosis</strong>. If you suspect sleep apnea or have heavy, frequent snoring, see a clinician.</p>
+    </section>
+
     <CTABanner lang="en" variant="mid" />
 
     <section class="py-14 md:py-16">
       <h2 class="text-xl font-bold mb-6 text-white">Frequently Asked Questions</h2>
       <div class="space-y-3">
         <div class="bg-[var(--color-bg-card)] border border-white/[0.06] rounded-2xl p-6 md:p-7 hover:border-white/[0.1] transition-colors duration-500">
-          <h3 class="font-semibold text-[15px] mb-2 text-white">Is phone-based snore detection accurate?</h3>
-          <p class="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">Sleep Island uses AI algorithms to analyze audio and can accurately distinguish between snoring, sleep talking, and environmental noise. It is more than sufficient for everyday snoring monitoring.</p>
+          <h3 class="font-semibold text-[15px] mb-2 text-white">How accurate is iPhone snore recording?</h3>
+          <p class="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">Snore detection runs on-device using Apple's SoundAnalysis ML model plus a loudness gate, and it tells snoring apart from sleep talking and background noise well enough to see your patterns night to night. It's a wellness tool, not a medical device.</p>
         </div>
         <div class="bg-[var(--color-bg-card)] border border-white/[0.06] rounded-2xl p-6 md:p-7 hover:border-white/[0.1] transition-colors duration-500">
-          <h3 class="font-semibold text-[15px] mb-2 text-white">Does the screen need to stay on?</h3>
-          <p class="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">No, it runs in the background. The screen can be off and it will still record normally. It does not interfere with charging or alarms.</p>
+          <h3 class="font-semibold text-[15px] mb-2 text-white">Do I need a wearable or a special device?</h3>
+          <p class="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">No. Sleep Island records snoring with your iPhone's microphone — no smartwatch, band, or extra hardware. Put the phone on your nightstand and it records with the screen off.</p>
         </div>
         <div class="bg-[var(--color-bg-card)] border border-white/[0.06] rounded-2xl p-6 md:p-7 hover:border-white/[0.1] transition-colors duration-500">
           <h3 class="font-semibold text-[15px] mb-2 text-white">Should I see a doctor for severe snoring?</h3>
-          <p class="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">If monitoring shows severe snoring (more than 30 times per hour), it is recommended to check for obstructive sleep apnea (OSA). Sleep Island reports can serve as a reference when visiting your doctor.</p>
+          <p class="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">Sleep Island doesn't diagnose anything. If your recordings show heavy or frequent snoring, or you suspect sleep apnea, see a clinician — the recordings can be a useful reference, not a diagnosis.</p>
         </div>
       </div>
     </section>

@@ -26,7 +26,7 @@ export const ST: {
 } = {
   metaTitle: {
     zh: '睡眠监测 - 不用手表,一部手机就够 | 睡眠岛 Sleep Island',
-    en: 'Sleep Tracking Without a Wearable — Phone Only | Sleep Island',
+    en: 'Sleep Tracking Without an Apple Watch — Free, Phone-Only | Sleep Island',
   },
   metaDesc: {
     zh: '睡眠岛用手机的运动传感器监测睡眠:无需手表手环、无需账号、免费。基于 Cole-Kripke 行动记录法与 HMM 模型,诚实呈现入睡、清醒、深浅睡——不伪造 REM。',

@@ -13,6 +13,28 @@ export default {
       return Response.redirect(url.toString(), 308);
     }
 
+    // Language landing: a non-Chinese visitor who hits the bare root would see the Chinese
+    // homepage, so send them to /en/. 302 (not 301) so every language keeps its own
+    // indexable URL, and only the bare root is touched — search traffic already lands on the
+    // right locale via hreflang. A `silang` cookie (set by the in-page language switcher)
+    // lets an explicit choice win over the browser's Accept-Language.
+    if (url.pathname === '/' && request.method === 'GET') {
+      const LOCALES = ['en', 'zh-Hant', 'ja', 'ko', 'es', 'fr', 'de', 'pt', 'ru', 'ar', 'hi', 'vi', 'th', 'id'];
+      const pref = ((request.headers.get('cookie') || '').match(/(?:^|;\s*)silang=([\w-]+)/) || [])[1];
+      const accept = (request.headers.get('accept-language') || '').trim().toLowerCase();
+      let dest = null;
+      if (pref === 'zh-Hans' || pref === 'zh') {
+        dest = null; // explicit Chinese choice — stay on the root
+      } else if (pref && LOCALES.includes(pref)) {
+        dest = `/${pref}/`;
+      } else if (!pref && accept && !accept.startsWith('zh')) {
+        dest = '/en/'; // non-Chinese browser, no saved choice
+      }
+      if (dest) {
+        return new Response(null, { status: 302, headers: { Location: dest, 'Cache-Control': 'no-store', Vary: 'Accept-Language, Cookie' } });
+      }
+    }
+
     // App Store redirect. The bare apps.apple.com/app/id<ID> link drops the app id on the
     // mainland-China storefront (it bounces to /cn/iphone/today), so China-store visitors
     // must get an explicit /cn/ link. Cloudflare's IP geo can disagree with Apple's (we saw

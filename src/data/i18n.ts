@@ -64,7 +64,7 @@ export const UI: Record<Lang, Record<string, string>> = {
   },
   en: {
     brandName: 'Sleep Island',
-    heroTagline: 'Sleep Sounds · Auto-Stop on Sleep · Sleep Tracking · Snore & Sleep Talk Recording',
+    heroTagline: 'Free iOS sleep tracker with snore recording, sleep sounds, and no wearable required.',
     heroCta: 'Download on the App Store',
     heroSub: 'Browse Sound Resources',
     resourcesTitle: 'Sounds to Help You Sleep',

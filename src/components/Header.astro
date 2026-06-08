@@ -51,6 +51,7 @@ const currentLangLabel = LANGS.find(l => l.code === lang)?.label || '中文';
         <div id="langDropdown" class="absolute right-0 top-full mt-2 bg-[rgba(28,28,30,0.92)] backdrop-blur-2xl border border-white/[0.1] rounded-2xl py-2 min-w-[160px] shadow-[0_8px_40px_rgba(0,0,0,0.55)] opacity-0 invisible -translate-y-1.5 transition-all duration-200 z-50">
           {LANGS.map(l => (
             <a href={l.prefix ? `${l.prefix}/` : '/'}
+               data-lang={l.code}
                class={`block px-4 py-2 text-[13px] hover:bg-white/[0.06] transition-colors duration-200 ${l.code === lang ? 'text-[var(--color-accent)] font-medium' : 'text-[var(--color-text-secondary)]'}`}>
               {l.label}
             </a>
@@ -74,6 +75,13 @@ const currentLangLabel = LANGS.find(l => l.code === lang)?.label || '中文';
 </header>
 
 <script>
+  // Remember an explicit language choice so the root auto-redirect honors it.
+  document.querySelectorAll('#langDropdown a[data-lang]').forEach((a) => {
+    a.addEventListener('click', () => {
+      document.cookie = 'silang=' + a.getAttribute('data-lang') + ';path=/;max-age=31536000;samesite=lax';
+    });
+  });
+
   const toggle = document.getElementById('langToggle');
   const dropdown = document.getElementById('langDropdown');
   if (toggle && dropdown) {

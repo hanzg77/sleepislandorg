@@ -11,9 +11,9 @@ export const CF_ANALYTICS_TOKEN = '';
 // Search-engine site-verification tokens. Paste ONLY the token value from each tool's
 // "HTML tag" verification method (the content="..." part, not the whole tag). Empty =
 // the meta tag is not emitted. (DNS-based verification needs nothing here.)
-export const GOOGLE_SITE_VERIFICATION = ''; // Search Console → Settings → Ownership → HTML tag
-export const BING_SITE_VERIFICATION = '';   // Bing Webmaster Tools → Verify → Meta tag (msvalidate.01)
-export const BAIDU_SITE_VERIFICATION = '';  // 百度搜索资源平台 → 站点验证 → HTML 标签验证
+export const GOOGLE_SITE_VERIFICATION = import.meta.env.GOOGLE_SITE_VERIFICATION || ''; // Search Console → Settings → Ownership → HTML tag
+export const BING_SITE_VERIFICATION = import.meta.env.BING_SITE_VERIFICATION || '';   // Bing Webmaster Tools → Verify → Meta tag (msvalidate.01)
+export const BAIDU_SITE_VERIFICATION = import.meta.env.BAIDU_SITE_VERIFICATION || '';  // 百度搜索资源平台 → 站点验证 → HTML 标签验证
 
 export const ALL_LANGS = LANGS.map(({ code }) => code);
 

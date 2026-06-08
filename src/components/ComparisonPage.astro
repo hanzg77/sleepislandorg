@@ -1,0 +1,105 @@
+---
+import CTABanner from './CTABanner.astro';
+import { type Lang } from '../data/i18n';
+import {
+  cmpLang, COMPARISON_APPS, COMPARISON_ROWS, APP_NOTES, COMPARISON_FAQ, COMPARISON_PAGE,
+} from '../data/comparison';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const cl = cmpLang(lang);
+const prefix = lang === 'zh-Hans' ? '' : lang === 'en' ? '/en' : `/${lang}`;
+const isZh = lang === 'zh-Hans' || lang === 'zh-Hant';
+
+const homeLabel = isZh ? '首页' : 'Home';
+const faqLabel = isZh ? '常见问题' : 'FAQ';
+const bestForLabel = isZh ? '最适合' : 'Best for';
+const platformLabel = isZh ? '平台' : 'Platforms';
+const visitLabel = isZh ? '了解更多' : 'Learn more';
+const noteLabel = isZh
+  ? '说明:以上为 2026 年的对比,基于各应用官网与公开评测;功能与价格可能变动。Calm、BetterSleep 等提供手动睡眠定时器,但"入睡自动停止"指检测到入睡后自动停止。'
+  : 'Note: comparison as of 2026, based on each app’s site and public reviews; features and pricing may change. Calm and BetterSleep offer manual sleep timers, but “auto-stop on sleep onset” means detecting when you fall asleep.';
+
+const CELL: Record<string, { s: string; c: string }> = {
+  y:  { s: '✓', c: 'text-[var(--color-accent)]' },
+  n:  { s: '✗', c: 'text-[var(--color-text-muted)]' },
+  p:  { s: '~', c: 'text-amber-400/80' },
+  na: { s: '—', c: 'text-[var(--color-text-muted)]' },
+};
+const downloadLabel = isZh ? '免费下载睡眠岛' : 'Get Sleep Island free';
+---
+
+<article class="max-w-[920px] mx-auto px-5 py-12 md:py-16">
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb" class="text-[13px] text-[var(--color-text-muted)] mb-6">
+    <a href={prefix ? `${prefix}/` : '/'} class="hover:text-[var(--color-text-secondary)] transition-colors">{homeLabel}</a>
+    <span class="mx-1.5">/</span>
+    <span class="text-[var(--color-text-secondary)]">{COMPARISON_PAGE.title[cl]}</span>
+  </nav>
+
+  <!-- Hero -->
+  <header class="max-w-[720px] mb-10">
+    <h1 class="text-[2rem] md:text-[2.6rem] font-bold tracking-[-0.03em] text-white leading-tight">{COMPARISON_PAGE.title[cl]}</h1>
+    <p class="mt-4 text-[15px] md:text-[16px] text-[var(--color-text-secondary)] leading-relaxed">{COMPARISON_PAGE.intro[cl]}</p>
+  </header>
+
+  <!-- Comparison table -->
+  <div class="overflow-x-auto -mx-5 px-5 mb-4">
+    <table class="w-full min-w-[640px] border-collapse text-[14px]">
+      <thead>
+        <tr>
+          <th class="text-left font-medium text-[var(--color-text-muted)] p-3 align-bottom"></th>
+          {COMPARISON_APPS.map((a) => (
+            <th class={`p-3 text-center font-semibold align-bottom ${a.highlight ? 'text-white' : 'text-[var(--color-text-secondary)]'}`}>
+              <span class={a.highlight ? 'inline-block px-2.5 py-1 rounded-lg bg-[var(--color-accent)]/15 text-[var(--color-accent)]' : ''}>{a.name}</span>
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {COMPARISON_ROWS.map((row) => (
+          <tr class="border-t border-white/[0.06]">
+            <td class="p-3 text-[var(--color-text-secondary)]">{row.label[cl]}</td>
+            {row.cells.map((cell, i) => (
+              <td class={`p-3 text-center text-[16px] ${CELL[cell].c} ${COMPARISON_APPS[i].highlight ? 'bg-white/[0.03]' : ''}`}>{CELL[cell].s}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="text-[12px] text-[var(--color-text-muted)] leading-relaxed mb-12">{noteLabel}</p>
+
+  <!-- Per-app honest notes -->
+  <div class="grid sm:grid-cols-2 gap-5 mb-14">
+    {COMPARISON_APPS.map((a) => {
+      const n = APP_NOTES[a.key];
+      return (
+        <div class={`rounded-2xl p-6 border ${a.highlight ? 'border-[var(--color-accent)]/30 bg-[var(--color-accent)]/[0.04]' : 'border-white/[0.06] bg-[var(--color-bg-card)]'}`}>
+          <h2 class="text-lg font-bold text-white mb-2">{a.name}</h2>
+          <p class="text-[14px] text-[var(--color-text-secondary)] leading-relaxed mb-3">{n.summary[cl]}</p>
+          <p class="text-[13px] text-[var(--color-text-muted)] mb-1"><span class="text-[var(--color-text-secondary)]">{bestForLabel}:</span> {n.bestFor[cl]}</p>
+          <p class="text-[13px] text-[var(--color-text-muted)] mb-3"><span class="text-[var(--color-text-secondary)]">{platformLabel}:</span> {n.platforms}</p>
+          {a.highlight
+            ? <a href="/go/ios" class="text-[13px] font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">{downloadLabel} →</a>
+            : <a href={n.site} rel="nofollow noopener" target="_blank" class="text-[13px] text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">{visitLabel} →</a>}
+        </div>
+      );
+    })}
+  </div>
+
+  <!-- FAQ -->
+  <section class="mb-4">
+    <h2 class="text-[1.5rem] md:text-[1.9rem] font-bold tracking-[-0.02em] text-white mb-6">{faqLabel}</h2>
+    <div class="space-y-3">
+      {COMPARISON_FAQ.map((f) => (
+        <div class="bg-[var(--color-bg-card)] rounded-2xl p-6 border border-white/[0.06]">
+          <h3 class="font-semibold text-[15px] md:text-base mb-2 text-white">{f.q[cl]}</h3>
+          <p class="text-[14px] text-[var(--color-text-secondary)] leading-relaxed">{f.a[cl]}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</article>
+
+<CTABanner lang={lang} variant="bottom" />

@@ -418,6 +418,16 @@ export function getResourceTitle(slug: string, lang: Lang, resources: Record<str
   return RESOURCE_TITLES[lang]?.[slug] || res.titleEn || res.title;
 }
 
+// Description used in <title>/meta/og and the page body. Chinese locales get the Chinese
+// copy; every other locale falls back to the English description (never raw Chinese), so
+// body language matches the page's lang/hreflang — mirroring getResourceTitle.
+export function getResourceDescription(slug: string, lang: Lang, resources: Record<string, any>): string {
+  const res = resources[slug];
+  if (!res) return '';
+  if (lang === 'zh-Hans' || lang === 'zh-Hant') return res.desc || res.descEn || '';
+  return res.descEn || res.desc || '';
+}
+
 export function getScenes(scenes: string[], lang: Lang): string {
   if (lang === 'zh-Hans' || lang === 'zh-Hant') return scenes.join('、');
   const map = SCENE_MAP[lang] || SCENE_MAP.en;

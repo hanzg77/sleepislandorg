@@ -8,11 +8,16 @@ const { lang = 'zh-Hans' } = Astro.props;
 const t = UI[lang];
 const prefix = lang === 'zh-Hans' ? '' : lang === 'en' ? '/en' : `/${lang}`;
 
+// snore-detection / tinnitus-relief / faq only exist in zh-Hans + en; omit them for
+// the other 13 locales so the nav never points at a 404.
+const hasFullPages = lang === 'zh-Hans' || lang === 'en';
 const nav = [
   { label: t.navSounds, href: `${prefix}/resources/` },
-  { label: t.navSnore, href: `${prefix}/snore-detection/` },
-  { label: t.navTinnitus, href: `${prefix}/tinnitus-relief/` },
-  { label: t.navFaq, href: `${prefix}/faq/` },
+  ...(hasFullPages ? [
+    { label: t.navSnore, href: `${prefix}/snore-detection/` },
+    { label: t.navTinnitus, href: `${prefix}/tinnitus-relief/` },
+    { label: t.navFaq, href: `${prefix}/faq/` },
+  ] : []),
 ];
 
 const homeHref = prefix ? `${prefix}/` : '/';
@@ -23,7 +28,7 @@ const currentLangLabel = LANGS.find(l => l.code === lang)?.label || '中文';
   <div class="max-w-[980px] mx-auto px-5 h-12 flex items-center justify-between">
     <!-- Logo -->
     <a href={homeHref} class="flex items-center gap-2.5 font-semibold text-[15px] text-[var(--color-text-primary)] hover:text-white transition-colors">
-      <img src="/assets/logo-new-1024.png" alt="Sleep Island" width="28" height="28" class="rounded-[7px]" />
+      <img src="/assets/logo-60.png" alt="Sleep Island" width="28" height="28" class="rounded-[7px]" />
       <span class="hidden sm:inline">{t.brandName}</span>
     </a>
 
@@ -52,7 +57,7 @@ const currentLangLabel = LANGS.find(l => l.code === lang)?.label || '中文';
         </div>
       </div>
 
-      <a href="https://apps.apple.com/app/id6747609991"
+      <a href="/go/ios"
          class="bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-white text-[13px] font-medium px-4 py-1.5 rounded-full transition-colors duration-300">
         {t.navDownload}
       </a>

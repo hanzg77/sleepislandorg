@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SoundCategoryPage from '../../components/SoundCategoryPage.astro';
+import { resources } from '../../data/resources';
+import { getResourceTitle, UI } from '../../data/i18n';
+import { SOUND_CATEGORIES, getCategoryBySlug, getCategoryText } from '../../data/categories';
+
+export function getStaticPaths() {
+  return SOUND_CATEGORIES.map((c) => ({ params: { category: c.slug } }));
+}
+
+const lang = 'zh-Hans' as const;
+const { category } = Astro.params;
+const cat = getCategoryBySlug(category as string);
+const prefix = lang === 'zh-Hans' ? '' : `/${lang}`;
+if (!cat) return Astro.redirect(`${prefix}/resources/`);
+const txt = getCategoryText(cat.slug, lang);
+const t = UI[lang];
+const isZh = lang === 'zh-Hans' || lang === 'zh-Hant';
+const pageUrl = `https://www.sleepisland.org${prefix}/sounds/${cat.slug}/`;
+const homeName = isZh ? '首页' : 'Home';
+
+const items = Object.entries(resources)
+  .filter(([, r]) => r.category === cat.key)
+  .sort((a, b) => (a[1].rank ?? 99999) - (b[1].rank ?? 99999));
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": txt.title,
+    "description": txt.desc,
+    "url": pageUrl,
+    "inLanguage": lang,
+    "isPartOf": { "@type": "WebSite", "name": "Sleep Island", "url": "https://www.sleepisland.org" },
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": items.length,
+      "itemListElement": items.map(([slug], i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": getResourceTitle(slug, lang, resources),
+        "url": `https://www.sleepisland.org${prefix}/resources/${slug}/`
+      }))
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": homeName, "item": `https://www.sleepisland.org${prefix}/` },
+      { "@type": "ListItem", "position": 2, "name": t.navSounds, "item": `https://www.sleepisland.org${prefix}/resources/` },
+      { "@type": "ListItem", "position": 3, "name": txt.title, "item": pageUrl }
+    ]
+  }
+];
+---
+
+<BaseLayout title={`${txt.title} | ${t.brandName || 'Sleep Island'}`} description={txt.desc} lang={lang} schema={schema}>
+  <SoundCategoryPage slug={cat.slug} lang={lang} />
+</BaseLayout>

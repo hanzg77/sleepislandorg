@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import type { Lang } from '../data/i18n';
 import {
+  CF_ANALYTICS_TOKEN,
   DEFAULT_LANG,
   getAlternateLinks,
   getDefaultAlternateLangs,
@@ -99,7 +100,7 @@ const mergedSchema = [
 ---
 
 <!DOCTYPE html>
-<html lang={lang}>
+<html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -109,7 +110,8 @@ const mergedSchema = [
   <meta name="description" content={normalizedDescription} />
 
   <link rel="canonical" href={canonicalUrl} />
-  <link rel="icon" href="/assets/logo-new-1024.png" />
+  <link rel="icon" type="image/png" sizes="60x60" href="/assets/logo-60.png" />
+  <link rel="apple-touch-icon" href="/assets/logo-180.png" />
 
   {alternateLinks.map(({ hreflang, href }) => (
     <link rel="alternate" hreflang={hreflang} href={href} />
@@ -142,5 +144,13 @@ const mergedSchema = [
     <slot />
   </main>
   <Footer lang={lang} />
+  {CF_ANALYTICS_TOKEN && (
+    <script
+      is:inline
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon={JSON.stringify({ token: CF_ANALYTICS_TOKEN })}
+    />
+  )}
 </body>
 </html>

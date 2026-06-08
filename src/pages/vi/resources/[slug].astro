@@ -2,7 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ResourceDetailPage from '../../../components/ResourceDetailPage.astro';
 import { resources } from '../../../data/resources';
-import { getResourceTitle } from '../../../data/i18n';
+import { getResourceTitle, getResourceDescription } from '../../../data/i18n';
 
 export function getStaticPaths() {
   return Object.keys(resources).map(slug => ({ params: { slug } }));
@@ -17,7 +17,7 @@ const title = getResourceTitle(slug as string, lang, resources);
 
 <BaseLayout
   title={`${title} | Sleep Island`}
-  description={r.desc}
+  description={getResourceDescription(slug as string, lang, resources)}
   lang={lang}
 >
   <ResourceDetailPage slug={slug as string} lang={lang} />

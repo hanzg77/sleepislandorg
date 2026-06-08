@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ResourceDetailPage from '../../components/ResourceDetailPage.astro';
 import { resources } from '../../data/resources';
-import { getResourceTitle } from '../../data/i18n';
+import { getResourceTitle, getResourceDescription } from '../../data/i18n';
 
 export function getStaticPaths() {
   return Object.keys(resources).map(slug => ({ params: { slug } }));
@@ -39,7 +39,7 @@ const schema = [
 
 <BaseLayout
   title={`${r.title}${r.titleEn ? ' ' + r.titleEn : ''} - 免费试听 | 睡眠岛`}
-  description={r.desc}
+  description={getResourceDescription(slug as string, lang, resources)}
   lang={lang}
   alternateZh={`https://www.sleepisland.org/resources/${slug}/`}
   alternateEn={`https://www.sleepisland.org/en/resources/${slug}/`}

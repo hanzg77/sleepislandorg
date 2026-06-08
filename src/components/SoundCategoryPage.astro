@@ -1,0 +1,67 @@
+---
+import ResourceCard from './ResourceCard.astro';
+import CTABanner from './CTABanner.astro';
+import { UI, getResourceTitle, getScenes, type Lang } from '../data/i18n';
+import { resources } from '../data/resources';
+import { getCategoryBySlug, getCategoryText } from '../data/categories';
+
+interface Props {
+  slug: string;
+  lang: Lang;
+}
+const { slug, lang } = Astro.props;
+const t = UI[lang];
+const prefix = lang === 'zh-Hans' ? '' : lang === 'en' ? '/en' : `/${lang}`;
+const cat = getCategoryBySlug(slug)!;
+const txt = getCategoryText(slug, lang);
+const isZh = lang === 'zh-Hans' || lang === 'zh-Hant';
+
+const items = Object.entries(resources)
+  .filter(([, r]) => r.category === cat.key)
+  .sort((a, b) => (a[1].rank ?? 99999) - (b[1].rank ?? 99999))
+  .map(([s, r]) => ({
+    title: getResourceTitle(s, lang, resources),
+    slug: s,
+    category: r.category,
+    scene: getScenes(r.scenes, lang),
+    duration: r.durationLabel,
+    cover: r.cover,
+  }));
+
+const homeLabel = isZh ? '首页' : 'Home';
+const allSoundsLabel = isZh ? '全部声音资源' : 'All sound resources';
+const browseLabel = isZh ? '浏览全部助眠声音' : 'Browse all sleep sounds';
+const tinnitusLabel = isZh ? '了解耳鸣缓解' : 'Learn about tinnitus relief';
+---
+
+<section class="max-w-[1060px] mx-auto px-5 py-12 md:py-16">
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb" class="text-[13px] text-[var(--color-text-muted)] mb-6">
+    <a href={prefix ? `${prefix}/` : '/'} class="hover:text-[var(--color-text-secondary)] transition-colors">{homeLabel}</a>
+    <span class="mx-1.5">/</span>
+    <a href={`${prefix}/resources/`} class="hover:text-[var(--color-text-secondary)] transition-colors">{t.navSounds}</a>
+    <span class="mx-1.5">/</span>
+    <span class="text-[var(--color-text-secondary)]">{txt.title}</span>
+  </nav>
+
+  <!-- Hero -->
+  <div class="max-w-[680px] mb-10">
+    <h1 class="text-[2rem] md:text-[2.6rem] font-bold tracking-[-0.03em] text-white leading-tight">{txt.title}</h1>
+    <p class="mt-4 text-[15px] md:text-[16px] text-[var(--color-text-secondary)] leading-relaxed">{txt.intro}</p>
+    <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[14px]">
+      <a href={`${prefix}/resources/`} class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">{browseLabel} →</a>
+      {cat.slug === 'tinnitus' && (lang === 'zh-Hans' || lang === 'en') && (
+        <a href={`${prefix}/tinnitus-relief/`} class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">{tinnitusLabel} →</a>
+      )}
+    </div>
+  </div>
+
+  <!-- Resource grid -->
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+    {items.map((r) => (
+      <ResourceCard {...r} lang={lang} />
+    ))}
+  </div>
+
+  <CTABanner lang={lang} variant="bottom" />
+</section>

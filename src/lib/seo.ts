@@ -2,6 +2,11 @@ import { LANGS, type Lang } from '../data/i18n';
 
 export const SITE_URL = 'https://www.sleepisland.org';
 export const DEFAULT_LANG: Lang = 'zh-Hans';
+
+// Paste the token from Cloudflare dashboard → Web Analytics → your site → "Manage site"
+// to switch on privacy-friendly, cookieless pageview + Core Web Vitals tracking.
+// Left empty = the beacon is not emitted (no-op), so it is safe to ship as-is.
+export const CF_ANALYTICS_TOKEN = '';
 export const ALL_LANGS = LANGS.map(({ code }) => code);
 
 const OG_LOCALE_BY_LANG: Record<Lang, string> = {
@@ -129,15 +134,29 @@ export function buildLocalizedPath(pathname: string, currentLang: Lang, targetLa
   return `${targetPrefix}${normalizedPath}`;
 }
 
+// Sections that are built for every language. Pages outside these only exist in
+// zh-Hans + en, so emitting hreflang for the other 13 would point at 404s.
+const FULLY_LOCALIZED_SECTIONS = new Set(['resources', 'sounds']);
+
 export function getDefaultAlternateLangs(pathname: string): Lang[] {
   const normalizedPath = normalizePathname(pathname);
   const segments = normalizedPath.split('/').filter(Boolean);
 
+  // Root homepage.
   if (segments.length === 0) {
     return ALL_LANGS;
   }
 
-  if (segments.length === 1 && LANGS.some(({ prefix }) => prefix === `/${segments[0]}`)) {
+  // A localized homepage (e.g. /ja/, /en/).
+  const firstIsLangPrefix = LANGS.some(({ prefix }) => prefix === `/${segments[0]}`);
+  if (segments.length === 1 && firstIsLangPrefix) {
+    return ALL_LANGS;
+  }
+
+  // Strip a leading language segment to inspect the underlying route, then expose the
+  // full 15-language cluster only for sections that actually exist in every language.
+  const routeSegments = firstIsLangPrefix ? segments.slice(1) : segments;
+  if (FULLY_LOCALIZED_SECTIONS.has(routeSegments[0])) {
     return ALL_LANGS;
   }
 

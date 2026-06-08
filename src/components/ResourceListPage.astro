@@ -3,6 +3,7 @@ import ResourceCard from './ResourceCard.astro';
 import CTABanner from './CTABanner.astro';
 import { UI, getResourceTitle, getScenes, type Lang } from '../data/i18n';
 import { resources } from '../data/resources';
+import { SOUND_CATEGORIES, getCategoryText } from '../data/categories';
 
 interface Props {
   lang: Lang;
@@ -10,6 +11,12 @@ interface Props {
 const { lang } = Astro.props;
 const t = UI[lang];
 const prefix = lang === 'zh-Hans' ? '' : lang === 'en' ? '/en' : `/${lang}`;
+
+// Crawlable per-category hub pages exist in every language. Link them so the category
+// structure is indexable (the filter tabs below are client-side only).
+const presentCategories = new Set(Object.values(resources).map((r: any) => r.category));
+const hubLinks = SOUND_CATEGORIES.filter((c) => presentCategories.has(c.key));
+const browseByLabel = lang === 'zh-Hans' ? '按分类浏览' : 'Browse by category';
 
 const allResources = Object.entries(resources)
   .sort((a, b) => (a[1].rank ?? 99999) - (b[1].rank ?? 99999))
@@ -31,7 +38,20 @@ const catLabels: Record<string, string> = lang === 'zh-Hans'
 
 <section class="max-w-[1060px] mx-auto px-5 py-16 md:py-20">
   <h1 class="text-[2rem] md:text-[2.5rem] font-bold tracking-[-0.03em] text-center mb-3 text-white">{t.resourcesTitle}</h1>
-  <p class="text-center text-[15px] text-[var(--color-text-secondary)] mb-10">{t.resourcesDesc}</p>
+  <p class="text-center text-[15px] text-[var(--color-text-secondary)] mb-8">{t.resourcesDesc}</p>
+
+  {hubLinks.length > 0 && (
+    <nav aria-label={browseByLabel} class="mb-10 text-center">
+      <h2 class="text-[12px] uppercase tracking-wider text-[var(--color-text-muted)] mb-3">{browseByLabel}</h2>
+      <div class="flex flex-wrap justify-center gap-2">
+        {hubLinks.map((c) => (
+          <a href={`${prefix}/sounds/${c.slug}/`} class="px-4 py-2 rounded-full text-[13px] font-medium bg-white/[0.06] text-[var(--color-text-secondary)] hover:bg-white/[0.1] hover:text-white transition-all duration-300">
+            {getCategoryText(c.slug, lang).title}
+          </a>
+        ))}
+      </div>
+    </nav>
+  )}
 
   <div class="flex gap-2 overflow-x-auto pb-4 mb-10" role="tablist">
     {categories.map((cat, i) => (
